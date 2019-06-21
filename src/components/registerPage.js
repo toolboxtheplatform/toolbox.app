@@ -10,10 +10,11 @@ class RegisterPage extends Component {
 
     let name = event.target.name.value;
     let email = event.target.email.value;
+    let username = event.target.username.value;
     let password = event.target.password.value;
 
     const data = {
-      name, email, password
+      name, email, password, username
     };
 
     this.props.dispatch(registerUserAction(data));
@@ -33,16 +34,20 @@ class RegisterPage extends Component {
         {!isSuccess ? <div>{message}</div> : <Redirect to='login' />}
         <form onSubmit={this.onHandleRegistration}>
           <div>
-            <label>Name</label>
-            <input type="text" name="name" />
+            <label htmlFor="name">Name</label>
+            <input type="text" name="name" id="name" />
           </div>
           <div>
-            <label>Email</label>
-            <input type="email" name="email" />
+            <label htmlFor="email">Email</label>
+            <input type="email" name="email" id="email" />
           </div>
           <div>
-            <label>Password</label>
-            <input type="password" name="password" />
+            <label htmlFor="username">Username</label>
+            <input type="text" name="username" id="username" />
+          </div>
+          <div>
+            <label htmlFor="password">Password</label>
+            <input type="password" name="password" id="password" />
           </div>
           <div>
             <button>Register</button>
