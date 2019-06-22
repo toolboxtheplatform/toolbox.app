@@ -1,0 +1,13 @@
+.navigation {
+  ul {
+    li {
+      a {
+        &.active {
+          &:after {
+            content: '*';
+          }
+        }
+      }
+    }
+  }
+}
