@@ -3,7 +3,7 @@ import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { loginUserAction } from '../actions/authenticationActions';
-import { setCookie } from '../utils/cookies';
+import { setCookie, getCookie } from '../utils/cookies';
 
 class LoginPage extends Component {
   onHandleLogin = (event) => {
@@ -21,6 +21,7 @@ class LoginPage extends Component {
 
   render() {
     let isSuccess, message;
+    console.log(this.props)
 
     if (this.props.response.login.hasOwnProperty('response')) {
       isSuccess = this.props.response.login.response.success;
@@ -28,13 +29,31 @@ class LoginPage extends Component {
       
       if (isSuccess) {
         setCookie('token', this.props.response.login.response.token, 1);
+        setCookie('role', this.props.response.login.response.role, 1);
       }
+
+      console.log(isSuccess)
+      console.log(getCookie('role'))
     }
 
     return (
       <div>
         <h3>Login Page</h3>
-        {!isSuccess ? <div>{message}</div> : <Redirect to='dashboard' />}
+        {
+          (isSuccess && getCookie('role') === 'Admin')
+          ?
+          <Redirect to='admin/dashboard' />
+          :
+          ((isSuccess && getCookie('role') === 'Employee')
+            ? <Redirect to='/employee/home' />
+            :
+            ((isSuccess && getCookie('role') === 'Manager')
+            ?
+            <Redirect to='/manager' />
+            :
+            <div className="error">{message}</div>
+            ))
+        }
         <form onSubmit={this.onHandleLogin}>
           <div>
             <label htmlFor="username">Username</label>
