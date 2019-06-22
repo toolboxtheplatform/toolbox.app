@@ -21,7 +21,6 @@ class LoginPage extends Component {
 
   render() {
     let isSuccess, message;
-    console.log(this.props)
 
     if (this.props.response.login.hasOwnProperty('response')) {
       isSuccess = this.props.response.login.response.success;
@@ -31,9 +30,6 @@ class LoginPage extends Component {
         setCookie('token', this.props.response.login.response.token, 1);
         setCookie('role', this.props.response.login.response.role, 1);
       }
-
-      console.log(isSuccess)
-      console.log(getCookie('role'))
     }
 
     return (
