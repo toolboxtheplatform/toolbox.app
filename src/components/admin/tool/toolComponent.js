@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { newToolAction } from '../../../actions/admin';
 
 import ToolView from './toolView';
 
-class Application extends Component {
+class Application extends PureComponent {
   state = {
     tools: undefined,
     success: undefined,
@@ -39,7 +39,6 @@ class Application extends Component {
   }
 
   render() {
-    console.log(this.props.tools)
     return(
       <ToolView 
         onSubmitHandle={this.onSubmitHandle.bind(this)}
