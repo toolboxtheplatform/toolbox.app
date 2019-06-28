@@ -6,3 +6,9 @@ export const newToolAction = (tool) => {
     tool
   }
 };
+
+export const fetchToolsListAction = () => {
+  return {
+    type: types.ON_FETCH_TOOLS_LIST
+  }
+};
