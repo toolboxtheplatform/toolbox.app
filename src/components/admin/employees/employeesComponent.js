@@ -7,7 +7,8 @@ import {
 
 class Employees extends PureComponent {
   state = {
-    fetch: undefined
+    tools: undefined,
+    users: undefined
   }
 
   onSubmitHandle(event) {
@@ -27,17 +28,19 @@ class Employees extends PureComponent {
   static getDerivedStateFromProps(nextProps, prevProps) {
     if (nextProps.fetch.hasOwnProperty('response')) {
       return {
-        fetch: nextProps.fetch.response
+        tools: nextProps.fetch.response[0].tools,
+        users: nextProps.fetch.response[0].users
       }
     }
 
     return {
-      fetch: undefined
+      tools: undefined,
+      users: undefined
     }
   }
 
   render() {
-    if (this.state.fetch === undefined) {
+    if (this.state.users === undefined || this.state.tools === undefined) {
       return <div className='loading'>Loading...</div>
     }
 
@@ -67,8 +70,11 @@ class Employees extends PureComponent {
               <option value='admin'>Admin</option>
               <option value='employee'>Employee</option>
             </select>
-          </div>
-          <div>
+            {this.state.tools.map(item => (
+              <div>
+                <input type='checkbox' name={item.className} /><label>{item.name}</label>
+              </div>
+            ))}
             <button>Add Employee</button>
           </div>
         </form>
@@ -82,7 +88,7 @@ class Employees extends PureComponent {
             </tr>
           </thead>
           <tbody>
-            {this.state.fetch.map(employee => (
+            {this.state.users.map(employee => (
               <tr key={employee._id}>
                 <td>{employee.name}</td>
                 <td>{employee.email}</td>
