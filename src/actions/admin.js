@@ -12,3 +12,10 @@ export const fetchToolsListAction = () => {
     type: types.ON_FETCH_TOOLS_LIST
   }
 };
+
+export const newEmployeeAction = employee => {
+  return {
+    type: types.ON_NEW_EMPLOYEE,
+    employee
+  }
+};
