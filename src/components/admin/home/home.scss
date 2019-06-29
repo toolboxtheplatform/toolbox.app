@@ -1,9 +1,104 @@
 .list-container {
   ul {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: flex-start;
+    flex-wrap: wrap;
     list-style: none;
     padding: 0;
     margin: 0;
+  }
+
+  .logos {
+    position: relative;
+    box-shadow: 0 0 1em #CCC;
+    padding: 5em;
+    margin-right: 2em;
+    margin-bottom: 2em;
+
+    .name {
+      display: block;
+      position: absolute;
+      bottom: 4em;
+      /* left: 8em; */
+      text-align: center;
+      width: inherit;
+    }
+  }
+
+  .jira {
+    display: block;
+    width: 128px;
+    height: 128px;
+    background: url(./assets/jira.png) no-repeat 5em 3.9em;
+  }
+
+  .confluence {
+    display: block;
+    width: 128px;
+    height: 128px;
+    background: url(./assets/confluence.png) no-repeat 5em 3.9em;
+  }
+
+  .bitbucket {
+    display: block;
+    width: 128px;
+    height: 128px;
+    background: url(./assets/bitbucket.png) no-repeat 5em 3.9em;
+  }
+
+  .facebook {
+    display: block;
+    width: 128px;
+    height: 128px;
+    background: url(./assets/facebook.png) no-repeat 5em 3.9em;
+  }
+
+  .gitlab {
+    display: block;
+    width: 128px;
+    height: 128px;
+    background: url(./assets/gitlab.png) no-repeat 5em 3.9em;
+  }
+
+  .gmail {
+    display: block;
+    width: 128px;
+    height: 128px;
+    background: url(./assets/gmail.png) no-repeat 5em 3.9em;
+  }
+
+  .linkedin {
+    display: block;
+    width: 128px;
+    height: 128px;
+    background: url(./assets/linkedin.png) no-repeat 5em 3.9em;
+  }
+
+  .reddit {
+    display: block;
+    width: 128px;
+    height: 128px;
+    background: url(./assets/reddit.png) no-repeat 5em 3.9em;
+  }
+
+  .skype {
+    display: block;
+    width: 128px;
+    height: 128px;
+    background: url(./assets/skype.png) no-repeat 5em 3.9em;
+  }
+
+  .slack {
+    display: block;
+    width: 128px;
+    height: 128px;
+    background: url(./assets/slack.png) no-repeat 5em 3.9em;
+  }
+
+  .twitter {
+    display: block;
+    width: 128px;
+    height: 128px;
+    background: url(./assets/twitter.png) no-repeat 5em 3.9em;
   }
 }

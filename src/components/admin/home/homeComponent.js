@@ -27,7 +27,6 @@ class Home extends PureComponent {
   }
 
   render() {
-    console.log(this.state.list);
     if (this.state.list === undefined) {
       return <div className='loading'>Loadding...</div>
     }
@@ -35,12 +34,11 @@ class Home extends PureComponent {
       <div className='container list-container'>
         <ul>
           {this.state.list.map(tool => (
-            <Link to={tool.homePage} target='_blank'>
-              <li key={tool._id}>
-                <img src={tool.logoPath} />
-                {tool.name}
-              </li>
-            </Link>
+            <li key={tool._id}>
+              <Link className={`${tool.className.toLowerCase()} logos`} to={tool.homePage} target='_blank'>
+                <span className='name'>{tool.name}</span>
+              </Link>
+            </li>
           ))}
         </ul>
       </div>
