@@ -38,7 +38,7 @@ class LoginPage extends Component {
         {
           (isSuccess && getCookie('role') === 'Admin')
           ?
-          <Redirect to='admin/dashboard' />
+          <Redirect to='admin/home' />
           :
           ((isSuccess && getCookie('role') === 'Employee')
             ? <Redirect to='/employee/home' />
