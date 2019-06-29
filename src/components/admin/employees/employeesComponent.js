@@ -1,8 +1,15 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
-import { newEmployeeAction } from '../../../actions/admin';
+import {
+  newEmployeeAction,
+  fetchEmployeesAction
+} from '../../../actions/admin';
 
 class Employees extends PureComponent {
+  state = {
+    fetch: undefined
+  }
+
   onSubmitHandle(event) {
     event.preventDefault();
     this.props.dispatch(newEmployeeAction({
@@ -14,10 +21,26 @@ class Employees extends PureComponent {
   }
 
   componentDidMount() {
-    // this.props.dispatch(fetchEmployeesAction());
+    this.props.dispatch(fetchEmployeesAction());
+  }
+
+  static getDerivedStateFromProps(nextProps, prevProps) {
+    if (nextProps.fetch.hasOwnProperty('response')) {
+      return {
+        fetch: nextProps.fetch.response
+      }
+    }
+
+    return {
+      fetch: undefined
+    }
   }
 
   render() {
+    if (this.state.fetch === undefined) {
+      return <div className='loading'>Loading...</div>
+    }
+
     return (
       <div className='container new-container'>
         <form onSubmit={this.onSubmitHandle.bind(this)}>
@@ -49,7 +72,26 @@ class Employees extends PureComponent {
             <button>Add Employee</button>
           </div>
         </form>
-        <div className='list'></div>
+        <table className='list'>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Username</th>
+              <th>Role</th>
+            </tr>
+          </thead>
+          <tbody>
+            {this.state.fetch.map(employee => (
+              <tr key={employee._id}>
+                <td>{employee.name}</td>
+                <td>{employee.email}</td>
+                <td>{employee.username}</td>
+                <td>{employee.role}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
     );
   }

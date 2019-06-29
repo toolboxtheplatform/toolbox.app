@@ -19,3 +19,10 @@ export const newEmployeeAction = employee => {
     employee
   }
 };
+
+export const fetchEmployeesAction = employee => {
+  return {
+    type: types.ON_FETCH_EMPLOYEES,
+    employee
+  }
+};
