@@ -13,10 +13,14 @@
     display: block;
     width: 128px;
     height: 128px;
-    box-shadow: 0 0 1em #CCC;
     padding: 5em;
     margin-right: 2em;
     margin-bottom: 2em;
+    box-shadow: 0 0 .4em #CCC;
+
+    &:hover {
+      box-shadow: 0 0 1em #CCC;
+    }
 
     .name {
       display: block;
@@ -82,7 +86,7 @@
       background: url(./assets/dropbox.png) no-repeat 5em 3.9em;
     }
 
-    &.drive {
+    &.drive, &.google-drive {
       background: url(./assets/drive.png) no-repeat 5em 3.9em;
     }
 
@@ -114,7 +118,7 @@
       background: url(./assets/spotify.png) no-repeat 5em 3.9em;
     }
 
-    &.vmware {
+    &.vmware, &.vm {
       background: url(./assets/vmware.png) no-repeat 5em 3.9em;
     }
 
