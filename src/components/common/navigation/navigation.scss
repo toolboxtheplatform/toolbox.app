@@ -1,11 +1,27 @@
 .navigation {
-  ul {
+  ul.navitation-container {
+    list-style: none;
+    margin: auto;
+    padding: 0;
+    background: #888bfa;
+
     li {
+      display: inline-block;
+      // margin-right: 1em;
+
       a {
+        padding: 1.5em;
+        display: block;
+        text-decoration: none;
+        color: #000000;
+
+        &:hover {
+          background: #c1c3fa;
+        }
+
         &.active {
-          &:after {
-            content: '*';
-          }
+          color: #ffffff;
+          background: #adaff9;
         }
       }
     }
