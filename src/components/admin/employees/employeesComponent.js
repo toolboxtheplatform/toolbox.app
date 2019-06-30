@@ -4,6 +4,7 @@ import {
   newEmployeeAction,
   fetchEmployeesAction
 } from '../../../actions/admin';
+import { getCookie } from '../../../utils/cookies';
 
 class Employees extends PureComponent {
   state = {
@@ -13,11 +14,28 @@ class Employees extends PureComponent {
 
   onSubmitHandle(event) {
     event.preventDefault();
+    let tools = [];
+    event.target.tools.forEach(item => {
+      if (item.checked) {
+        tools.push({
+          toolID: item.value.split(' ')[1],
+          toolName: item.value.split(' ')[0]
+        });
+      }
+    });
+
     this.props.dispatch(newEmployeeAction({
-      name: event.target.name.value,
-      email: event.target.email.value,
-      username: event.target.username.value,
-      password: event.target.password.value
+      data: {
+        name: event.target.name.value,
+        email: event.target.email.value,
+        username: event.target.username.value,
+        password: event.target.password.value,
+        tools: tools,
+      },
+      admin: {
+        userID: getCookie('userID'),
+        role: getCookie('role')
+      }
     }));
   }
 
@@ -30,6 +48,11 @@ class Employees extends PureComponent {
       return {
         tools: nextProps.fetch.response[0].tools,
         users: nextProps.fetch.response[0].users
+      }
+    } else if (nextProps.add.hasOwnProperty('response')) {
+      return {
+        users: nextProps.add.response,
+        tools: undefined
       }
     }
 
@@ -48,31 +71,31 @@ class Employees extends PureComponent {
       <div className='container new-container'>
         <form onSubmit={this.onSubmitHandle.bind(this)}>
           <div>
-            <label>Name</label>
-            <input type='text' name='name' />
+            <label htmlFor='name'>Name</label>
+            <input type='text' name='name' id='name' />
           </div>
           <div>
-            <label>Email</label>
-            <input type='email' name='email' />
+            <label htmlFor='email'>Email</label>
+            <input type='email' name='email' id='email' />
           </div>
           <div>
-            <label>username</label>
-            <input type='text' name='username' />
+            <label htmlFor='username'>username</label>
+            <input type='text' name='username' id='username' />
           </div>
           <div>
-            <label>Password</label>
-            <input type='password' name='password' />
+            <label htmlFor='password'>Password</label>
+            <input type='password' name='password' id='password' />
           </div>
           <div>
-            <label>Role</label>
-            <select name='role'>
+            <label htmlFor='role'>Role</label>
+            <select name='role' id='role'>
               <option>Select Role</option>
               <option value='admin'>Admin</option>
               <option value='employee'>Employee</option>
             </select>
             {this.state.tools.map(item => (
-              <div>
-                <input type='checkbox' name={item.className} /><label>{item.name}</label>
+              <div key={item._id}>
+                <input type='checkbox' name='tools' value={`${item.className.replace(' ', '-')} ${item._id}`} id={item.name} /><label htmlFor={item.name}>{item.name}</label>
               </div>
             ))}
             <button>Add Employee</button>
