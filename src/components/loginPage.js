@@ -29,6 +29,7 @@ class LoginPage extends Component {
       if (isSuccess) {
         setCookie('token', this.props.response.login.response.token, 1);
         setCookie('role', this.props.response.login.response.role, 1);
+        setCookie('userID', this.props.response.login.response.userID, 1);
       }
     }
 
