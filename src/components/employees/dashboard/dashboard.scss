@@ -1,0 +1,137 @@
+.dashboard-container {
+  ul {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .logos {
+    position: relative;
+    display: block;
+    width: 128px;
+    height: 128px;
+    padding: 5em;
+    margin-right: 2em;
+    margin-bottom: 2em;
+    box-shadow: 0 0 .4em #CCC;
+
+    &:hover {
+      box-shadow: 0 0 1em #CCC;
+    }
+
+    .name {
+      display: block;
+      position: absolute;
+      bottom: 4em;
+      text-align: center;
+      width: inherit;
+    }
+
+    &.jira {
+      background: url(./assets/jira.png) no-repeat 5em 3.9em;
+    }
+
+    &.confluence {
+      background: url(./assets/confluence.png) no-repeat 5em 3.9em;
+    }
+
+    &.bitbucket {
+      background: url(./assets/bitbucket.png) no-repeat 5em 3.9em;
+    }
+
+    &.facebook {
+      background: url(./assets/facebook.png) no-repeat 5em 3.9em;
+    }
+
+    &.gitlab {
+      background: url(./assets/gitlab.png) no-repeat 5em 3.9em;
+    }
+
+    &.gmail {
+      background: url(./assets/gmail.png) no-repeat 5em 3.9em;
+    }
+
+    &.linkedin {
+      background: url(./assets/linkedin.png) no-repeat 5em 3.9em;
+    }
+
+    &.reddit {
+      background: url(./assets/reddit.png) no-repeat 5em 3.9em;
+    }
+
+    &.skype {
+      background: url(./assets/skype.png) no-repeat 5em 3.9em;
+    }
+
+    &.slack {
+      background: url(./assets/slack.png) no-repeat 5em 3.9em;
+    }
+
+    &.twitter {
+      background: url(./assets/twitter.png) no-repeat 5em 3.9em;
+    }
+
+    &.github {
+      background: url(./assets/github.png) no-repeat 5em 3.9em;
+    }
+
+    &.microsoft {
+      background: url(./assets/microsoft.png) no-repeat 5em 3.9em;
+    }
+
+    &.dropbox {
+      background: url(./assets/dropbox.png) no-repeat 5em 3.9em;
+    }
+
+    &.drive, &.google-drive {
+      background: url(./assets/drive.png) no-repeat 5em 3.9em;
+    }
+
+    &.apple {
+      background: url(./assets/apple.png) no-repeat 5em 3.9em;
+    }
+
+    &.icloud {
+      background: url(./assets/icloud.png) no-repeat 5em 3.9em;
+    }
+
+    &.invision, &.invisionapp {
+      background: url(./assets/invision.png) no-repeat 5em 3.9em;
+    }
+
+    &.sketch {
+      background: url(./assets/sketch.png) no-repeat 5em 3.9em;
+    }
+
+    &.photoshop {
+      background: url(./assets/photoshop.png) no-repeat 5em 3.9em;
+    }
+
+    &.aws {
+      background: url(./assets/aws.png) no-repeat 5em 3.9em;
+    }
+
+    &.spotify {
+      background: url(./assets/spotify.png) no-repeat 5em 3.9em;
+    }
+
+    &.vmware, &.vm {
+      background: url(./assets/vmware.png) no-repeat 5em 3.9em;
+    }
+
+    &.heroku {
+      background: url(./assets/heroku.png) no-repeat 5em 3.9em;
+    }
+
+    &.docker {
+      background: url(./assets/docker.png) no-repeat 5em 3.9em;
+    }
+
+    &.digitalocean, &.digital-ocean, &.digital {
+      background: url(./assets/digitalocean.png) no-repeat 5em 3.9em;
+    }
+  }
+}

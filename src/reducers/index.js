@@ -5,6 +5,7 @@ import tools from './tools/toolsReducer';
 import list from './list/listReducer';
 import add from './employees/addReducer';
 import fetch from './employees/fetchReducer';
+import employees from './employees/employeesReducer';
 
 const rootReducer = combineReducers({
   register,
@@ -12,7 +13,8 @@ const rootReducer = combineReducers({
   tools,
   list,
   add,
-  fetch
+  fetch,
+  employees
 });
 
 export default rootReducer;
