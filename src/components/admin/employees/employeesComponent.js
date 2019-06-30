@@ -5,6 +5,7 @@ import {
   fetchEmployeesAction
 } from '../../../actions/admin';
 import { getCookie } from '../../../utils/cookies';
+import './employees.scss';
 
 class Employees extends PureComponent {
   state = {
@@ -70,36 +71,37 @@ class Employees extends PureComponent {
     return (
       <div className='container new-container'>
         <form onSubmit={this.onSubmitHandle.bind(this)}>
-          <div>
-            <label htmlFor='name'>Name</label>
-            <input type='text' name='name' id='name' />
+          <div className='items-container'>
+            <label htmlFor='name'>Name
+              <input type='text' name='name' id='name' />
+            </label>
+            <label htmlFor='email'>Email
+              <input type='email' name='email' id='email' />
+            </label>
+            <label htmlFor='username'>Username
+              <input type='text' name='username' id='username' />
+            </label>
           </div>
-          <div>
-            <label htmlFor='email'>Email</label>
-            <input type='email' name='email' id='email' />
+          <div className='items-container'>
+            <label htmlFor='password'>Password
+              <input type='password' name='password' id='password' />
+            </label>
+            <label htmlFor='role'>Role
+              <select name='role' id='role'>
+                <option>Select Role Administrator or Employee</option>
+                <option value='admin'>Admin</option>
+                <option value='employee'>Employee</option>
+              </select>
+            </label>
           </div>
-          <div>
-            <label htmlFor='username'>username</label>
-            <input type='text' name='username' id='username' />
-          </div>
-          <div>
-            <label htmlFor='password'>Password</label>
-            <input type='password' name='password' id='password' />
-          </div>
-          <div>
-            <label htmlFor='role'>Role</label>
-            <select name='role' id='role'>
-              <option>Select Role</option>
-              <option value='admin'>Admin</option>
-              <option value='employee'>Employee</option>
-            </select>
+          <div className='items-container checkbox-container'>
             {this.state.tools.map(item => (
               <div key={item._id}>
                 <input type='checkbox' name='tools' value={`${item.className.replace(' ', '-')} ${item._id}`} id={item.name} /><label htmlFor={item.name}>{item.name}</label>
               </div>
             ))}
-            <button>Add Employee</button>
           </div>
+          <div><button>Add Employee</button></div>
         </form>
         <table className='list'>
           <thead>
