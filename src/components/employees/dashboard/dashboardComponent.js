@@ -15,7 +15,6 @@ class Dashboard extends Component {
   }
 
   componentWillUnmount() {
-    console.log('Unmount');
   }
 
   static getDerivedStateFromProps(nextProps, prevProps) {
@@ -31,7 +30,6 @@ class Dashboard extends Component {
   }
 
   render() {
-    // console.log(this.state.tools);
     if (this.state.tools === undefined) {
       return <div className='loading'>Loading...</div>
     }
