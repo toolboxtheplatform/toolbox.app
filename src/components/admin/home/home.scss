@@ -113,5 +113,21 @@
     &.spotify {
       background: url(./assets/spotify.png) no-repeat 5em 3.9em;
     }
+
+    &.vmware {
+      background: url(./assets/vmware.png) no-repeat 5em 3.9em;
+    }
+
+    &.heroku {
+      background: url(./assets/heroku.png) no-repeat 5em 3.9em;
+    }
+
+    &.docker {
+      background: url(./assets/docker.png) no-repeat 5em 3.9em;
+    }
+
+    &.digitalocean, &.digital-ocean, &.digital {
+      background: url(./assets/digitalocean.png) no-repeat 5em 3.9em;
+    }
   }
 }
