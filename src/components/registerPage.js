@@ -5,6 +5,10 @@ import { connect } from 'react-redux';
 import { registerUserAction } from '../actions/authenticationActions';
 
 class RegisterPage extends Component {
+  componentDidMount(){
+    document.title = 'Toolbox';
+  }
+  
   onHandleRegistration = (event) => {
     event.preventDefault();
 
