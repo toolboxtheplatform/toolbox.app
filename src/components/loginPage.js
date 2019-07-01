@@ -4,8 +4,13 @@ import { connect } from 'react-redux';
 
 import { loginUserAction } from '../actions/authenticationActions';
 import { setCookie, getCookie } from '../utils/cookies';
+import './session.scss';
 
 class LoginPage extends Component {
+  componentDidMount(){
+    document.title = 'Toolbox';
+  }
+
   onHandleLogin = (event) => {
     event.preventDefault();
 
@@ -34,8 +39,8 @@ class LoginPage extends Component {
     }
 
     return (
-      <div>
-        <h3>Login Page</h3>
+      <div className='container login-container'>
+        <Link to='/' className='logo'></Link>
         {
           (isSuccess && getCookie('role') === 'Admin')
           ?

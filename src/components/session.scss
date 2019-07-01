@@ -1,0 +1,20 @@
+.logo {
+  display: block;
+  width: 140px;
+  height: 145px;
+  margin: 0 auto;
+  margin-bottom: 1em;
+  margin-left: 5em;
+  background: url(./assets/logo.png) no-repeat;
+}
+
+.login-container {
+  width: 400px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  height: 400px;
+}
