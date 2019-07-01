@@ -27,7 +27,7 @@ class Application extends PureComponent {
       return {
         tools: nextProps.tools.response,
         success: nextProps.tools.response.success,
-        message: nextProps.tools.response.message
+        message: nextProps.tools.response.messages
       }
     }
 
