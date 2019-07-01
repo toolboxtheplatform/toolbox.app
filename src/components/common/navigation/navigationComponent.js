@@ -10,9 +10,14 @@ import { getCookie } from '../../../utils/cookies';
 import './navigation.scss';
 
 class Navigation extends Component {
+  componentDidMount(){
+    document.title = 'Toolbox';
+  }
+  
   render() {
     return (
       <div className='navigation'>
+        <Link to='' className='nav-logo'></Link>
         {(getCookie('role') === 'Admin')
           ?
           <ul className='navitation-container'>  

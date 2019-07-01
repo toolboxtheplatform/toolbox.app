@@ -1,4 +1,15 @@
 .navigation {
+  .nav-logo {
+    display: block;
+    width: 70px;
+    height: 73px;
+    position: absolute;
+    right: 0;
+    left: 0;
+    margin: auto;
+    background: url(./assets/logo.png) no-repeat;
+  }
+  
   ul.navitation-container {
     list-style: none;
     margin: auto;
