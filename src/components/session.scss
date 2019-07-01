@@ -17,4 +17,12 @@
   left: 0;
   margin: auto;
   height: 400px;
+
+  label {
+    margin-bottom: .5em;
+    span {
+      display: block;
+      margin-bottom: .5em;
+    }
+  }
 }

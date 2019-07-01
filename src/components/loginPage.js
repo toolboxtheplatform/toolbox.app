@@ -58,18 +58,19 @@ class LoginPage extends Component {
         }
         <form onSubmit={this.onHandleLogin}>
           <div>
-            <label htmlFor="username">Username</label>
-            <input type="text" name="username" id="username" />
+            <label htmlFor="username"><span>Username</span>
+              <input type="text" name="username" id="username" autoFocus />
+            </label>
           </div>
           <div>
-            <label htmlFor="password">Password</label>
-            <input type="password" name="password" id="password" />
+            <label htmlFor="password"><span>Password</span>
+              <input type="password" name="password" id="password" />
+            </label>
           </div>
           <div>
             <button>Login</button>
           </div>
         </form>
-        Don't have account? <Link to='register'>Register here</Link>
       </div>
     );
   }
