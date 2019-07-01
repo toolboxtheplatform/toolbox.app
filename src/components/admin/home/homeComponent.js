@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { fetchToolsListAction } from '../../../actions/admin';
-
+import { getCookie } from '../../../utils/cookies';
 import './home.scss';
 
 class Home extends PureComponent {
@@ -11,7 +11,12 @@ class Home extends PureComponent {
   }
 
   componentDidMount() {
-    this.props.dispatch(fetchToolsListAction());
+    this.props.dispatch(fetchToolsListAction({
+      admin: {
+        userID: getCookie('userID'),
+        role: getCookie('role')
+      }
+    }));
   }
 
   static getDerivedStateFromProps(nextProps, prevProps) {
@@ -35,7 +40,7 @@ class Home extends PureComponent {
         <ul>
           {this.state.list.map(tool => (
             <li key={tool._id}>
-              <Link className={`${tool.className.toLowerCase()} logos`} to={tool.homePage} target='_blank'>
+              <Link className={`${tool.className.toLowerCase().replace(' ', '-')} logos`} to={tool.homePage} target='_blank'>
                 <span className='name'>{tool.name}</span>
               </Link>
             </li>
