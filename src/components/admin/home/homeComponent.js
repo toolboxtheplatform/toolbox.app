@@ -1,9 +1,15 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faTrashAlt, faEdit } from "@fortawesome/free-solid-svg-icons";
+
 import { fetchToolsListAction } from '../../../actions/admin';
 import { getCookie } from '../../../utils/cookies';
 import './home.scss';
+
+library.add(faTrashAlt, faEdit);
 
 class Home extends PureComponent {
   state = {
@@ -39,7 +45,9 @@ class Home extends PureComponent {
       <div className='container list-container'>
         <ul>
           {this.state.list.map(tool => (
-            <li key={tool._id}>
+            <li className='logos-container' key={tool._id}>
+              <button className='icon icon-delete'><FontAwesomeIcon icon='trash-alt' /></button>
+              <button className='icon icon-edit'><FontAwesomeIcon icon='edit' /></button>
               <Link className={`${tool.className.toLowerCase().replace(' ', '-')} logos`} to={tool.homePage} target='_blank'>
                 <span className='name'>{tool.name}</span>
               </Link>

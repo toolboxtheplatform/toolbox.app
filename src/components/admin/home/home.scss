@@ -7,7 +7,42 @@
     padding: 0;
     margin: 0;
   }
-
+  .logos-container {
+    position: relative;
+    width: 18em;
+    height: 18em;
+    margin-right: 2em;
+    margin-bottom: 2em;
+    &:hover {
+      background: #f2f5f2; //#f3f6f3;
+      box-shadow: 0 0 1em #CCC;
+    }
+    .icon {
+      position: absolute;
+      z-index: 100;
+      cursor: pointer;
+      top: .4em;
+      font-size: 1.1em;
+      border-radius: 2em;
+      background: transparent;
+      border: 0px solid #fff;
+      outline: none;
+      &.icon-delete {
+        right: .5em;
+        color: #f11818;
+        &:hover {
+          color: #f58080;
+        }
+      }
+      &.icon-edit {
+        right: 2em;
+        color: #4671f3;
+        &:hover {
+          color: #809cf1;
+        }
+      }
+    }
+  }
   .logos {
     position: relative;
     display: block;
@@ -17,11 +52,6 @@
     margin-right: 2em;
     margin-bottom: 2em;
     box-shadow: 0 0 .4em #CCC;
-
-    &:hover {
-      box-shadow: 0 0 1em #CCC;
-    }
-
     .name {
       display: block;
       position: absolute;
