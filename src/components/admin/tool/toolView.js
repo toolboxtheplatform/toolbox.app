@@ -3,11 +3,19 @@ import './tool.scss';
 
 const ApplicationView = ({ props, onSubmitHandle, state }) => (
   <div className='container tool-container'>
-    <div className={(state.success) ? 'success' : 'error'}>{state.message}</div>
+    <ul className={(state.success) ? 'success' : 'errors'}>
+      {
+        (state.message !== undefined)
+        ? state.message.map((error, index) => (
+            <li key={index}>{`${error}`}</li>
+          ))
+        : ''
+      }
+    </ul>
     <form onSubmit={onSubmitHandle}>
       <div>
         <label htmlFor='tool'>Enter Tool Name</label>
-        <input type='text' name='tool' id='tool' placeholder='Enter Tool Name such as Jira, Conflunence, Trello, Facebook etc' />
+        <input type='text' name='tool' id='tool' autoFocus placeholder='Enter Tool Name such as Jira, Conflunence, Trello, Facebook etc' />
       </div>
       <div>
         <label htmlFor='link'>Enter Home Link</label>
