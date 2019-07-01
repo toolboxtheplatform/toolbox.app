@@ -41,7 +41,12 @@ class Employees extends PureComponent {
   }
 
   componentDidMount() {
-    this.props.dispatch(fetchEmployeesAction());
+    this.props.dispatch(fetchEmployeesAction({
+      admin: {
+        userID: getCookie('userID'),
+        role: getCookie('role')
+      }
+    }));
   }
 
   static getDerivedStateFromProps(nextProps, prevProps) {
