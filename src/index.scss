@@ -14,6 +14,145 @@ code {
     monospace;
 }
 
+.loading {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  width: 5em;
+  height: 2em;
+}
+
+.logos {
+  &.jira {
+    background: url(./components/assets/jira.png) no-repeat 5em 3.9em;
+  }
+
+  &.confluence {
+    background: url(./components/assets/confluence.png) no-repeat 5em 3.9em;
+  }
+
+  &.bitbucket {
+    background: url(./components/assets/bitbucket.png) no-repeat 5em 3.9em;
+  }
+
+  &.facebook {
+    background: url(./components/assets/facebook.png) no-repeat 5em 3.9em;
+  }
+
+  &.gitlab {
+    background: url(./components/assets/gitlab.png) no-repeat 5em 3.9em;
+  }
+
+  &.gmail {
+    background: url(./components/assets/gmail.png) no-repeat 5em 3.9em;
+  }
+
+  &.linkedin {
+    background: url(./components/assets/linkedin.png) no-repeat 5em 3.9em;
+  }
+
+  &.reddit {
+    background: url(./components/assets/reddit.png) no-repeat 5em 3.9em;
+  }
+
+  &.skype {
+    background: url(./components/assets/skype.png) no-repeat 5em 3.9em;
+  }
+
+  &.slack {
+    background: url(./components/assets/slack.png) no-repeat 5em 3.9em;
+  }
+
+  &.twitter {
+    background: url(./components/assets/twitter.png) no-repeat 5em 3.9em;
+  }
+
+  &.github {
+    background: url(./components/assets/github.png) no-repeat 5em 3.9em;
+  }
+
+  &.microsoft,
+  &.azure,
+  &.office,
+  &.microsoft-azure {
+    background: url(./components/assets/microsoft.png) no-repeat 5em 3.9em;
+  }
+
+  &.onedrive,
+  &.one-drive,
+  &.one {
+    background: url(./components/assets/onedrive.png) no-repeat 5em 3.9em;
+  }
+
+  &.dropbox {
+    background: url(./components/assets/dropbox.png) no-repeat 5em 3.9em;
+  }
+
+  &.drive, &.google-drive {
+    background: url(./components/assets/drive.png) no-repeat 5em 3.9em;
+  }
+
+  &.apple {
+    background: url(./components/assets/apple.png) no-repeat 5em 3.9em;
+  }
+
+  &.icloud {
+    background: url(./components/assets/icloud.png) no-repeat 5em 3.9em;
+  }
+
+  &.invision, &.invisionapp, &.invision-app {
+    background: url(./components/assets/invision.png) no-repeat 5em 3.9em;
+  }
+
+  &.sketch {
+    background: url(./components/assets/sketch.png) no-repeat 5em 3.9em;
+  }
+
+  &.photoshop {
+    background: url(./components/assets/photoshop.png) no-repeat 5em 3.9em;
+  }
+
+  &.aws {
+    background: url(./components/assets/aws.png) no-repeat 5em 3.9em;
+  }
+
+  &.spotify {
+    background: url(./components/assets/spotify.png) no-repeat 5em 3.9em;
+  }
+
+  &.vmware, &.vm {
+    background: url(./components/assets/vmware.png) no-repeat 5em 3.9em;
+  }
+
+  &.heroku {
+    background: url(./components/assets/heroku.png) no-repeat 5em 3.9em;
+  }
+
+  &.docker {
+    background: url(./components/assets/docker.png) no-repeat 5em 3.9em;
+  }
+
+  &.digitalocean, &.digital-ocean, &.digital {
+    background: url(./components/assets/digitalocean.png) no-repeat 5em 3.9em;
+  }
+
+  &.kubernetes {
+    background: url(./components/assets/kubernetes.png) no-repeat 5em 3.9em;
+  }
+
+  &.sharepoint, &.share-point, &.share {
+    background: url(./components/assets/sharepoint.png) no-repeat 5em 3.9em;
+  }
+}
+
+.error {
+  margin-bottom: 1em;
+  color: #f90624;
+}
+
 .container {
   padding: 2em 6em 5em 6em;
 
@@ -38,6 +177,10 @@ code {
       &:focus {
         box-shadow: 0 0 2em #cccccc;
       }
+    }
+
+    input[type='checkbox'] {
+      vertical-align: top;
     }
 
     select {
