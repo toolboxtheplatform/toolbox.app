@@ -1,15 +1,38 @@
 .new-container {
   form {
     display: flex;
+    position: fixed;
+    label {
+      span {
+        display: block;
+        margin-bottom: .5em;
+      }
+    }
+    .btn-container {
+      position: relative;
+      margin-top: 4em;
+      .btn-add-employee {
+        position: absolute;
+        bottom: 0;
+        width: 12em;
+      }
+    }
   }
   .items-container {
+    &.checkbox-container {
+      label {
+        width: 6em;
+        margin-left: .5em;
+        margin-bottom: 0.5em;
+        display: inline-block;
+      }
+    }
     width: 21em;
   }
-
   table.list {
     border-top: 1px solid #ccc;
     width: 100%;
     padding-top: 1em;
-    margin-top: 2em;
+    margin-top: 24em;
   }
 }

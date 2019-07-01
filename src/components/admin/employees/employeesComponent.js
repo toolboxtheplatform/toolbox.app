@@ -72,21 +72,21 @@ class Employees extends PureComponent {
       <div className='container new-container'>
         <form onSubmit={this.onSubmitHandle.bind(this)}>
           <div className='items-container'>
-            <label htmlFor='name'>Name
-              <input type='text' name='name' id='name' />
+            <label htmlFor='name'><span>Name</span>
+              <input type='text' name='name' id='name' autoFocus />
             </label>
-            <label htmlFor='email'>Email
+            <label htmlFor='email'><span>Email</span>
               <input type='email' name='email' id='email' />
             </label>
-            <label htmlFor='username'>Username
+            <label htmlFor='username'><span>Username</span>
               <input type='text' name='username' id='username' />
             </label>
           </div>
           <div className='items-container'>
-            <label htmlFor='password'>Password
+            <label htmlFor='password'><span>Password</span>
               <input type='password' name='password' id='password' />
             </label>
-            <label htmlFor='role'>Role
+            <label htmlFor='role'><span>Role</span>
               <select name='role' id='role'>
                 <option>Select Role Administrator or Employee</option>
                 <option value='admin'>Admin</option>
@@ -100,8 +100,8 @@ class Employees extends PureComponent {
                 <input type='checkbox' name='tools' value={`${item.className.replace(' ', '-')} ${item._id}`} id={item.name} /><label htmlFor={item.name}>{item.name}</label>
               </div>
             ))}
+            <div className='btn-container'><button className='btn-add-employee'>Add Employee</button></div>
           </div>
-          <div><button>Add Employee</button></div>
         </form>
         <table className='list'>
           <thead>
