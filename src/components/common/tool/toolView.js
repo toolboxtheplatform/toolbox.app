@@ -15,11 +15,11 @@ const ApplicationView = ({ props, onSubmitHandle, state }) => (
     <form onSubmit={onSubmitHandle}>
       <div>
         <label htmlFor='tool'>Enter Tool Name</label>
-        <input type='text' name='tool' id='tool' autoFocus placeholder='Enter Tool Name such as Jira, Conflunence, Trello, Facebook etc' />
+        <input type='text' name='tool' id='tool' autoFocus placeholder='Enter Tool Name such as Jira, Conflunence, Trello, Facebook etc.' />
       </div>
       <div>
         <label htmlFor='link'>Enter Home Link</label>
-        <input type='text' name='link' placeholder='Enter Link' id='link' />
+        <input type='text' name='link' placeholder='Enter Link to Tool such as https://www.jira.com etc.' id='link' />
       </div>
       <div>
         <button>Save</button>

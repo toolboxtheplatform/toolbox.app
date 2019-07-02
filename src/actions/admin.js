@@ -32,3 +32,10 @@ export const fetchToolsAction = () => {
     type: types.ON_FETCH_EMPLOYEE_TOOLS_LIST
   }
 };
+
+export const deleteToolAction = (id) => {
+  return {
+    type: types.ON_DELETE_TOOL,
+    id
+  }
+};

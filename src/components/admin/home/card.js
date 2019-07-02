@@ -1,0 +1,58 @@
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faTrashAlt, faEdit } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
+import { getCookie } from '../../../utils/cookies';
+
+library.add(faTrashAlt, faEdit);
+
+class Card extends Component {
+  state = {
+    isHover: false
+  }
+
+  onMouseOver() {
+    this.setState({
+      isHover: true
+    });
+  }
+
+  onMouseOut() {
+    this.setState({
+      isHover: false
+    });
+  }
+
+  onEditHandle(id) {
+  }
+
+  onDeleteHandle(id) {
+    this.props.onDeleteHandle(this.props.tool._id);
+  }
+
+  render() {
+    return (
+      <li className='logos-container' onMouseEnter={this.onMouseOver.bind(this)} onMouseLeave={this.onMouseOut.bind(this)}>
+        <button 
+          className={(this.state.isHover) ? 'icon icon-delete hovered' : 'icon icon-delete unhovered'}
+          onClick={this.onDeleteHandle.bind(this)}><FontAwesomeIcon icon='trash-alt'/>
+        </button>
+
+        <button 
+          className={(this.state.isHover) ? 'icon icon-edit hovered' : 'icon icon-edit unhovered'} 
+          onClick={this.onEditHandle.bind(this, this.props.tool._id)}><FontAwesomeIcon icon='edit' />
+        </button>
+
+        <Link className={`${this.props.tool.className.toLowerCase().replace(' ', '-')} logos`} to={this.props.tool.homePage} target='_blank'>
+          <span className='name'>{this.props.tool.name}</span>
+        </Link>
+      </li>
+    );
+  }
+}
+
+const mapStateToProps = state => (state);
+
+export default connect(mapStateToProps)(Card);

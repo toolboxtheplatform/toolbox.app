@@ -1,19 +1,21 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { library } from "@fortawesome/fontawesome-svg-core";
-import { faTrashAlt, faEdit } from "@fortawesome/free-solid-svg-icons";
-
-import { fetchToolsListAction } from '../../../actions/admin';
+import {
+  fetchToolsListAction,
+  deleteToolAction
+} from '../../../actions/admin';
 import { getCookie } from '../../../utils/cookies';
+import Card from './card';
 import './home.scss';
-
-library.add(faTrashAlt, faEdit);
 
 class Home extends PureComponent {
   state = {
-    list: undefined
+    list: undefined,
+    isHover: false,
+    success: undefined,
+    message: undefined,
+    isDelete: undefined
   }
 
   componentDidMount() {
@@ -26,32 +28,54 @@ class Home extends PureComponent {
   }
 
   static getDerivedStateFromProps(nextProps, prevProps) {
+    if (nextProps.deleteTool.hasOwnProperty('response')) {
+      return {
+        list: nextProps.deleteTool.response.tools,
+        success: nextProps.deleteTool.response.success,
+        message: nextProps.deleteTool.response.message,
+        isDelete: false
+      }
+    }
+
     if (nextProps.list.hasOwnProperty('response')) {
       return {
-        list: nextProps.list.response
+        list: nextProps.list.response,
+        success: undefined,
+        message: undefined,
+        isDelete: undefined
       }
     }
 
     return {
-      list: undefined
+      list: undefined,
+      success: undefined,
+      message: undefined
     }
+  }
+
+  onDeleteHandle(id) {
+    this.setState({
+      isDelete: true
+    });
+    this.props.dispatch(deleteToolAction({
+      toolID: id,
+      userID: getCookie('userID'),
+      admin: {
+        id: getCookie('userID'),
+        role: getCookie('role')
+      }
+    }));
   }
 
   render() {
     if (this.state.list === undefined) {
-      return <div className='loading'>Loadding...</div>
+      return <div className='loading'>Loading...</div>
     }
     return(
       <div className='container list-container'>
         <ul>
           {this.state.list.map(tool => (
-            <li className='logos-container' key={tool._id}>
-              <button className='icon icon-delete'><FontAwesomeIcon icon='trash-alt' /></button>
-              <button className='icon icon-edit'><FontAwesomeIcon icon='edit' /></button>
-              <Link className={`${tool.className.toLowerCase().replace(' ', '-')} logos`} to={tool.homePage} target='_blank'>
-                <span className='name'>{tool.name}</span>
-              </Link>
-            </li>
+            <Card key={tool._id} tool={tool} isHover={this.state.isHover} onDeleteHandle={this.onDeleteHandle.bind(this)} />
           ))}
         </ul>
       </div>
