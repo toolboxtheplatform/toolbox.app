@@ -1,4 +1,10 @@
 .list-container {
+  .hovered {
+    display: block;
+  }
+  .unhovered {
+    display: none;
+  }
   ul {
     display: flex;
     justify-content: flex-start;
@@ -14,7 +20,6 @@
     margin-right: 2em;
     margin-bottom: 2em;
     &:hover {
-      background: #f2f5f2; //#f3f6f3;
       box-shadow: 0 0 1em #CCC;
     }
     .icon {
@@ -51,7 +56,7 @@
     padding: 5em;
     margin-right: 2em;
     margin-bottom: 2em;
-    box-shadow: 0 0 .4em #CCC;
+    box-shadow: 0 0 .2em #CCC;
     .name {
       display: block;
       position: absolute;
