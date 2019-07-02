@@ -3,14 +3,18 @@
     display: block;
     width: 70px;
     height: 73px;
-    position: absolute;
+    position: fixed;
     right: 0;
     left: 0;
     margin: auto;
+    z-index: 102;
     background: url(./assets/logo.png) no-repeat;
   }
   
   ul.navitation-container {
+    position: fixed;
+    width: 100%;
+    z-index: 101;
     list-style: none;
     margin: auto;
     padding: 0;
