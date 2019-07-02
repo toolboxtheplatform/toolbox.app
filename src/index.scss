@@ -146,6 +146,10 @@ code {
   &.sharepoint, &.share-point, &.share {
     background: url(./components/assets/sharepoint.png) no-repeat 5em 3.9em;
   }
+
+  &.pluralsight {
+    background: url(./components/assets/pluralsight.png) no-repeat 5em 3.9em;
+  }
 }
 
 .error {
@@ -154,7 +158,7 @@ code {
 }
 
 .container {
-  padding: 2em 6em 5em 6em;
+  padding: 7em 6em 5em 6em;
 
   form {
     label {
