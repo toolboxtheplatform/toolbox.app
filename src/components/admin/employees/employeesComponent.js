@@ -9,8 +9,8 @@ import './employees.scss';
 
 class Employees extends PureComponent {
   state = {
-    tools: undefined,
-    users: undefined
+    tools: [],
+    users: []
   }
 
   onSubmitHandle(event) {
@@ -50,7 +50,7 @@ class Employees extends PureComponent {
   }
 
   static getDerivedStateFromProps(nextProps, prevProps) {
-    if (nextProps.fetch.hasOwnProperty('response')) {
+    if (nextProps.fetch.hasOwnProperty('response') || nextProps.fetch.response !== undefined) {
       return {
         tools: nextProps.fetch.response[0].tools,
         users: nextProps.fetch.response[0].users
@@ -58,18 +58,18 @@ class Employees extends PureComponent {
     } else if (nextProps.add.hasOwnProperty('response')) {
       return {
         users: nextProps.add.response,
-        tools: undefined
+        tools: []
       }
     }
 
     return {
-      tools: undefined,
-      users: undefined
+      tools: [],
+      users: []
     }
   }
 
   render() {
-    if (this.state.users === undefined || this.state.tools === undefined) {
+    if (this.state.users.length === 0 || this.state.tools.length === 0) {
       return <div className='loading'>Loading...</div>
     }
 
