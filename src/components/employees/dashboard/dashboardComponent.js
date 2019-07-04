@@ -7,7 +7,7 @@ import './dashboard.scss';
 
 class Dashboard extends Component {
   state = {
-    tools: undefined
+    tools: []
   }
 
   componentDidMount() {
@@ -25,12 +25,12 @@ class Dashboard extends Component {
     }
 
     return {
-      tools: undefined
+      tools: []
     }
   }
 
   render() {
-    if (this.state.tools === undefined) {
+    if (this.state.tools.length === 0) {
       return <div className='loading'>Loading...</div>
     }
 
