@@ -100,14 +100,9 @@ class Employees extends PureComponent {
                 <option value='employee'>Employee</option>
               </select>
             </label>
-          </div>
-          <div className='items-container checkbox-container'>
-            {this.state.tools.map(item => (
-              <div key={item._id}>
-                <input type='checkbox' name='tools' value={`${item.className.replace(' ', '-')} ${item._id}`} id={item.name} /><label htmlFor={item.name}>{item.name}</label>
-              </div>
-            ))}
-            <div className='btn-container'><button className='btn-add-employee'>Add Employee</button></div>
+            <div className='btn-container'>
+              <button className='btn-add-employee'>Add Employee</button>
+            </div>
           </div>
         </form>
         <table className='list'>
