@@ -1,6 +1,8 @@
 .new-container {
   form {
     display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
     position: fixed;
     label {
       span {
@@ -10,7 +12,7 @@
     }
     .btn-container {
       position: relative;
-      margin-top: 4em;
+      margin-top: 4.5em;
       .btn-add-employee {
         position: absolute;
         bottom: 0;
@@ -30,9 +32,42 @@
     width: 21em;
   }
   table.list {
+    display: block;
     border-top: 1px solid #ccc;
     width: 100%;
     padding-top: 1em;
-    margin-top: 24em;
+    margin-top: 10em;
+    tr {
+      display: block;
+      padding: .5em 0;
+      border-bottom: 1px solid #CCCCCC !important;
+    }
+    thead {
+      display: block;
+      tr {
+        padding-bottom: 1.5em;
+        th {
+          width: 15em;
+          text-align: left;
+        }
+      }
+    }
+    tbody {
+      display: block;
+      tr {
+        &:hover {
+          background-color: #f0f1fd;
+        }
+        td {
+          width: 15em;
+          &.actions {
+            text-align: right;
+            button {
+              margin-right: .2em;
+            }
+          }
+        }
+      }
+    }
   }
 }

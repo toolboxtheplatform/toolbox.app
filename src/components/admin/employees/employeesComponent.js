@@ -83,14 +83,16 @@ class Employees extends PureComponent {
             <label htmlFor='email'><span>Email</span>
               <input type='email' name='email' id='email' />
             </label>
+          </div>
+          <div className='items-container'>
             <label htmlFor='username'><span>Username</span>
               <input type='text' name='username' id='username' />
             </label>
-          </div>
-          <div className='items-container'>
             <label htmlFor='password'><span>Password</span>
               <input type='password' name='password' id='password' />
             </label>
+          </div>
+          <div className='items-container'>
             <label htmlFor='role'><span>Role</span>
               <select name='role' id='role'>
                 <option>Select Role Administrator or Employee</option>
