@@ -112,6 +112,7 @@ class Employees extends PureComponent {
               <th>Email</th>
               <th>Username</th>
               <th>Role</th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
@@ -121,6 +122,10 @@ class Employees extends PureComponent {
                 <td>{employee.email}</td>
                 <td>{employee.username}</td>
                 <td>{employee.role}</td>
+                <td className='actions'>
+                  <button>Edit</button>
+                  <button>Delete</button>
+                </td>
               </tr>
             ))}
           </tbody>
