@@ -11,11 +11,11 @@ import './home.scss';
 
 class Home extends PureComponent {
   state = {
-    list: undefined,
+    list: [],
     isHover: false,
-    success: undefined,
-    message: undefined,
-    isDelete: undefined
+    success: true,
+    message: '',
+    isDelete: false
   }
 
   componentDidMount() {
@@ -40,16 +40,16 @@ class Home extends PureComponent {
     if (nextProps.list.hasOwnProperty('response')) {
       return {
         list: nextProps.list.response,
-        success: undefined,
-        message: undefined,
-        isDelete: undefined
+        success: true,
+        message: '',
+        isDelete: false
       }
     }
 
     return {
-      list: undefined,
-      success: undefined,
-      message: undefined
+      list: [],
+      success: true,
+      message: ''
     }
   }
 
@@ -68,9 +68,10 @@ class Home extends PureComponent {
   }
 
   render() {
-    if (this.state.list === undefined) {
+    if (this.state.list === undefined || this.state.list.length === 0) {
       return <div className='loading'>Loading...</div>
     }
+
     return(
       <div className='container list-container'>
         <ul>
