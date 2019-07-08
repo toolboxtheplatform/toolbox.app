@@ -11,7 +11,6 @@
     z-index: 102;
     background: url(./assets/logo.png) no-repeat;
   }
-  
   ul.navitation-container {
     position: fixed;
     top: 0;
@@ -21,26 +20,29 @@
     margin: auto;
     padding: 0;
     background: #888bfa;
-
     li {
       display: inline-block;
-      // margin-right: 1em;
-
       a {
         padding: 1.5em;
         display: block;
         text-decoration: none;
         color: #000000;
-
         &:hover {
           background: #c1c3fa;
         }
-
         &.active {
           color: #ffffff;
           background: #adaff9;
         }
       }
     }
+  }
+  .logout {
+    text-decoration: none;
+    z-index: 1000;
+    color: #ec0404;
+    position: absolute;
+    right: 15px;
+    top: 24px;
   }
 }

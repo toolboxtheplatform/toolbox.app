@@ -24,7 +24,7 @@ class Navigation extends Component {
           <ul className='navitation-container'>  
             <li><Link to={`${this.props.match.path}/home`} className={(this.props.location.pathname.split('/')[2] === 'home') ? 'active' : 'inactive'}>Home</Link></li>
             <li><Link to={`${this.props.match.path}/employees`} className={(this.props.location.pathname.split('/')[2] === 'employees') ? 'active' : 'inactive'}>Employees</Link></li>
-            <li><Link to={`${this.props.match.path}/app`} className={(this.props.location.pathname.split('/')[2] === 'app') ? 'active' : 'inactive'}>Add Tool</Link></li>
+            <li><Link to={`${this.props.match.path}/tool`} className={(this.props.location.pathname.split('/')[2] === 'tool') ? 'active' : 'inactive'}>Add Tool</Link></li>
           </ul>
           :
           <ul className='navitation-container'>
@@ -33,9 +33,10 @@ class Navigation extends Component {
             <li><Link to={`${this.props.match.path}/app`} className={(this.props.location.pathname.split('/')[2] === 'app') ? 'active' : 'inactive'}>Add Tool</Link></li>
           </ul>
         }
+        <Link to='/logout' className='logout'>Logout</Link>
         <Route path={`${this.props.match.path}/home`} component={Home} />
         <Route path={`${this.props.match.path}/employees`} component={Employees} />
-        <Route path={`${this.props.match.path}/app`} component={Tool} />
+        <Route path={`${this.props.match.path}/tool`} component={Tool} />
         <Route path={`${this.props.match.path}/dashboard`} component={Dashboard} />
         <Route path={`${this.props.match.path}/profile`} component={Profile} />
       </div>
