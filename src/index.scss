@@ -8,12 +8,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: #e9eaf8;
 }
-
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
-
 .loading {
   position: absolute;
   top: 0;
@@ -24,142 +22,125 @@ code {
   width: 5em;
   height: 2em;
 }
-
 .logos {
+  background-repeat: no-repeat;
+  background-position: 5em 3.9em;
   &.jira {
-    background: url(./components/assets/jira.png) no-repeat 5em 3.9em;
+    background: url(./components/assets/jira.png);
   }
-
   &.confluence {
-    background: url(./components/assets/confluence.png) no-repeat 5em 3.9em;
+    background-image: url(./components/assets/confluence.png);
   }
-
   &.bitbucket {
-    background: url(./components/assets/bitbucket.png) no-repeat 5em 3.9em;
+    background-image: url(./components/assets/bitbucket.png);
   }
-
   &.facebook {
-    background: url(./components/assets/facebook.png) no-repeat 5em 3.9em;
+    background-image: url(./components/assets/facebook.png);
   }
-
   &.gitlab {
-    background: url(./components/assets/gitlab.png) no-repeat 5em 3.9em;
+    background-image: url(./components/assets/gitlab.png);
   }
-
   &.gmail {
-    background: url(./components/assets/gmail.png) no-repeat 5em 3.9em;
+    background-image: url(./components/assets/gmail.png);
   }
-
+  &.google-clouds,
+  &.google-cloud,
+  &.cloud,
+  &.clouds {
+    background-image: url(./components/assets/google-clouds.png);
+  }
   &.linkedin {
-    background: url(./components/assets/linkedin.png) no-repeat 5em 3.9em;
+    background-image: url(./components/assets/linkedin.png);
   }
-
   &.reddit {
-    background: url(./components/assets/reddit.png) no-repeat 5em 3.9em;
+    background-image: url(./components/assets/reddit.png);
   }
-
   &.skype {
-    background: url(./components/assets/skype.png) no-repeat 5em 3.9em;
+    background-image: url(./components/assets/skype.png);
   }
-
   &.slack {
-    background: url(./components/assets/slack.png) no-repeat 5em 3.9em;
+    background-image: url(./components/assets/slack.png);
   }
-
   &.twitter {
-    background: url(./components/assets/twitter.png) no-repeat 5em 3.9em;
+    background-image: url(./components/assets/twitter.png);
   }
-
   &.github {
-    background: url(./components/assets/github.png) no-repeat 5em 3.9em;
+    background-image: url(./components/assets/github.png);
   }
-
   &.microsoft,
   &.azure,
   &.office,
   &.microsoft-azure {
-    background: url(./components/assets/microsoft.png) no-repeat 5em 3.9em;
+    background-image: url(./components/assets/microsoft.png);
   }
-
   &.onedrive,
   &.one-drive,
   &.one {
-    background: url(./components/assets/onedrive.png) no-repeat 5em 3.9em;
+    background-image: url(./components/assets/onedrive.png);
   }
-
   &.dropbox {
-    background: url(./components/assets/dropbox.png) no-repeat 5em 3.9em;
+    background-image: url(./components/assets/dropbox.png);
   }
-
-  &.drive, &.google-drive {
-    background: url(./components/assets/drive.png) no-repeat 5em 3.9em;
+  &.drive,
+  &.google-drive {
+    background-image: url(./components/assets/drive.png);
   }
-
   &.apple {
-    background: url(./components/assets/apple.png) no-repeat 5em 3.9em;
+    background-image: url(./components/assets/apple.png);
   }
-
   &.icloud {
-    background: url(./components/assets/icloud.png) no-repeat 5em 3.9em;
+    background-image: url(./components/assets/icloud.png);
   }
-
-  &.invision, &.invisionapp, &.invision-app {
-    background: url(./components/assets/invision.png) no-repeat 5em 3.9em;
+  &.invision,
+  &.invisionapp,
+  &.invision-app {
+    background-image: url(./components/assets/invision.png);
   }
-
   &.sketch {
-    background: url(./components/assets/sketch.png) no-repeat 5em 3.9em;
+    background-image: url(./components/assets/sketch.png);
   }
-
   &.photoshop {
-    background: url(./components/assets/photoshop.png) no-repeat 5em 3.9em;
+    background-image: url(./components/assets/photoshop.png);
   }
-
   &.aws {
-    background: url(./components/assets/aws.png) no-repeat 5em 3.9em;
+    background-image: url(./components/assets/aws.png);
   }
-
   &.spotify {
-    background: url(./components/assets/spotify.png) no-repeat 5em 3.9em;
+    background-image: url(./components/assets/spotify.png);
   }
-
-  &.vmware, &.vm {
-    background: url(./components/assets/vmware.png) no-repeat 5em 3.9em;
+  &.vmware, &.vm-ware, &.vm {
+    background-image: url(./components/assets/vmware.png);
   }
-
   &.heroku {
-    background: url(./components/assets/heroku.png) no-repeat 5em 3.9em;
+    background-image: url(./components/assets/heroku.png);
   }
-
   &.docker {
-    background: url(./components/assets/docker.png) no-repeat 5em 3.9em;
+    background-image: url(./components/assets/docker.png);
   }
-
   &.digitalocean, &.digital-ocean, &.digital {
-    background: url(./components/assets/digitalocean.png) no-repeat 5em 3.9em;
+    background-image: url(./components/assets/digitalocean.png);
   }
-
   &.kubernetes {
-    background: url(./components/assets/kubernetes.png) no-repeat 5em 3.9em;
+    background-image: url(./components/assets/kubernetes.png);
   }
-
-  &.sharepoint, &.share-point, &.share {
-    background: url(./components/assets/sharepoint.png) no-repeat 5em 3.9em;
+  &.sharepoint,
+  &.share-point,
+  &.share {
+    background-image: url(./components/assets/sharepoint.png);
   }
-
   &.pluralsight {
-    background: url(./components/assets/pluralsight.png) no-repeat 5em 3.9em;
+    background-image: url(./components/assets/pluralsight.png);
+  }
+  &.firebase {
+    background-image: url(./components/assets/firebase.png);
   }
 }
-
 .error {
   margin-bottom: 1em;
   color: #f90624;
 }
-
 .container {
   padding: 7em 6em 5em 6em;
-
   form {
     label {
       display: inline-block;
@@ -167,7 +148,6 @@ code {
       color: #6f6c6c;
       font-weight: bold;
     }
-
     input[type='text'],
     input[type='email'],
     input[type='password'] {
@@ -177,16 +157,13 @@ code {
       width: 25em;
       margin-bottom: 1em;
       outline: none;
-
       &:focus {
         box-shadow: 0 0 2em #cccccc;
       }
     }
-
     input[type='checkbox'] {
       vertical-align: top;
     }
-
     select {
       -webkit-appearance: none;
       width: 29.3em;
@@ -196,16 +173,13 @@ code {
       border: 1px solid #dbdefb;
       background-color: #eff0f9;
       outline: none;
-
       &:focus {
         box-shadow: 0 0 2em #cccccc;
       }
     }
-
     .checkbox-container {
       margin-top: 1em;
       margin-bottom: 1em;
-
       div {
         display: inline-block;
         width: 8em;
