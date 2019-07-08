@@ -47,7 +47,7 @@
     z-index: 99;
     tr {
       display: block;
-      padding: .5em 0;
+      padding: .5em;
       border-bottom: 1px solid #CCCCCC !important;
     }
     thead {
@@ -64,12 +64,13 @@
       display: block;
       tr {
         &:hover {
-          background-color: #f0f1fd;
+          box-shadow: 0 0 1em #cccccc;
+          // background-color: #f0f1fd;
         }
         td {
           width: 15em;
           &.actions {
-            width: 19em;
+            width: 45em;
             text-align: right;
             button {
               margin-right: .2em;
