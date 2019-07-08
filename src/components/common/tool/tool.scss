@@ -1,12 +1,31 @@
-.container {
-  .tool-container {
-    form {
-      label {
-        width: 10em;
+.tool-container {
+  form {
+    div {
+      position: relative;
+    }
+    label {
+      .pre-link {
+        display: block;
+        position: absolute;
+        font-weight: normal;
+        top: 1.8em;
+        color: #97979c;
+        background-color: #e5e6f5;
+        padding: 0.5em 1em;
+        height: 1.3em;
       }
+      display: inline-block;
+      width: 10em;
+      margin-bottom: 1em;
+    }
 
-      input {
-        // width: 35em;
+    input {
+      margin-top: 1em;
+      width: 42em !important;
+
+      &.link-input {
+        width: 35em !important;
+        margin-left: 7em;
       }
     }
   }
