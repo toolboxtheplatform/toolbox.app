@@ -1,4 +1,5 @@
 import React from 'react';
+import Button from '../../common/button/button';
 import './tool.scss';
 
 const ApplicationView = ({ props, onSubmitHandle, state }) => (
@@ -22,7 +23,7 @@ const ApplicationView = ({ props, onSubmitHandle, state }) => (
         <input type='text' name='link' placeholder='Enter Link to Tool such as https://www.jira.com etc.' id='link' />
       </div>
       <div>
-        <button>Save</button>
+        <Button classList='btn normal' label='Save' />
       </div>
     </form>
   </div>

@@ -6,6 +6,7 @@ import {
 } from '../../../actions/admin';
 import { getCookie } from '../../../utils/cookies';
 import './employees.scss';
+import Button from '../../common/button/button';
 
 class Employees extends PureComponent {
   state = {
@@ -101,7 +102,7 @@ class Employees extends PureComponent {
               </select>
             </label>
             <div className='btn-container'>
-              <button className='btn-add-employee'>Add Employee</button>
+              <Button classList='btn normal btn-add-employee' label='Add Employee' />
             </div>
           </div>
         </form>
@@ -123,8 +124,8 @@ class Employees extends PureComponent {
                 <td>{employee.username}</td>
                 <td>{employee.role}</td>
                 <td className='actions'>
-                  <button>Edit</button>
-                  <button>Delete</button>
+                  <Button classList='btn success' label='Edit' />
+                  <Button classList='btn danger' label='Delete' />
                 </td>
               </tr>
             ))}

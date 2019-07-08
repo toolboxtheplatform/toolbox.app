@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 
 import { loginUserAction } from '../actions/authenticationActions';
 import { setCookie, getCookie } from '../utils/cookies';
+import Button from './common/button/button';
 import './session.scss';
 
 class LoginPage extends Component {
@@ -68,7 +69,7 @@ class LoginPage extends Component {
             </label>
           </div>
           <div>
-            <button>Login</button>
+            <Button classList='btn normal' label='Login' />
           </div>
         </form>
       </div>

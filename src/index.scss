@@ -211,21 +211,5 @@ code {
         width: 8em;
       }
     }
-
-    button {
-      cursor: pointer;
-      padding: 1em 2em;
-      outline: none;
-      border: 1px solid #ccddf9;
-      background-color: #d8e4f7;
-
-      &:hover {
-        box-shadow: 0 0 2em #cccccc;
-      }
-
-      &:active {
-        box-shadow: 0 0 1em #cccccc; 
-      }
-    }
   }
 }
