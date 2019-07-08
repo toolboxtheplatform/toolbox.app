@@ -6,9 +6,9 @@ import ToolView from './toolView';
 
 class Application extends PureComponent {
   state = {
-    tools: undefined,
-    success: undefined,
-    message: undefined
+    tools: [],
+    success: false,
+    message: ''
   }
 
   onSubmitHandle = event => {
@@ -37,9 +37,9 @@ class Application extends PureComponent {
     }
 
     return {
-      tools: undefined,
-      success: undefined,
-      message: undefined
+      tools: [],
+      success: !prevProps.success,
+      message: ''
     }
   }
 

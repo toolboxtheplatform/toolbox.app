@@ -5,7 +5,7 @@ const ApplicationView = ({ props, onSubmitHandle, state }) => (
   <div className='container tool-container'>
     <ul className={(state.success) ? 'success' : 'errors'}>
       {
-        (state.message !== undefined)
+        (state.message !== '')
         ? state.message.map((error, index) => (
             <li key={index}>{`${error}`}</li>
           ))
