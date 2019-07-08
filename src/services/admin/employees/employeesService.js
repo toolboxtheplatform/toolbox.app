@@ -22,7 +22,7 @@ export const employeesService = (request) => {
 };
 
 export const fetchEmployeesService = (request) => {
-  const REGISTER_API_ENDPOINT = `http://localhost:3000/api/v1/admin/employees/list`;
+  const REGISTER_API_ENDPOINT = `http://localhost:3000/api/v1/admin/employees/list?userID=${request.employee.admin.userID}`;
   
   const parameters = {
     method: 'GET',
