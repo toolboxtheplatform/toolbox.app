@@ -40,9 +40,9 @@
   .logout {
     text-decoration: none;
     z-index: 1000;
-    color: #ec0404;
-    position: absolute;
-    right: 15px;
+    // color: #ec0404;
+    position: fixed;
+    right: 45px;
     top: 24px;
   }
 }
