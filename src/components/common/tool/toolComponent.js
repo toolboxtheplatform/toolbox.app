@@ -18,7 +18,7 @@ class Application extends PureComponent {
 
     this.props.dispatch(newToolAction({
       name: tool,
-      link: link,
+      link: `https://${link}`,
       userID: getCookie('userID'),
       admin: {
         userID: getCookie('userID'),
