@@ -80,23 +80,23 @@ class Employees extends PureComponent {
         <form onSubmit={this.onSubmitHandle.bind(this)}>
           <div className='items-container'>
             <label htmlFor='name'><span>Name</span>
-              <input type='text' name='name' id='name' autoFocus />
+              <input className='input' type='text' name='name' id='name' autoFocus />
             </label>
             <label htmlFor='email'><span>Email</span>
-              <input type='email' name='email' id='email' />
+              <input className='input' type='email' name='email' id='email' />
             </label>
           </div>
           <div className='items-container'>
             <label htmlFor='username'><span>Username</span>
-              <input type='text' name='username' id='username' />
+              <input className='input' type='text' name='username' id='username' />
             </label>
             <label htmlFor='password'><span>Password</span>
-              <input type='password' name='password' id='password' />
+              <input className='input' type='password' name='password' id='password' />
             </label>
           </div>
           <div className='items-container'>
             <label htmlFor='role'><span>Role</span>
-              <select name='role' id='role'>
+              <select name='role' id='role' className='select'>
                 <option>Select Role Administrator or Employee</option>
                 <option value='admin'>Admin</option>
                 <option value='employee'>Employee</option>
