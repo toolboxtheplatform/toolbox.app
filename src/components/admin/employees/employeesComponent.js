@@ -13,7 +13,17 @@ import EmployeeForm from '../../common/forms/employeeForm/employeeForm';
 class Employees extends PureComponent {
   state = {
     tools: [],
-    users: []
+    users: [],
+    selectOptions: [
+      {
+        value: 'Admin',
+        text: 'Admin'
+      },
+      {
+        value: 'Employee',
+        text: 'Employee'
+      }
+    ]
   }
 
   onSubmitHandle(event) {
