@@ -12,19 +12,21 @@
   &.danger {
     padding: .8em 1.4em;
     color: #ffffff;
-    background-color: #fb7e7e;
-    border: 1px solid #fb7e7e;
+    background-color: #ff3374;
+    border: 1px solid #ff3374;
     &:hover {
       background-color: #f39595;
+      border: 1px solid #f39595;
     }
   }
 
   &.success {
     padding: .8em 1.4em;
     color: #333333;
-    background-color: #58f3bb;
-    border: 1px solid #58f3bb;
+    background-color: #00d490;
+    border: 1px solid #00d490;
     &:hover {
+      border: 1px solid #97f7d4;
       background-color: #97f7d4;
     }
   }
