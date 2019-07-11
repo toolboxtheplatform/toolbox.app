@@ -2,38 +2,49 @@
   padding: .2em 1em;
   color: #ffffff;
   border-radius: .3em;
-  font-size: .5em;
+  font-size: .7em;
   text-transform: uppercase;
   &.admin, &.primary {
-    border: 1px solid #d400f1;
-    background-color: #d400f1;
+    color: #d400f1;
+    font-weight: bold;
+    border: 1px solid #f2d9f2;
+    background-color: #f2d9f2;
   }
   &.employee, &.other {
-    border: 1px solid #ff9f64;
-    background-color: #ff9f64;
+    color: #ff9f64;
+    font-weight: bold;
+    border: 1px solid #ffe8d9;
+    background-color: #ffe8d9;
   }
   &.accent {
+    color: #e7e3fa;
+    font-weight: bold;
     border: 1px solid #803af9;
     background-color: #803af9;
   }
   &.information {
-    border: 1px solid #3b5ff5;
-    background-color: #3b5ff5;
+    color: #3b5ff5;
+    font-weight: bold;
+    border: 1px solid #d4e7fb;
+    background-color: #d4e7fb;
   }
   &.error {
-    border: 1px solid #ff3374;
-    background-color: #ff3374;
+    color: #ff3374;
+    font-weight: bold;
+    border: 1px solid #fee1e7;
+    background-color: #fee1e7;
   }
   &.succeed {
-    border: 1px solid #00d490;
-    background-color: #00d490;
+    color: #e7e3fa;
+    font-weight: bold;
+    border: 1px solid #d0f6eb;
+    background-color: #d0f6eb;
   }
   &.warning {
-    border: 1px solid #fed956;
-    background-color: #fed956;
-  }
-  &.warning {
-    border: 1px solid #fed956;
-    background-color: #fed956;
+    
+    color: #fed956;
+    font-weight: bold;
+    border: 1px solid #ffe8d9;
+    background-color: #ffe8d9;
   }
 }
