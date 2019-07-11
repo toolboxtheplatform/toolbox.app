@@ -7,6 +7,8 @@ import {
 import { getCookie } from '../../../utils/cookies';
 import './employees.scss';
 import Button from '../../common/button/button';
+import Label from '../../common/label/label';
+import EmployeeForm from '../../common/forms/employeeForm/employeeForm';
 
 class Employees extends PureComponent {
   state = {
@@ -77,36 +79,10 @@ class Employees extends PureComponent {
 
     return (
       <div className='container new-container'>
-        <form onSubmit={this.onSubmitHandle.bind(this)}>
-          <div className='items-container'>
-            <label htmlFor='name'><span>Name</span>
-              <input className='input' type='text' name='name' id='name' autoFocus />
-            </label>
-            <label htmlFor='email'><span>Email</span>
-              <input className='input' type='email' name='email' id='email' />
-            </label>
-          </div>
-          <div className='items-container'>
-            <label htmlFor='username'><span>Username</span>
-              <input className='input' type='text' name='username' id='username' />
-            </label>
-            <label htmlFor='password'><span>Password</span>
-              <input className='input' type='password' name='password' id='password' />
-            </label>
-          </div>
-          <div className='items-container'>
-            <label htmlFor='role'><span>Role</span>
-              <select name='role' id='role' className='select'>
-                <option>Select Role Administrator or Employee</option>
-                <option value='admin'>Admin</option>
-                <option value='employee'>Employee</option>
-              </select>
-            </label>
-            <div className='btn-container'>
-              <Button classList='btn normal btn-add-employee' label='Add Employee' />
-            </div>
-          </div>
-        </form>
+        <EmployeeForm 
+          onSubmitHandle={this.onSubmitHandle.bind(this)}
+          options={this.state.selectOptions}
+        />
         <table className='list'>
           <thead>
             <tr>

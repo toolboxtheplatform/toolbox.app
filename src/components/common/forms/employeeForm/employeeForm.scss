@@ -1,0 +1,37 @@
+.employee-form {
+  top: 4em;
+  padding: 3em 0;
+  display: flex;
+  position: sticky;
+  z-index: 100;
+  width: 100%;
+  margin-top: 6em;
+  background-color: #e9eaf8;
+  border-bottom: 1px solid #cccccc;
+  label {
+    span {
+      display: block;
+      margin-bottom: .5em;
+    }
+  }
+  .btn-container {
+    position: relative;
+    margin-top: 4.7em;
+    .btn-add-employee {
+      position: absolute;
+      bottom: 1em;
+      width: 12em;
+    }
+  }
+}
+.items-container {
+  width: 21em;
+  &.checkbox-container {
+    label {
+      width: 6em;
+      margin-left: .5em;
+      margin-bottom: 0.5em;
+      display: inline-block;
+    }
+  }
+}
