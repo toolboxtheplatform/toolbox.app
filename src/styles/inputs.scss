@@ -1,0 +1,11 @@
+.input {
+  border: 1px solid #dbdefb;
+  background-color: #eff0f9;
+  padding: 1em 2em;
+  width: 25em;
+  margin-bottom: 1em;
+  outline: none;
+  &:focus {
+    box-shadow: 0 0 2em #cccccc;
+  }
+}

@@ -1,0 +1,13 @@
+.select {
+  -webkit-appearance: none;
+  width: 29.3em;
+  padding: 1em 2em;
+  margin-bottom: .3em;
+  border-radius: 0em;
+  border: 1px solid #dbdefb;
+  background-color: #eff0f9;
+  outline: none;
+  &:focus {
+    box-shadow: 0 0 2em #cccccc;
+  }
+}
