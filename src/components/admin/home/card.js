@@ -45,9 +45,9 @@ class Card extends Component {
           onClick={this.onEditHandle.bind(this, this.props.tool._id)}><FontAwesomeIcon icon='edit' />
         </button>
 
-        <Link className={`${this.props.tool.className.toLowerCase().replace(' ', '-')} logos`} to={this.props.tool.homePage} target='_blank'>
+        <a className={`${this.props.tool.className.toLowerCase().replace(' ', '-')} logos`} href={this.props.tool.homePage} target='_blank'>
           <span className='name'>{this.props.tool.name}</span>
-        </Link>
+        </a>
       </li>
     );
   }
