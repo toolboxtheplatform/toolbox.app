@@ -31,7 +31,8 @@ class Employees extends PureComponent {
         name: event.target.name.value,
         email: event.target.email.value,
         username: event.target.username.value,
-        password: event.target.password.value
+        password: event.target.password.value,
+        role: event.target.role.value
         // tools: tools,
       },
       admin: {
