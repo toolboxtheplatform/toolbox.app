@@ -5,23 +5,31 @@
   border: 1px solid #ccddf9;
   background-color: #d8e4f7;
 
+  &:hover {
+    box-shadow: 0 0 2em #cccccc;
+  }
+
   &.danger {
     padding: .8em 1.4em;
     color: #ffffff;
     background-color: #fb7e7e;
     border: 1px solid #fb7e7e;
+    &:hover {
+      background-color: #f39595;
+    }
   }
 
   &.success {
     padding: .8em 1.4em;
     color: #333333;
-    background-color: #01ce09;
-    border: 1px solid #01ce09;
+    background-color: #58f3bb;
+    border: 1px solid #58f3bb;
+    &:hover {
+      background-color: #97f7d4;
+    }
   }
 
-  &:hover {
-    box-shadow: 0 0 2em #cccccc;
-  }
+
 
   &:active {
     box-shadow: 0 0 1em #cccccc; 

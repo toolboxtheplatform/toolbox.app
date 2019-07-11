@@ -6,10 +6,24 @@ class Button extends Component {
     super(props);
   }
 
+  onHandleEvents(employeeID) {
+    this.props.onHandleEvent(employeeID);
+  }
+
   render() {
+    const { classList, employee, label } = this.props;
+    if (employee === undefined) {
+      let employee = this.props.employee;
+      return (
+        <Fragment>
+          <button className={classList}>{label}</button>
+        </Fragment>
+      )
+    }
+
     return (
       <Fragment>
-        <button className={this.props.classList}>{this.props.label}</button>
+        <button className={classList} onClick={this.onHandleEvents.bind(this, employee._id)}>{label}</button>
       </Fragment>
     );
   }
