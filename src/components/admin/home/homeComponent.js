@@ -74,6 +74,9 @@ class Home extends PureComponent {
 
     return(
       <div className='container list-container'>
+        <div className='form'>
+          <input className='input' type='text' name='search' placeholder='Search' />
+        </div>
         <ul>
           {this.state.list.map(tool => (
             <Card key={tool._id} tool={tool} isHover={this.state.isHover} onDeleteHandle={this.onDeleteHandle.bind(this)} />
