@@ -148,19 +148,6 @@ code {
       color: #6f6c6c;
       font-weight: bold;
     }
-    input[type='text'],
-    input[type='email'],
-    input[type='password'] {
-      border: 1px solid #dbdefb;
-      background-color: #eff0f9;
-      padding: 1em 2em;
-      width: 25em;
-      margin-bottom: 1em;
-      outline: none;
-      &:focus {
-        box-shadow: 0 0 2em #cccccc;
-      }
-    }
     input[type='checkbox'] {
       vertical-align: top;
     }
