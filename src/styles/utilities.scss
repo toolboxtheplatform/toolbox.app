@@ -8,18 +8,3 @@
   list-style: none;
   padding: 0;
 }
-.labels {
-  padding: .2em 1em;
-  color: #ffffff;
-  border-radius: .3em;
-  font-size: .5em;
-  text-transform: uppercase;
-  &.primary {
-    border: 1px solid #d400f1;
-    background: #d400f1;
-  }
-  &.other {
-    border: 1px solid #ff9f64;
-    background: #ff9f64;
-  }  
-}

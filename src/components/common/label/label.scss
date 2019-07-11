@@ -1,0 +1,39 @@
+.labels {
+  padding: .2em 1em;
+  color: #ffffff;
+  border-radius: .3em;
+  font-size: .5em;
+  text-transform: uppercase;
+  &.admin, &.primary {
+    border: 1px solid #d400f1;
+    background-color: #d400f1;
+  }
+  &.employee, &.other {
+    border: 1px solid #ff9f64;
+    background-color: #ff9f64;
+  }
+  &.accent {
+    border: 1px solid #803af9;
+    background-color: #803af9;
+  }
+  &.information {
+    border: 1px solid #3b5ff5;
+    background-color: #3b5ff5;
+  }
+  &.error {
+    border: 1px solid #ff3374;
+    background-color: #ff3374;
+  }
+  &.succeed {
+    border: 1px solid #00d490;
+    background-color: #00d490;
+  }
+  &.warning {
+    border: 1px solid #fed956;
+    background-color: #fed956;
+  }
+  &.warning {
+    border: 1px solid #fed956;
+    background-color: #fed956;
+  }
+}
