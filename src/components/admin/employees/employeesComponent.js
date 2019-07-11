@@ -113,17 +113,15 @@ class Employees extends PureComponent {
               <th>Name</th>
               <th>Email</th>
               <th>Username</th>
-              <th>Role</th>
               <th></th>
             </tr>
           </thead>
           <tbody>
             {this.state.users.map(employee => (
               <tr key={employee._id}>
-                <td>{employee.name}</td>
+                <td>{employee.name} <span className={(employee.role === 'Admin') ? 'labels primary' : 'labels other'}>{employee.role}</span></td>
                 <td>{employee.email}</td>
                 <td>{employee.username}</td>
-                <td>{employee.role}</td>
                 <td className='actions'>
                   <Button classList='btn success' label='Edit' />
                   <Button classList='btn danger' label='Delete' />
