@@ -30,8 +30,10 @@ class Select extends Component {
   }
 
   handleClick(event) {
-    if (!this.node.contains(event.target)) {
-      this.onDropdownClose();
+    if (this.node == null || !this.node.contains(event.target)) {
+      this.setState({
+        active: false
+      });
       return;
     }
   }
@@ -46,12 +48,6 @@ class Select extends Component {
         active: true
       });
     }
-  }
-
-  onDropdownClose() {
-    this.setState({
-      active: false
-    })
   }
 
   onSelectOption(event) {
