@@ -13,17 +13,7 @@ import EmployeeForm from '../../common/forms/employeeForm/employeeForm';
 class Employees extends PureComponent {
   state = {
     tools: [],
-    users: [],
-    selectOptions: [
-      {
-        value: 'Admin',
-        text: 'Admin'
-      },
-      {
-        value: 'Employee',
-        text: 'Employee'
-      }
-    ]
+    users: []
   }
 
   onSubmitHandle(event) {
@@ -91,7 +81,6 @@ class Employees extends PureComponent {
       <div className='container new-container'>
         <EmployeeForm 
           onSubmitHandle={this.onSubmitHandle.bind(this)}
-          options={this.state.selectOptions}
         />
         <table className='list'>
           <thead>
