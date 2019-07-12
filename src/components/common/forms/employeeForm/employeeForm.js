@@ -4,7 +4,7 @@ import Select from '../../select/select';
 import './employeeForm.scss';
 
 const EmployeeForm = ({ onSubmitHandle }) => {
-  const [state, setState] = useState({
+  const [state] = useState({
     selectOptions: [
       {
         value: 'Admin',
@@ -37,9 +37,8 @@ const EmployeeForm = ({ onSubmitHandle }) => {
           </label>
         </div>
         <div className='items-container'>
-          <label htmlFor='employee-role'><span>Role</span>
-            <Select name='role' options={state.selectOptions} id='employee-role' />
-          </label>
+          <label htmlFor='employee-role'><span>Role</span></label>
+          <Select name='role' options={state.selectOptions} id='employee-role' />
           <label htmlFor='profession'><span>Profession</span>
             <input className='input' type='text' name='profession' id='profession' />
           </label>
