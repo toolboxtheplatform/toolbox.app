@@ -33,8 +33,8 @@ class Employees extends PureComponent {
         email: event.target.email.value,
         username: event.target.username.value,
         password: event.target.password.value,
-        role: event.target.role.value
-        // tools: tools,
+        profession: event.target.profession.value,
+        role: event.target.role.value.toLowerCase()
       },
       admin: {
         userID: getCookie('userID'),
