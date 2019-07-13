@@ -73,7 +73,7 @@ class Select extends Component {
           ref='placeholder'
           id={this.props.id}
           onClick={this.onToggleDropdown.bind(this)}
-          defaultValue={this.state.placeholder} />
+          defaultValue={this.state.placeholder.charAt(0).toUpperCase() + this.state.placeholder.slice(1).toLowerCase()} />
         <ul className={(this.state.active) ? 'options show' : 'options hide'}>
           {this.state.children.map(li => (
             <li 
