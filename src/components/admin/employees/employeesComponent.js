@@ -6,9 +6,8 @@ import {
 } from '../../../actions/admin';
 import { getCookie } from '../../../utils/cookies';
 import './employees.scss';
-import Button from '../../common/button/button';
-import Label from '../../common/label/label';
 import EmployeeForm from '../../common/forms/employeeForm/employeeForm';
+import EmployeeTable from '../../common/tables/employeeTable/employeeTable';
 
 class Employees extends PureComponent {
   state = {
@@ -82,29 +81,7 @@ class Employees extends PureComponent {
         <EmployeeForm 
           onSubmitHandle={this.onSubmitHandle.bind(this)}
         />
-        <table className='list'>
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Email</th>
-              <th>Username</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            {this.state.users.map(employee => (
-              <tr key={employee._id}>
-                <td>{employee.name} <span className={(employee.role === 'Admin') ? 'labels primary' : 'labels other'}>{employee.role}</span></td>
-                <td>{employee.email}</td>
-                <td>{employee.username}</td>
-                <td className='actions'>
-                  <Button classList='btn success' label='Edit' />
-                  <Button classList='btn danger' label='Delete' />
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+        <EmployeeTable users={this.state.users} onDeleteEmployee={this.onDeleteEmployee.bind(this)} onEditEmployee={this.onEditEmployee.bind(this)} />
       </div>
     );
   }

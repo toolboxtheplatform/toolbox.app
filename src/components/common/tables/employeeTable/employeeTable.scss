@@ -1,0 +1,39 @@
+table.list {
+  table-layout: fixed;
+  width: 100%;
+  margin-top: 1em;
+  z-index: 99;
+  thead {
+    tr {
+      th {
+        text-align: left;
+      }
+    }
+  }
+  tbody {
+    tr {
+      &:hover {
+        box-shadow: 0 0 1em #cccccc;
+        background-color: #f0f1fd;
+      }
+      td {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        padding-top: .5em;
+        padding-bottom: .5em;
+        padding-right: .5em;
+        &:first-child {
+          padding-left: .5em;
+          padding-right: 0;
+        }
+        &.actions {
+          text-align: right;
+          button {
+            margin-right: .2em;
+          }
+        }
+      }
+    }
+  }
+}

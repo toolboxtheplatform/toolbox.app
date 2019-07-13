@@ -3,44 +3,4 @@
   .form-container {
     
   }
-  table.list {
-    display: block;
-    width: 100%;
-    margin-top: 1em;
-    z-index: 99;
-    tr {
-      display: block;
-      padding: .5em;
-      border-bottom: 1px solid #CCCCCC !important;
-    }
-    thead {
-      display: block;
-      tr {
-        padding-bottom: 1.5em;
-        th {
-          width: 15em;
-          text-align: left;
-        }
-      }
-    }
-    tbody {
-      display: block;
-      tr {
-        &:hover {
-          box-shadow: 0 0 1em #cccccc;
-          // background-color: #f0f1fd;
-        }
-        td {
-          width: 15em;
-          &.actions {
-            width: 61em;
-            text-align: right;
-            button {
-              margin-right: .2em;
-            }
-          }
-        }
-      }
-    }
-  }
 }
