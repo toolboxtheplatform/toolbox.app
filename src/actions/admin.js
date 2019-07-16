@@ -39,3 +39,10 @@ export const deleteToolAction = (id) => {
     id
   }
 };
+
+export const deleteEmployeesAction = (employee) => {
+  return {
+    type: types.ON_DELETE_EMPLOYEE,
+    employee
+  }
+};

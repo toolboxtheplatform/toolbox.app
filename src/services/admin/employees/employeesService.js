@@ -32,7 +32,28 @@ export const fetchEmployeesService = (request) => {
     }
   };
 
-  return fetch(REGISTER_API_ENDPOINT, parameters)
+  return fetch(GET_EMPLOYEES, parameters)
+    .then(response => {
+      return response.json();
+    })
+    .then(json => {
+      return json;
+    });
+};
+
+export const deleteEmployeeService = (request) => {
+  const DELETE_EMPLOYEE = `${BASE_URL}/admin/employees/delete`;
+  
+  const parameters = {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': getCookie('token')
+    },
+    body: JSON.stringify(request.employee)
+  };
+
+  return fetch(DELETE_EMPLOYEE, parameters)
     .then(response => {
       return response.json();
     })

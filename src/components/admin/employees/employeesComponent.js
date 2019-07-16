@@ -2,7 +2,8 @@ import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import {
   newEmployeeAction,
-  fetchEmployeesAction
+  fetchEmployeesAction,
+  deleteEmployeesAction
 } from '../../../actions/admin';
 import { getCookie } from '../../../utils/cookies';
 import './employees.scss';
@@ -69,6 +70,20 @@ class Employees extends PureComponent {
       tools: [],
       users: []
     }
+  }
+
+  onDeleteEmployee(employeeID) {
+    this.props.dispatch(deleteEmployeesAction({
+      employeeID: employeeID,
+      admin: {
+        userID: getCookie('userID'),
+        role: getCookie('role')
+      }
+    }));
+  }
+
+  onEditEmployee(employeeID) {
+    console.log(employeeID);
   }
 
   render() {
