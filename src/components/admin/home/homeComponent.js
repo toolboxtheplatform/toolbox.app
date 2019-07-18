@@ -6,7 +6,7 @@ import {
   deleteToolAction
 } from '../../../actions/admin';
 import { getCookie } from '../../../utils/cookies';
-import Card from './card';
+import Card from '../../common/card/card';
 import './home.scss';
 
 class Home extends PureComponent {
