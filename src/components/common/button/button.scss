@@ -30,6 +30,23 @@
       background-color: #97f7d4;
     }
   }
+  &.outline {
+    font-size: 1em;
+    border: 1px solid transparent;
+    background-color: transparent;
+    &.danger {
+      color: #ff3374;
+    }
+    &.success {
+      color: #00d490;
+    }
+    &:hover {
+      box-shadow: 0 0 2em transparent;
+      box-shadow: none;
+      background-color: transparent;
+      border: 1px solid #f0f1fd;
+    }
+  }
 
 
 
