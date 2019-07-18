@@ -18,15 +18,6 @@ class Employees extends PureComponent {
 
   onSubmitHandle(event) {
     event.preventDefault();
-    // let tools = [];
-    // event.target.tools.forEach(item => {
-    //   if (item.checked) {
-    //     tools.push({
-    //       toolID: item.value.split(' ')[1],
-    //       toolName: item.value.split(' ')[0]
-    //     });
-    //   }
-    // });
 
     this.props.dispatch(newEmployeeAction({
       data: {
