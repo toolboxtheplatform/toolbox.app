@@ -8,6 +8,7 @@ import remove from './employees/deleteReducer';
 import fetch from './employees/fetchReducer';
 import employees from './employees/employeesReducer';
 import deleteTool from './tools/deleteToolReducer';
+import profile from './employees/profileReducer';
 
 const rootReducer = combineReducers({
   register,
@@ -18,7 +19,8 @@ const rootReducer = combineReducers({
   remove,
   fetch,
   employees,
-  deleteTool
+  deleteTool,
+  profile
 });
 
 export default rootReducer;
