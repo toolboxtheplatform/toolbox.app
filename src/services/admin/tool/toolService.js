@@ -1,7 +1,30 @@
 import { getCookie } from '../../../utils/cookies';
 
-export const toolService = (request) => {
-  const REGISTER_API_ENDPOINT = `http://localhost:3000/api/v1/admin/tool/new`;
+const BASE_URL = `http://localhost:3000/api/v1`;
+
+export const getToolsService = () => {
+  const GET_TOOLS = `${BASE_URL}/tools`;
+  
+  const parameters = {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': getCookie('token')
+    }
+  };
+
+  return fetch(GET_TOOLS, parameters)
+    .then(response => {
+      return response.json();
+    })
+    .then(json => {
+      return json;
+    });
+};
+
+
+export const newToolService = (request) => {
+  const NEW_TOOL = `${BASE_URL}/tools/new`;
   
   const parameters = {
     method: 'POST',
@@ -12,7 +35,7 @@ export const toolService = (request) => {
     body: JSON.stringify(request.tool)
   };
 
-  return fetch(REGISTER_API_ENDPOINT, parameters)
+  return fetch(NEW_TOOL, parameters)
     .then(response => {
       return response.json();
     })
@@ -22,7 +45,7 @@ export const toolService = (request) => {
 };
 
 export const deleteToolService = (request) => {
-  const REGISTER_API_ENDPOINT = `http://localhost:3000/api/v1/admin/tool/delete`;
+  const DELETE_TOOL = `${BASE_URL}/tools/delete`;
   
   const parameters = {
     method: 'DELETE',
@@ -33,7 +56,7 @@ export const deleteToolService = (request) => {
     body: JSON.stringify(request.id)
   };
 
-  return fetch(REGISTER_API_ENDPOINT, parameters)
+  return fetch(DELETE_TOOL, parameters)
     .then(response => {
       return response.json();
     })
