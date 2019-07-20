@@ -45,7 +45,7 @@ class Employees extends Component {
     }
   }
 
-  onSubmitHandle(event) {
+  insertNewEmployee(event) {
     event.preventDefault();
     this.props.dispatch(newEmployeeAction({
       data: {
@@ -63,7 +63,7 @@ class Employees extends Component {
     }));
   }
 
-  onDeleteEmployee(employeeID) {
+  deleteEmployee(employeeID) {
     this.props.dispatch(deleteEmployeesAction({
         employeeID: employeeID,
         admin: {
@@ -80,7 +80,7 @@ class Employees extends Component {
     }));
   }
 
-  onEditEmployee(employeeID) {
+  editEmployee(employeeID) {
     console.log(employeeID);
   }
 
@@ -92,9 +92,9 @@ class Employees extends Component {
     return (
       <div className='container new-container'>
         <EmployeeForm 
-          onSubmitHandle={this.onSubmitHandle.bind(this)}
+          insertNewEmployee={this.insertNewEmployee.bind(this)}
         />
-        <EmployeeTable users={this.state.users} onDeleteEmployee={this.onDeleteEmployee.bind(this)} onEditEmployee={this.onEditEmployee.bind(this)} />
+        <EmployeeTable users={this.state.users} deleteEmployee={this.deleteEmployee.bind(this)} editEmployee={this.editEmployee.bind(this)} />
       </div>
     );
   }

@@ -9,13 +9,13 @@ import './employeeTable.scss';
 
 library.add(faTrashAlt, faEdit);
 
-const EmployeeTable = ({ users, onEditEmployee, onDeleteEmployee }) => {
-  const onHandleEditEmployee = (employeeID) => {
-    onEditEmployee(employeeID);
+const EmployeeTable = ({ users, editEmployee, deleteEmployee }) => {
+  const handleEditEmployee = (employeeID) => {
+    editEmployee(employeeID);
   }
 
-  const onHandleDeleteEmployee = employeeID => {
-    onDeleteEmployee(employeeID);
+  const handleDeleteEmployee = employeeID => {
+    deleteEmployee(employeeID);
   }
 
   return (
@@ -37,8 +37,8 @@ const EmployeeTable = ({ users, onEditEmployee, onDeleteEmployee }) => {
             <td>{employee.username}</td>
             <td>{employee.profession}</td>
             <td className='actions'>
-              <Button classList='btn outline success btn-edit' label={<FontAwesomeIcon icon='edit'/>} employee={employee} onHandleEvent={onHandleEditEmployee.bind(this, employee._id)} />
-              <Button classList='btn outline danger btn-delete' label=<FontAwesomeIcon icon='trash-alt'/> employee={employee} onHandleEvent={onHandleDeleteEmployee.bind(this, employee._id)} />
+              <Button classList='btn outline success btn-edit' label={<FontAwesomeIcon icon='edit'/>} employee={employee} onHandleEvent={handleEditEmployee.bind(this, employee._id)} />
+              <Button classList='btn outline danger btn-delete' label=<FontAwesomeIcon icon='trash-alt'/> employee={employee} onHandleEvent={handleDeleteEmployee.bind(this, employee._id)} />
             </td>
           </tr>
         ))}

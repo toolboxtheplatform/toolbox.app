@@ -3,7 +3,7 @@ import Button from '../../button/button';
 import Select from '../../select/select';
 import './employeeForm.scss';
 
-const EmployeeForm = ({ onSubmitHandle }) => {
+const EmployeeForm = ({ insertNewEmployee }) => {
   const [state] = useState({
     selectOptions: [
       {
@@ -19,7 +19,7 @@ const EmployeeForm = ({ onSubmitHandle }) => {
 
   return (
     <Fragment>
-      <form className='employee-form' onSubmit={onSubmitHandle}>
+      <form className='employee-form' onSubmit={insertNewEmployee}>
         <div className='items-container'>
           <label htmlFor='name'><span>Name</span>
             <input className='input' type='text' name='name' id='name' autoFocus />
