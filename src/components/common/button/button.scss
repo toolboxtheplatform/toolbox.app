@@ -34,23 +34,29 @@
     font-size: 1em;
     border: 1px solid transparent;
     background-color: transparent;
-    &.danger {
-      color: #ff3374;
+    &.btn-delete {
+      color: #f11818;
+      &:hover {
+        box-shadow: 0 0 2em transparent;
+        box-shadow: none;
+        color: #f58080;
+        background-color: transparent;
+        border: 1px solid #f0f1fd;
+      }
     }
-    &.success {
-      color: #00d490;
-    }
-    &:hover {
-      box-shadow: 0 0 2em transparent;
-      box-shadow: none;
-      background-color: transparent;
-      border: 1px solid #f0f1fd;
+    &.btn-edit {
+      color: #4671f3;
+      &:hover {
+        box-shadow: 0 0 2em transparent;
+        box-shadow: none;
+        color: #809cf1;
+        background-color: transparent;
+        border: 1px solid #f0f1fd;
+      }
     }
   }
 
-
-
   &:active {
-    box-shadow: 0 0 1em #cccccc; 
+    box-shadow: 0 0 1em #cccccc;
   }
 }
