@@ -1,7 +1,9 @@
 import { getCookie } from '../../../utils/cookies';
 
-export const employeesService = (request) => {
-  const REGISTER_API_ENDPOINT = `http://localhost:3000/api/v1/admin/employees/new`;
+const BASE_URL = `http://localhost:3000/api/v1`;
+
+export const newEmployeeService = (request) => {
+  const NEW_EMPLOYEE = `${BASE_URL}/admin/employees/new`;
   
   const parameters = {
     method: 'POST',
@@ -12,7 +14,7 @@ export const employeesService = (request) => {
     body: JSON.stringify(request.employee)
   };
 
-  return fetch(REGISTER_API_ENDPOINT, parameters)
+  return fetch(NEW_EMPLOYEE, parameters)
     .then(response => {
       return response.json();
     })
@@ -21,8 +23,8 @@ export const employeesService = (request) => {
     });
 };
 
-export const fetchEmployeesService = (request) => {
-  const REGISTER_API_ENDPOINT = `http://localhost:3000/api/v1/admin/employees/list?userID=${request.employee.admin.userID}`;
+export const getEmployeesService = (request) => {
+  const GET_EMPLOYEES = `${BASE_URL}/admin/employees?userID=${request.employee.admin.userID}`;
   
   const parameters = {
     method: 'GET',
@@ -60,4 +62,8 @@ export const deleteEmployeeService = (request) => {
     .then(json => {
       return json;
     });
+};
+
+export const updateEmployeeService = (request) => {
+  // yet to be implemented
 };
