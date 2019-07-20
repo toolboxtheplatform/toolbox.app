@@ -65,7 +65,14 @@ class Employees extends Component {
 
   onDeleteEmployee(employeeID) {
     this.props.dispatch(deleteEmployeesAction({
-      employeeID: employeeID,
+        employeeID: employeeID,
+        admin: {
+          userID: getCookie('userID'),
+          role: getCookie('role')
+        }
+      }));
+
+    this.props.dispatch(fetchEmployeesAction({
       admin: {
         userID: getCookie('userID'),
         role: getCookie('role')
