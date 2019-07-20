@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {
   newEmployeeAction,
@@ -10,15 +10,43 @@ import './employees.scss';
 import EmployeeForm from '../../common/forms/employeeForm/employeeForm';
 import EmployeeTable from '../../common/tables/employeeTable/employeeTable';
 
-class Employees extends PureComponent {
+class Employees extends Component {
   state = {
     tools: [],
     users: []
   }
 
+  componentDidMount() {
+    this.props.dispatch(fetchEmployeesAction({
+      admin: {
+        userID: getCookie('userID'),
+        role: getCookie('role')
+      }
+    }));
+  }
+
+  static getDerivedStateFromProps(nextProps, prevProps) {
+    if ((nextProps.fetch.hasOwnProperty('response') && nextProps.fetch.response !== undefined) 
+        || (nextProps.add.hasOwnProperty('response') && nextProps.add.response !== undefined)) {
+      if (nextProps.add.response !== undefined && (nextProps.add.response.length > nextProps.fetch.response[0].users.length)) {
+        return {
+          users: nextProps.add.response
+        }
+      }
+
+      return {
+        tools: nextProps.fetch.response[0].tools,
+        users: nextProps.fetch.response[0].users
+      }
+    }
+    return {
+      tools: [],
+      users: []
+    }
+  }
+
   onSubmitHandle(event) {
     event.preventDefault();
-
     this.props.dispatch(newEmployeeAction({
       data: {
         name: event.target.name.value,
@@ -33,34 +61,6 @@ class Employees extends PureComponent {
         role: getCookie('role')
       }
     }));
-  }
-
-  componentDidMount() {
-    this.props.dispatch(fetchEmployeesAction({
-      admin: {
-        userID: getCookie('userID'),
-        role: getCookie('role')
-      }
-    }));
-  }
-
-  static getDerivedStateFromProps(nextProps, prevProps) {
-    if (nextProps.fetch.hasOwnProperty('response') || nextProps.fetch.response !== undefined) {
-      return {
-        tools: nextProps.fetch.response[0].tools,
-        users: nextProps.fetch.response[0].users
-      }
-    } else if (nextProps.add.hasOwnProperty('response')) {
-      return {
-        users: nextProps.add.response,
-        tools: []
-      }
-    }
-
-    return {
-      tools: [],
-      users: []
-    }
   }
 
   onDeleteEmployee(employeeID) {
