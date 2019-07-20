@@ -65,6 +65,13 @@ class Employees extends Component {
         role: getCookie('role')
       }
     }));
+
+    event.target.name.value = '';
+    event.target.email.value = '';
+    event.target.username.value = '';
+    event.target.password.value = '';
+    event.target.profession.value = '';
+    event.target.role.value = 'Select a role administrator or employee';
   }
 
   deleteEmployee(employeeID) {

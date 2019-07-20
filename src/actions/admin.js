@@ -29,7 +29,7 @@ export const fetchEmployeesAction = employee => {
 
 export const fetchToolsAction = () => {
   return {
-    type: types.ON_FETCH_EMPLOYEE_TOOLS_LIST
+    type: types.FETCH_EMPLOYEES_TOOLS_BEGIN
   }
 };
 

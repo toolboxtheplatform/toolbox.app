@@ -7,7 +7,9 @@ import './dashboard.scss';
 
 class Dashboard extends Component {
   state = {
-    tools: []
+    tools: [],
+    loading: false,
+    error: null
   }
 
   componentDidMount() {
@@ -18,20 +20,26 @@ class Dashboard extends Component {
   }
 
   static getDerivedStateFromProps(nextProps, prevProps) {
-    if (nextProps.employees.hasOwnProperty('response')) {
+    if (nextProps.employees.hasOwnProperty('tools')) {
       return {
-        tools: nextProps.employees.response
+        loading: nextProps.employees.loading,
+        tools: nextProps.employees.tools
       }
     }
 
     return {
-      tools: []
+      tools: [],
+      loading: false
     }
   }
 
   render() {
-    if (this.state.tools.length === 0) {
+    if (this.state.loading) {
       return <div className='loading'>Loading...</div>
+    }
+
+    if (!this.state.tools) {
+      return <div className='loading'>No tools found to list them here.</div>
     }
 
     return (
@@ -39,9 +47,9 @@ class Dashboard extends Component {
         <ul>
           {this.state.tools.map(tool => (
             <li key={tool._id}>
-              <Link className={`${tool.toolName.toLowerCase()} logos`} to={tool.toolName} target='_blank'>
+              <a className={`${tool.toolName.toLowerCase()} logos`} href={tool.toolName} target='_blank'>
                 <span className='name'>{`${tool.toolName.charAt(0).toUpperCase()}${tool.toolName.slice(1).replace('-', ' ')}`}</span>
-              </Link>
+              </a>
             </li>
           ))}
         </ul>
