@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchToolsAction } from '../../../actions/admin';
-import { Link } from 'react-router-dom';
 
 import './dashboard.scss';
 
@@ -47,7 +46,7 @@ class Dashboard extends Component {
         <ul>
           {this.state.tools.map(tool => (
             <li key={tool._id}>
-              <a className={`${tool.toolName.toLowerCase()} logos`} href={tool.toolName} target='_blank'>
+              <a className={`${tool.toolName.toLowerCase()} logos`} href={tool.toolName} target='_blank' rel='noopener noreferrer'>
                 <span className='name'>{`${tool.toolName.charAt(0).toUpperCase()}${tool.toolName.slice(1).replace('-', ' ')}`}</span>
               </a>
             </li>

@@ -10,10 +10,6 @@ class Select extends Component {
     active: false
   }
 
-  constructor(props) {
-    super(props);
-  }
-
   componentDidMount() {
     this.setState({
       children: [...this.refs.select.children],

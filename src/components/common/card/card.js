@@ -3,8 +3,6 @@ import { connect } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faTrashAlt, faEdit } from '@fortawesome/free-solid-svg-icons';
-import { Link } from 'react-router-dom';
-import { getCookie } from '../../../utils/cookies';
 
 library.add(faTrashAlt, faEdit);
 
@@ -45,7 +43,7 @@ class Card extends Component {
           onClick={this.onEditHandle.bind(this, this.props.tool._id)}><FontAwesomeIcon icon='edit' />
         </button>
 
-        <a className={`${this.props.tool.className.toLowerCase().replace(' ', '-')} logos`} href={this.props.tool.homePage} target='_blank'>
+        <a className={`${this.props.tool.className.toLowerCase().replace(' ', '-')} logos`} href={this.props.tool.homePage} target='_blank' rel='noopener noreferrer'>
           <span className='name'>{this.props.tool.name}</span>
         </a>
       </li>

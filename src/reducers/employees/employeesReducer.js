@@ -6,7 +6,7 @@ const initialState = {
   error: null
 };
 
-export default function(state = [], action) {
+export default function(state = initialState, action) {
   const response = action.response;
 
   switch(action.type) {
