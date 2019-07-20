@@ -11,10 +11,10 @@ export function* employeesSaga(payload) {
   try {
     const response = yield call(newEmployeeService, payload);
     yield [
-      put({ type: types.ON_NEW_EMPLOYEE_SUCCESS, response })
+      put({ type: types.ADD_EMPLOYEE_SUCCESS, response })
     ];
   } catch(error) {
-    yield put({ type: types.ON_NEW_EMPLOYEE_SUCCESS, error });
+    yield put({ type: types.ADD_EMPLOYEE_FAILURE, error });
   }
 }
 
@@ -22,10 +22,10 @@ export function* getEmployeesSaga(payload) {
   try {
     const response = yield call(getEmployeesService, payload);
     yield [
-      put({ type: types.ON_FETCH_EMPLOYEES_SUCCESS, response })
+      put({ type: types.FETCH_EMPLOYEES_SUCCESS, response })
     ];
   } catch(error) {
-    yield put({ type: types.ON_FETCH_EMPLOYEES_SUCCESS, error });
+    yield put({ type: types.FETCH_EMPLOYEES_FAILURE, error });
   }
 }
 

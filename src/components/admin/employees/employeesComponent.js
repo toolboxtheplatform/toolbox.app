@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {
-  newEmployeeAction,
+  addEmployeeAction,
   fetchEmployeesAction,
   deleteEmployeesAction
 } from '../../../actions/admin';
@@ -13,7 +13,9 @@ import EmployeeTable from '../../common/tables/employeeTable/employeeTable';
 class Employees extends Component {
   state = {
     tools: [],
-    users: []
+    users: [],
+    loading: false,
+    error: null
   }
 
   componentDidMount() {
@@ -26,28 +28,30 @@ class Employees extends Component {
   }
 
   static getDerivedStateFromProps(nextProps, prevProps) {
-    if ((nextProps.fetch.hasOwnProperty('response') && nextProps.fetch.response !== undefined) 
-        || (nextProps.add.hasOwnProperty('response') && nextProps.add.response !== undefined)) {
-      if (nextProps.add.response !== undefined && (nextProps.add.response.length > nextProps.fetch.response[0].users.length)) {
+    if ((nextProps.fetch.hasOwnProperty('employees') && nextProps.fetch.employees.length > 0) && (nextProps.add.hasOwnProperty('response') && nextProps.add.response !== undefined)) {
+      if ((nextProps.fetch.employees.length > 0) && (nextProps.add.response.length > nextProps.fetch.employees[0].users.length)) {
         return {
+          loading: nextProps.add.loading,
+          error: nextProps.add.error,
           users: nextProps.add.response
         }
       }
-
       return {
-        tools: nextProps.fetch.response[0].tools,
-        users: nextProps.fetch.response[0].users
+        loading: nextProps.fetch.loading,
+        error: nextProps.fetch.error,
+        users: nextProps.fetch.employees[0].users
       }
     }
     return {
-      tools: [],
+      loading: false,
+      error: null,
       users: []
     }
   }
 
   insertNewEmployee(event) {
     event.preventDefault();
-    this.props.dispatch(newEmployeeAction({
+    this.props.dispatch(addEmployeeAction({
       data: {
         name: event.target.name.value,
         email: event.target.email.value,
@@ -85,7 +89,7 @@ class Employees extends Component {
   }
 
   render() {
-    if (this.state.users.length === 0 || this.state.tools.length === 0) {
+    if (this.state.loading) {
       return <div className='loading'>Loading...</div>
     }
 

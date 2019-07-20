@@ -13,16 +13,16 @@ export const fetchToolsListAction = () => {
   }
 };
 
-export const newEmployeeAction = employee => {
+export const addEmployeeAction = employee => {
   return {
-    type: types.ON_NEW_EMPLOYEE,
+    type: types.ADD_EMPLOYEE_BEGIN,
     employee
   }
 };
 
 export const fetchEmployeesAction = employee => {
   return {
-    type: types.ON_FETCH_EMPLOYEES,
+    type: types.FETCH_EMPLOYEES_BEGIN,
     employee
   }
 };
