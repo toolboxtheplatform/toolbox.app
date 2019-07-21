@@ -3,9 +3,9 @@ import { Link, Route } from 'react-router-dom';
 
 import Home from '../../admin/home/homeComponent';
 import Dashboard from '../../employees/dashboard/dashboardComponent';
+import Profile from '../../employees/profile/profileComponent';
 import Employees from '../../admin/employees/employeesComponent';
 import Tool from '../tool/toolComponent';
-import Profile from '../profile/profileComponent';
 import { getCookie } from '../../../utils/cookies';
 
 import './navigation.scss';
