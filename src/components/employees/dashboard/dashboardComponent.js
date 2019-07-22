@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchToolsAction } from '../../../actions/admin';
+import Card from '../../common/card/card';
 
 import './dashboard.scss';
 
@@ -37,8 +38,8 @@ class Dashboard extends Component {
       return <div className='loading'>Loading...</div>
     }
 
-    if (!this.state.tools) {
-      return <div className='loading'>No tools found to list them here.</div>
+    if (this.state.tools.length === 0) {
+      return <div className='notfound'>No tools found to list them here.</div>
     }
 
     return (
