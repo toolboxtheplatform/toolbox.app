@@ -25,6 +25,7 @@ class Navigation extends Component {
             <li><Link to={`${this.props.match.path}/home`} className={(this.props.location.pathname.split('/')[2] === 'home') ? 'active' : 'inactive'}>Home</Link></li>
             <li><Link to={`${this.props.match.path}/employees`} className={(this.props.location.pathname.split('/')[2] === 'employees') ? 'active' : 'inactive'}>Employees</Link></li>
             <li><Link to={`${this.props.match.path}/tool`} className={(this.props.location.pathname.split('/')[2] === 'tool') ? 'active' : 'inactive'}>Add Tool</Link></li>
+            <li><Link to={`${this.props.match.path}/profile`} className={(this.props.location.pathname.split('/')[2] === 'profile') ? 'active' : 'inactive'}>Profile</Link></li>
           </ul>
           :
           <ul className='navitation-container'>
