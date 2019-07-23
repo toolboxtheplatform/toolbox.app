@@ -5,6 +5,7 @@ import { updateProfileAction } from '../../../../actions/profile';
 import PropTypes from 'prop-types';
 import Select from '../../select/select';
 import Button from '../../button/button';
+import { getCookie } from '../../../../utils/cookies';
 
 import './editProfile.scss';
 
@@ -55,7 +56,12 @@ class EditProfile extends Component {
   }
 
   close() {
-    this.context.router.history.push(`/employee/profile/`);
+    if (getCookie('role') === 'Admin') {
+      this.context.router.history.push(`/admin/profile/`);
+    } else {
+      this.context.router.history.push(`/employee/profile/`);
+    }
+    
   }
 
   render() {
