@@ -1,0 +1,15 @@
+.profile-container {
+  table {
+    width: 100%;
+    border: 0px solid red;
+    tr:nth-child(odd) {
+      background: #e2e0e0;
+    }
+    th {
+      padding: 1em;
+      text-align: left;
+      width: 10em;
+      border-right: 0px solid red;
+    }
+  }
+}

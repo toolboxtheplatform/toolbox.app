@@ -21,3 +21,24 @@ export const employeeProfileService = () => {
       return json;
     });
 };
+
+export const updateProfileService = request => {
+  const PROFILE_API = `${BASE_URL}/profile`;
+  
+  const parameters = {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': getCookie('token')
+    },
+    body: JSON.stringify(request.profile)
+  };
+
+  return fetch(PROFILE_API, parameters)
+    .then(response => {
+      return response.json();
+    })
+    .then(json => {
+      return json;
+    });
+};

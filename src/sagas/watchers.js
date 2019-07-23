@@ -10,7 +10,7 @@ import {
   getEmployeesSaga,
   deleteEmployeesSaga
 } from './admin/employees/employeesSaga';
-import { profileSaga } from './employees/profile/profileSaga';
+import { profileSaga, updateProfileSaga } from './employees/profile/profileSaga';
 import { employeesToolSaga } from './employees/employeesTools/employeesToolSaga';
 
 import * as types from '../actions';
@@ -27,4 +27,5 @@ export default function* watchUserAuthentication() {
   yield takeLatest(types.ON_DELETE_EMPLOYEE, deleteEmployeesSaga);
   yield takeLatest(types.FETCH_EMPLOYEES_TOOLS_BEGIN, employeesToolSaga);
   yield takeLatest(types.FETCH_EMPLOYEE_PROFILE_BEGIN, profileSaga);
+  yield takeLatest(types.UPDATE_EMPLOYEE_PROFILE_BEGIN, updateProfileSaga);
 }
