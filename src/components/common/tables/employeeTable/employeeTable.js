@@ -10,7 +10,7 @@ import './employeeTable.scss';
 library.add(faTrashAlt, faEdit);
 
 const EmployeeTable = ({ users, editEmployee, deleteEmployee }) => {
-  const handleEditEmployee = (employeeID) => {
+  const handleEditEmployee = employeeID => {
     editEmployee(employeeID);
   }
 
