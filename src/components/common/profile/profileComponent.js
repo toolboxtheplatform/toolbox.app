@@ -14,7 +14,7 @@ class Profile extends Component {
   }
 
   componentDidMount() {
-    this.props.dispatch(employeeProfileAction());
+    this.props.dispatch(employeeProfileAction({ id: getCookie('userID') }));
   }
 
   static getDerivedStateFromProps(nextProps, prevProps) {
