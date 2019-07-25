@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Route } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import {
   addEmployeeAction,
   fetchEmployeesAction,
@@ -9,13 +11,19 @@ import { getCookie } from '../../../utils/cookies';
 import './employees.scss';
 import EmployeeForm from '../../common/forms/employeeForm/employeeForm';
 import EmployeeTable from '../../common/tables/employeeTable/employeeTable';
+import EditEmployeeProfile from './edit/editEmployeeProfileComponent';
 
 class Employees extends Component {
   state = {
     tools: [],
     users: [],
     loading: false,
-    error: null
+    error: null,
+    id: '',
+  }
+
+  static contextTypes = {
+    router: PropTypes.object
   }
 
   componentDidMount() {
@@ -92,7 +100,10 @@ class Employees extends Component {
   }
 
   editEmployee(employeeID) {
-    console.log(employeeID);
+    this.setState({
+      id: employeeID
+    });
+    this.context.router.history.push(`/admin/employees/profile/edit/${employeeID}`);
   }
 
   render() {
@@ -106,6 +117,7 @@ class Employees extends Component {
           insertNewEmployee={this.insertNewEmployee.bind(this)}
         />
         <EmployeeTable users={this.state.users} deleteEmployee={this.deleteEmployee.bind(this)} editEmployee={this.editEmployee.bind(this)} />
+        <Route path={`${this.props.match.path}/profile/edit/${this.state.id}`} component={EditEmployeeProfile} />
       </div>
     );
   }

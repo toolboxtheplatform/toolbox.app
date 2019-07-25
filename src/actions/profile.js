@@ -1,8 +1,9 @@
 import * as types from './index';
 
-export const employeeProfileAction = () => {
+export const employeeProfileAction = id => {
   return {
-    type: types.FETCH_EMPLOYEE_PROFILE_BEGIN
+    type: types.FETCH_EMPLOYEE_PROFILE_BEGIN,
+    id,
   }
 };
 

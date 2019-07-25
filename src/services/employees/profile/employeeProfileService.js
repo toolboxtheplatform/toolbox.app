@@ -2,8 +2,8 @@ import { getCookie } from '../../../utils/cookies';
 
 const BASE_URL = `http://localhost:3000/api/v1/employees`;
 
-export const employeeProfileService = () => {
-  const PROFILE_API = `${BASE_URL}/profile?id=${getCookie('userID')}`;
+export const employeeProfileService = request => {
+  const PROFILE_API = `${BASE_URL}/profile?id=${request.id.id}`;
   
   const parameters = {
     method: 'GET',
