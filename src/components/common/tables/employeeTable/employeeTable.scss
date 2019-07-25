@@ -20,9 +20,9 @@ table.list {
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
-        padding-top: .5em;
-        padding-bottom: .5em;
-        padding-right: .5em;
+        padding-top: 1em;
+        padding-bottom: 1em;
+        padding-right: 1em;
         &:first-child {
           padding-left: .5em;
           padding-right: 0;
@@ -30,7 +30,11 @@ table.list {
         &.actions {
           text-align: right;
           button {
+            padding: 0;
             margin-right: .2em;
+            &.btn-edit {
+              margin-right: .5em;
+            }
           }
         }
       }
