@@ -22,25 +22,25 @@ const EmployeeForm = ({ insertNewEmployee }) => {
       <form className='employee-form' onSubmit={insertNewEmployee}>
         <div className='items-container'>
           <label htmlFor='name'><span>Name</span>
-            <input className='input' type='text' name='name' id='name' autoFocus />
+            <input className='input' type='text' name='name' id='name' placeholder='Enter name of new employee' autoFocus />
           </label>
           <label htmlFor='email'><span>Email</span>
-            <input className='input' type='email' name='email' id='email' />
+            <input className='input' type='email' name='email' id='email' placeholder='Enter email of new employee' />
           </label>
         </div>
         <div className='items-container'>
           <label htmlFor='username'><span>Username</span>
-            <input className='input' type='text' name='username' id='username' />
+            <input className='input' type='text' name='username' id='username' placeholder='Enter username of new employee' />
           </label>
           <label htmlFor='password'><span>Password</span>
-            <input className='input' type='password' name='password' id='password' />
+            <input className='input' type='password' name='password' id='password' placeholder='Enter password of new employee' />
           </label>
         </div>
         <div className='items-container'>
           <label htmlFor='employee-role'><span>Role</span></label>
           <Select name='role' options={state.selectOptions} id='employee-role' />
           <label htmlFor='profession'><span>Profession</span>
-            <input className='input' type='text' name='profession' id='profession' />
+            <input className='input' type='text' name='profession' id='profession' placeholder='Enter profession such as Developer etc of new employee' />
           </label>
         </div>
         <div className='items-container'>
