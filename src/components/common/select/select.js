@@ -7,10 +7,24 @@ class Select extends Component {
     children: [],
     listChildren: [],
     placeholder: '',
-    active: false
+    active: false,
+    isUpdating: false,
   }
 
   componentDidMount() {
+    if (this.props.isUpdating !== undefined && this.props.isUpdating) {
+      this.setState({
+        children: [...this.refs.select.children],
+        placeholder: this.refs.select.children[0].value,
+        isUpdating: true,
+      });
+    } else {
+      this.setState({
+        children: [...this.refs.select.children],
+        placeholder: this.refs.select.children[0].value,
+        isUpdating: false,
+      });
+    }
     this.setState({
       children: [...this.refs.select.children],
       placeholder: this.refs.select.children[0].value
@@ -49,7 +63,8 @@ class Select extends Component {
   onSelectOption(event) {
     this.setState({
       placeholder: event.target.innerText,
-      active: !this.state.active
+      active: !this.state.active,
+      isUpdating: false,
     });
   }
 
@@ -69,7 +84,11 @@ class Select extends Component {
           ref='placeholder'
           id={this.props.id}
           onClick={this.onToggleDropdown.bind(this)}
-          defaultValue={this.state.placeholder.charAt(0).toUpperCase() + this.state.placeholder.slice(1).toLowerCase()} />
+          defaultValue={
+            (this.state.isUpdating)
+            ?
+            this.props.defaultValue : this.state.placeholder.charAt(0).toUpperCase() + this.state.placeholder.slice(1).toLowerCase()
+          } />
         <ul className={(this.state.active) ? 'options show' : 'options hide'}>
           {this.state.children.map(li => (
             <li 

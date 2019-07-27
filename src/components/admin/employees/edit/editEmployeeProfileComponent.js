@@ -100,7 +100,7 @@ class EditEmployeeProfile extends Component {
                 <input className='input' type='password' name='password' id='password' />
               </label><br />
               <label htmlFor='employee-role'><span>Role</span></label>
-              <Select name='role' options={this.state.options} id='employee-role' defaultValue={role} /><br />
+              <Select name='role' options={this.state.options} isUpdating={true} id='employee-role' defaultValue={role} /><br />
               <div className='btn-container'>
                 <Button classList='btn normal btn-add-employee' label='Update' />
               </div>
