@@ -14,7 +14,8 @@ class Home extends PureComponent {
     isHover: false,
     success: true,
     message: '',
-    isDelete: false
+    isDelete: false,
+    filteredTool: [],
   }
 
   componentDidMount() {
@@ -66,6 +67,20 @@ class Home extends PureComponent {
     }));
   }
 
+  search(event) {
+    let filtered = [];
+    this.state.list.filter(async tool => {
+      if (tool.name.toLowerCase().includes(event.target.value)) {
+        filtered.push(tool);
+        await this.setState((prevState) => {
+          return {
+            filteredTool: filtered,
+          }
+        });
+      }
+    });
+  }
+
   render() {
     if (this.state.list === undefined || this.state.list.length === 0) {
       return <div className='loading'>Loading...</div>
@@ -74,12 +89,19 @@ class Home extends PureComponent {
     return(
       <div className='container list-container'>
         <div className='form'>
-          <input className='input' type='text' name='search' placeholder='Search' />
+          <input className='input' type='text' name='search' placeholder='Search' onChange={this.search.bind(this)} />
         </div>
         <ul>
-          {this.state.list.map(tool => (
-            <Card key={tool._id} tool={tool} isHover={this.state.isHover} onDeleteHandle={this.onDeleteHandle.bind(this)} />
-          ))}
+          {(this.state.filteredTool.length === 0)
+            ?
+            this.state.list.map(tool => (
+              <Card key={tool._id} tool={tool} isHover={this.state.isHover} onDeleteHandle={this.onDeleteHandle.bind(this)} />
+            ))
+            :
+            this.state.filteredTool.map(tool => (
+              <Card key={tool._id} tool={tool} isHover={this.state.isHover} onDeleteHandle={this.onDeleteHandle.bind(this)} />
+            ))
+          }
         </ul>
       </div>
     );
