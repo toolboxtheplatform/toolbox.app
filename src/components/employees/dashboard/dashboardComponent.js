@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchToolsAction } from '../../../actions/admin';
+import { fetchToolsAction, deleteToolAction, fetchToolsListAction } from '../../../actions/admin';
 import Card from '../../common/card/card';
+import { getCookie } from '../../../utils/cookies';
 
 import './dashboard.scss';
 
@@ -9,21 +10,33 @@ class Dashboard extends Component {
   state = {
     tools: [],
     loading: false,
-    error: null
+    error: null,
+    isHover: false,
+    success: false,
+    message: '',
+    isDelete: false,
   }
 
   componentDidMount() {
-    this.props.dispatch(fetchToolsAction());
-  }
-
-  componentWillUnmount() {
+    this.props.dispatch(fetchToolsListAction({
+      userID: getCookie('userID'),
+    }));
   }
 
   static getDerivedStateFromProps(nextProps, prevProps) {
-    if (nextProps.employees.hasOwnProperty('tools')) {
+    if (nextProps.deleteTool.length > 0 && nextProps.deleteTool.hasOwnProperty('response')) {
+      return {
+        list: nextProps.deleteTool.response.tools,
+        success: nextProps.deleteTool.response.success,
+        message: nextProps.deleteTool.response.message,
+        isDelete: false
+      }
+    }
+
+    if (nextProps.list.hasOwnProperty('payload')) {
       return {
         loading: nextProps.employees.loading,
-        tools: nextProps.employees.tools
+        tools: nextProps.list.payload
       }
     }
 
@@ -31,6 +44,20 @@ class Dashboard extends Component {
       tools: [],
       loading: false
     }
+  }
+
+  onDeleteHandle(id) {
+    this.setState({
+      isDelete: true
+    });
+    this.props.dispatch(deleteToolAction({
+      toolID: id,
+      userID: getCookie('userID'),
+      admin: {
+        id: getCookie('userID'),
+        role: getCookie('role')
+      }
+    }));
   }
 
   render() {
@@ -46,11 +73,7 @@ class Dashboard extends Component {
       <div className='container dashboard-container'>
         <ul>
           {this.state.tools.map(tool => (
-            <li key={tool._id}>
-              <a className={`${tool.toolName.toLowerCase()} logos`} href={tool.toolName} target='_blank' rel='noopener noreferrer'>
-                <span className='name'>{`${tool.toolName.charAt(0).toUpperCase()}${tool.toolName.slice(1).replace('-', ' ')}`}</span>
-              </a>
-            </li>
+            <Card key={tool._id} tool={tool} isHover={this.state.isHover} onDeleteHandle={this.onDeleteHandle.bind(this)} />
           ))}
         </ul>
       </div>

@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faTrashAlt, faEdit } from '@fortawesome/free-solid-svg-icons';
+import './card.scss';
 
 library.add(faTrashAlt, faEdit);
 
@@ -32,7 +33,7 @@ class Card extends Component {
 
   render() {
     return (
-      <li className='logos-container' onMouseEnter={this.onMouseOver.bind(this)} onMouseLeave={this.onMouseOut.bind(this)}>
+      <li className='logos-container card' onMouseEnter={this.onMouseOver.bind(this)} onMouseLeave={this.onMouseOut.bind(this)}>
         <button 
           className={(this.state.isHover) ? 'icon icon-delete hovered' : 'icon icon-delete unhovered'}
           onClick={this.onDeleteHandle.bind(this)}><FontAwesomeIcon icon='trash-alt'/>

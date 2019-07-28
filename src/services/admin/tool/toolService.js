@@ -2,8 +2,14 @@ import { getCookie } from '../../../utils/cookies';
 
 const BASE_URL = `http://localhost:3000/api/v1`;
 
-export const getToolsService = () => {
-  const GET_TOOLS = `${BASE_URL}/tools`;
+export const getToolsService = request => {
+  let GET_TOOLS = '';
+
+  if (request.payload.userID) {
+    GET_TOOLS = `${BASE_URL}/tools?id=${request.payload.userID}`;
+  } else {
+    GET_TOOLS += `${BASE_URL}/tools?id=${request.payload.admin.userID}&role=${request.payload.admin.role}`;
+  }
   
   const parameters = {
     method: 'GET',
@@ -44,7 +50,7 @@ export const newToolService = (request) => {
     });
 };
 
-export const deleteToolService = (request) => {
+export const deleteToolService = request => {
   const DELETE_TOOL = `${BASE_URL}/tools/delete`;
   
   const parameters = {

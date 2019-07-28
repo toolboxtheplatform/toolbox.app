@@ -1,13 +1,12 @@
 import * as types from '../../actions';
 
 export default function(state = [], action) {
-  const response = action.response;
-
+  const payload = action.response;
   switch(action.type) {
     case types.ON_FETCH_TOOLS_LIST_SUCCESS:
-      return { ...state, response };
+      return { ...state, payload };
     case types.ON_FETCH_TOOLS_LIST_SUCCESS:
-      return { ...state, response };
+      return { ...state, payload };
     default:
       return state;
   }

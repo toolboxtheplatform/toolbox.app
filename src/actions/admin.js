@@ -7,9 +7,10 @@ export const newToolAction = (tool) => {
   }
 };
 
-export const fetchToolsListAction = () => {
+export const fetchToolsListAction = payload => {
   return {
-    type: types.ON_FETCH_TOOLS_LIST
+    type: types.ON_FETCH_TOOLS_LIST,
+    payload,
   }
 };
 

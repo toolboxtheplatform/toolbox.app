@@ -37,9 +37,9 @@ class Home extends PureComponent {
       }
     }
 
-    if (nextProps.list.hasOwnProperty('response')) {
+    if (nextProps.list.hasOwnProperty('payload')) {
       return {
-        list: nextProps.list.response,
+        list: nextProps.list.payload,
         success: true,
         message: '',
         isDelete: false
