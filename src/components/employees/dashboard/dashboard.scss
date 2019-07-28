@@ -1,4 +1,11 @@
 .dashboard-container {
+  .form {
+    text-align: center;
+    margin-bottom: 2em;
+    .input {
+      width: 50em;
+    }
+  }
   ul {
     display: flex;
     justify-content: flex-start;

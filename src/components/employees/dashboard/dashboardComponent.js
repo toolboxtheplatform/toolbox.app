@@ -15,6 +15,7 @@ class Dashboard extends Component {
     success: false,
     message: '',
     isDelete: false,
+    filteredTool: [],
   }
 
   componentDidMount() {
@@ -63,6 +64,20 @@ class Dashboard extends Component {
     }));
   }
 
+  search(event) {
+    let filtered = [];
+    this.state.tools.filter(async tool => {
+      if (tool.name.toLowerCase().includes(event.target.value)) {
+        filtered.push(tool);
+        await this.setState(prevState => {
+          return {
+            filteredTool: filtered,
+          }
+        });
+      }
+    });
+  }
+
   render() {
     if (this.state.loading) {
       return <div className='loading'>Loading...</div>
@@ -74,10 +89,20 @@ class Dashboard extends Component {
 
     return (
       <div className='container dashboard-container'>
+        <div className='form'>
+          <input className='input' type='text' name='search' placeholder='Search' onChange={this.search.bind(this)} />
+        </div>
         <ul>
-          {this.state.tools.map(tool => (
-            <Card key={tool._id} tool={tool} isHover={this.state.isHover} onDeleteHandle={this.onDeleteHandle.bind(this)} />
-          ))}
+          {(this.state.filteredTool.length === 0)
+            ?
+            this.state.tools.map(tool => (
+              <Card key={tool._id} tool={tool} isHover={this.state.isHover} onDeleteHandle={this.onDeleteHandle.bind(this)} />
+            ))
+            :
+            this.state.filteredTool.map(tool => (
+              <Card key={tool._id} tool={tool} isHover={this.state.isHover} onDeleteHandle={this.onDeleteHandle.bind(this)} />
+            ))
+          }
         </ul>
       </div>
     );
