@@ -24,9 +24,9 @@ class Dashboard extends Component {
   }
 
   static getDerivedStateFromProps(nextProps, prevProps) {
-    if (nextProps.deleteTool.length > 0 && nextProps.deleteTool.hasOwnProperty('response')) {
+    if (nextProps.deleteTool.hasOwnProperty('response')) {
       return {
-        list: nextProps.deleteTool.response.tools,
+        tools: nextProps.deleteTool.response.tools,
         success: nextProps.deleteTool.response.success,
         message: nextProps.deleteTool.response.message,
         isDelete: false
@@ -36,13 +36,16 @@ class Dashboard extends Component {
     if (nextProps.list.hasOwnProperty('payload')) {
       return {
         loading: nextProps.employees.loading,
-        tools: nextProps.list.payload
+        tools: nextProps.list.payload,
+        isDelete: false,
       }
     }
 
     return {
       tools: [],
-      loading: false
+      loading: false,
+      message: '',
+      success: false,
     }
   }
 
