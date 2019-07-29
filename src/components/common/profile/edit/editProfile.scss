@@ -1,5 +1,5 @@
 .backdrop {
-  position: absolute;
+  position: fixed;
   width: 100%;
   height: 100%;
   background: #000;
@@ -24,6 +24,7 @@
   margin: auto;
   height: 35em;
   form {
+    position: fixed;
     label {
       color: #fff;
     }
