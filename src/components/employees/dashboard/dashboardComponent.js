@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link, Route } from 'react-router-dom'
 import { fetchToolsAction, deleteToolAction, fetchToolsListAction } from '../../../actions/admin';
 import Card from '../../common/card/card';
 import { getCookie } from '../../../utils/cookies';
+import EditTool from '../../common/tool/editTool/editToolComponent';
+import PropTypes from 'prop-types';
 
 import './dashboard.scss';
 
@@ -18,6 +21,10 @@ class Dashboard extends Component {
     filteredTool: [],
   }
 
+  static contextTypes = {
+    router: PropTypes.object,
+  }
+
   componentDidMount() {
     this.props.dispatch(fetchToolsListAction({
       userID: getCookie('userID'),
@@ -30,7 +37,15 @@ class Dashboard extends Component {
         tools: nextProps.deleteTool.response.tools,
         success: nextProps.deleteTool.response.success,
         message: nextProps.deleteTool.response.message,
-        isDelete: false
+        isDelete: false,
+      }
+    }
+
+    if (nextProps.updateTool.hasOwnProperty('payload') && nextProps.updateTool.payload.length > 0) {
+      return {
+        tools: nextProps.updateTool.payload,
+        error: nextProps.updateTool.error,
+        loading: nextProps.updateTool.loading,
       }
     }
 
@@ -52,16 +67,20 @@ class Dashboard extends Component {
 
   onDeleteHandle(id) {
     this.setState({
-      isDelete: true
+      isDelete: true,
     });
     this.props.dispatch(deleteToolAction({
       toolID: id,
       userID: getCookie('userID'),
       admin: {
         id: getCookie('userID'),
-        role: getCookie('role')
-      }
+        role: getCookie('role'),
+      },
     }));
+  }
+
+  onEditHandle(tool) {
+    this.context.router.history.push(`/employee/dashboard/edit/${tool._id}/${tool.name}/${tool.homePage.split(':')[1].split('/')[2]}`);
   }
 
   search(event) {
@@ -96,14 +115,15 @@ class Dashboard extends Component {
           {(this.state.filteredTool.length === 0)
             ?
             this.state.tools.map(tool => (
-              <Card key={tool._id} tool={tool} isHover={this.state.isHover} onDeleteHandle={this.onDeleteHandle.bind(this)} />
+              <Card key={tool._id} tool={tool} isHover={this.state.isHover} onEditHandle={this.onEditHandle.bind(this)} onDeleteHandle={this.onDeleteHandle.bind(this)} />
             ))
             :
             this.state.filteredTool.map(tool => (
-              <Card key={tool._id} tool={tool} isHover={this.state.isHover} onDeleteHandle={this.onDeleteHandle.bind(this)} />
+              <Card key={tool._id} tool={tool} isHover={this.state.isHover} onEditHandle={this.onEditHandle.bind(this)} onDeleteHandle={this.onDeleteHandle.bind(this)} />
             ))
           }
         </ul>
+        <Route path={`${this.props.match.path}/edit/:id/:name/:link`} component={EditTool} />
       </div>
     );
   }

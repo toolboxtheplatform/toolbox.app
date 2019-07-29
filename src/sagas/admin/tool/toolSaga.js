@@ -2,7 +2,8 @@ import { put, call } from 'redux-saga/effects';
 import {
   newToolService,
   deleteToolService,
-  getToolsService
+  getToolsService,
+  updateToolsService,
 } from '../../../services/admin/tool/toolService';
 
 import * as types from '../../../actions'
@@ -40,3 +41,13 @@ export function* getToolsSaga(payload) {
   }
 }
 
+export function* updateToolsSaga(payload) {
+  try {
+    const response = yield call(updateToolsService, payload);
+    yield [
+      put({ type: types.UPDATE_TOOL_SUCCESS, response })
+    ];
+  } catch(error) {
+    yield put({ type: types.UPDATE_TOOL_FAILURE, error });
+  }
+}

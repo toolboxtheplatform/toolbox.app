@@ -1,11 +1,14 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
+import { Link, Route } from 'react-router-dom';
 import {
   fetchToolsListAction,
   deleteToolAction
 } from '../../../actions/admin';
 import { getCookie } from '../../../utils/cookies';
 import Card from '../../common/card/card';
+import PropTypes from 'prop-types';
+import EditTool from '../../common/tool/editTool/editToolComponent';
 import './home.scss';
 
 class Home extends PureComponent {
@@ -15,7 +18,13 @@ class Home extends PureComponent {
     success: true,
     message: '',
     isDelete: false,
+    loading: false,
+    error: null,
     filteredTool: [],
+  }
+
+  static contextTypes = {
+    router: PropTypes.object,
   }
 
   componentDidMount() {
@@ -34,6 +43,15 @@ class Home extends PureComponent {
         success: nextProps.deleteTool.response.success,
         message: nextProps.deleteTool.response.message,
         isDelete: false
+      }
+    }
+
+    if (nextProps.updateTool.hasOwnProperty('payload') && nextProps.updateTool.payload.length > 0) {
+      return {
+        list: nextProps.updateTool.payload,
+        loading: nextProps.updateTool.loading,
+        message: nextProps.updateTool.error,
+        isDelete: false,
       }
     }
 
@@ -67,6 +85,10 @@ class Home extends PureComponent {
     }));
   }
 
+  onEditHandle(tool) {
+    this.context.router.history.push(`/admin/home/edit/${tool._id}/${tool.name}/${tool.homePage.split(':')[1].split('/')[2]}`);
+  }
+
   search(event) {
     let filtered = [];
     this.state.list.filter(async tool => {
@@ -95,14 +117,15 @@ class Home extends PureComponent {
           {(this.state.filteredTool.length === 0)
             ?
             this.state.list.map(tool => (
-              <Card key={tool._id} tool={tool} isHover={this.state.isHover} onDeleteHandle={this.onDeleteHandle.bind(this)} />
+              <Card key={tool._id} tool={tool} isHover={this.state.isHover} onEditHandle={this.onEditHandle.bind(this)} onDeleteHandle={this.onDeleteHandle.bind(this)} />
             ))
             :
             this.state.filteredTool.map(tool => (
-              <Card key={tool._id} tool={tool} isHover={this.state.isHover} onDeleteHandle={this.onDeleteHandle.bind(this)} />
+              <Card key={tool._id} tool={tool} isHover={this.state.isHover} onEditHandle={this.onEditHandle.bind(this)} onDeleteHandle={this.onDeleteHandle.bind(this)} />
             ))
           }
         </ul>
+        <Route path={`${this.props.match.path}/edit/:id/:name/:link`} component={EditTool} />
       </div>
     );
   }

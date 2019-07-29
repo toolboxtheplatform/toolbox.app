@@ -70,3 +70,24 @@ export const deleteToolService = request => {
       return json;
     });
 };
+
+export const updateToolsService = request => {
+  const DELETE_TOOL = `${BASE_URL}/tools/update`;
+  
+  const parameters = {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': getCookie('token')
+    },
+    body: JSON.stringify(request.payload),
+  };
+
+  return fetch(DELETE_TOOL, parameters)
+    .then(response => {
+      return response.json();
+    })
+    .then(json => {
+      return json;
+    });
+};

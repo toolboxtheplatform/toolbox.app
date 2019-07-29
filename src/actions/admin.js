@@ -7,6 +7,13 @@ export const newToolAction = (tool) => {
   }
 };
 
+export const updateToolAction = payload => {
+  return {
+    type: types.UPDATE_TOOL_BEGIN,
+    payload,
+  }
+};
+
 export const fetchToolsListAction = payload => {
   return {
     type: types.ON_FETCH_TOOLS_LIST,

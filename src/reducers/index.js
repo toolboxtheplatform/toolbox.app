@@ -10,6 +10,7 @@ import employees from './employees/employeesReducer';
 import deleteTool from './tools/deleteToolReducer';
 import profile from './employees/profileReducer';
 import update from './employees/updateReducer';
+import updateTool from './tools/updateToolReducer';
 
 const rootReducer = combineReducers({
   register,
@@ -23,6 +24,7 @@ const rootReducer = combineReducers({
   deleteTool,
   profile,
   update,
+  updateTool,
 });
 
 export default rootReducer;

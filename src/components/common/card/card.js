@@ -24,7 +24,9 @@ class Card extends Component {
     });
   }
 
-  onEditHandle(id) {
+  onEditHandle(tool) {
+    // console.log(tool);
+    this.props.onEditHandle(tool);
   }
 
   onDeleteHandle(id) {
@@ -41,7 +43,7 @@ class Card extends Component {
 
         <button 
           className={(this.state.isHover) ? 'icon icon-edit hovered' : 'icon icon-edit unhovered'} 
-          onClick={this.onEditHandle.bind(this, this.props.tool._id)}><FontAwesomeIcon icon='edit' />
+          onClick={this.onEditHandle.bind(this, this.props.tool)}><FontAwesomeIcon icon='edit' />
         </button>
 
         <a className={`${this.props.tool.className.toLowerCase().replace(' ', '-')} logos`} href={this.props.tool.homePage} target='_blank' rel='noopener noreferrer'>

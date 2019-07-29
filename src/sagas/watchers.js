@@ -3,7 +3,8 @@ import { registerSaga, loginSaga } from './authenticationSaga';
 import {
   newToolSaga,
   deleteToolSaga,
-  getToolsSaga
+  getToolsSaga,
+  updateToolsSaga,
 } from './admin/tool/toolSaga';
 import {
   employeesSaga,
@@ -22,6 +23,7 @@ export default function* watchUserAuthentication() {
   yield takeLatest(types.ON_NEW_TOOL, newToolSaga);
   yield takeLatest(types.ON_DELETE_TOOL, deleteToolSaga);
   yield takeLatest(types.ON_FETCH_TOOLS_LIST, getToolsSaga);
+  yield takeLatest(types.UPDATE_TOOL_BEGIN, updateToolsSaga);
   yield takeLatest(types.ADD_EMPLOYEE_BEGIN, employeesSaga);
   yield takeLatest(types.FETCH_EMPLOYEES_BEGIN, getEmployeesSaga);
   yield takeLatest(types.ON_DELETE_EMPLOYEE, deleteEmployeesSaga);

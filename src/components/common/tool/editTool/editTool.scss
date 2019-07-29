@@ -1,0 +1,40 @@
+.edit-tool-container {
+  form {
+    div {
+      position: relative;
+    }
+    position: absolute;
+    z-index: 102;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    width: 32em;
+    height: 300px;
+    label {
+      .pre-link {
+        display: block;
+        position: absolute;
+        font-weight: normal;
+        top: 1.8em;
+        color: #97979c;
+        background-color: #e5e6f5;
+        padding: 0.5em 1em;
+        height: 21px;
+      }
+      display: inline-block;
+      width: 20em;
+      margin-bottom: 1em;
+    }
+    input {
+      margin-top: 1em;
+      width: 42em !important;
+
+      &.link-input {
+        width: 35em !important;
+        margin-left: 7em;
+      }
+    }
+  }
+}
