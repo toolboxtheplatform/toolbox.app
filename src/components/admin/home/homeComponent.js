@@ -111,7 +111,7 @@ class Home extends PureComponent {
     return(
       <div className='container list-container'>
         <div className='form'>
-          <input className='input' type='text' name='search' placeholder='Search' onChange={this.search.bind(this)} />
+          <input className='input' type='text' name='search' placeholder='Search' onChange={this.search.bind(this)} autoFocus />
         </div>
         <ul>
           {(this.state.filteredTool.length === 0)
