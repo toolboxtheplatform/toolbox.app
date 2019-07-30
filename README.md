@@ -34,6 +34,7 @@ The list of technologies used in this project are:
 * Redux
 * React Router
 * Redux Saga
+* Sass
 
 # Usage
 In order to use Toolbox on local environment, `clone` this repository. CD into root folder. Run `npm install` to install all dependencies. Once done, run `npm start`.
