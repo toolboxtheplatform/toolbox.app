@@ -3,7 +3,7 @@
 </p>
 <h2 align="center">Toolbox</h2>
 
-**Note**: This project requires server side which could be found [here](https://github.com/zafar-saleem/toolbox-server)
+**Note**: This project requires server side setup which could be found [here](https://github.com/zafar-saleem/toolbox-server)
 
 Currently many organizations use many, if not countless, online services, tools, web apps etc to bring productivity to their employees daily work. For employees, if it brings productivity on one hand then on the other hand they need to manage all these tools so that they can access them conveniently.
 
