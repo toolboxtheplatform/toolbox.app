@@ -22,7 +22,7 @@ Adding more tools are a couple of fields form with name and link to the tool.
 ![Screenshot](screenshots/adding-tools.png)
 
 ### Adding Employees Can’t Get More Easier
-You want to see minimalistic and amazing dashboard. On dashboard you can view all the required information you need.
+As an administrator, it is way more easier to add new employees.
 ![Screenshot](screenshots/adding-employees.png)
 
 # Server Side of this project
