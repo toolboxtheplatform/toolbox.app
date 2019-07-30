@@ -145,6 +145,12 @@ code {
   &.firebase {
     background-image: url(./components/assets/firebase.png);
   }
+  &.timeoff,
+  &.time-off,
+  &.timeOff,
+  &.TimeOff {
+    background-image: url(./components/assets/timeoff.png);
+  }
 }
 .error {
   margin-bottom: 1em;
