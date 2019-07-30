@@ -36,6 +36,11 @@ class Employees extends Component {
   }
 
   static getDerivedStateFromProps(nextProps, prevProps) {
+    if (nextProps.update.employee.length > 0) {
+      return {
+        users: nextProps.update.employee,
+      }
+    }
     if ((nextProps.fetch.hasOwnProperty('employees') && nextProps.fetch.employees.length > 0) && (nextProps.add.hasOwnProperty('response') && nextProps.add.response !== undefined)) {
       if ((nextProps.fetch.employees.length > 0) && (nextProps.add.response.length > nextProps.fetch.employees[0].users.length)) {
         return {
