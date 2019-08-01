@@ -50,7 +50,7 @@ export const deleteToolAction = (id) => {
 
 export const deleteEmployeesAction = (employee) => {
   return {
-    type: types.ON_DELETE_EMPLOYEE,
+    type: types.DELETE_EMPLOYEE_BEGIN,
     employee
   }
 };

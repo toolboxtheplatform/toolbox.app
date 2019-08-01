@@ -26,7 +26,7 @@ export default function* watchUserAuthentication() {
   yield takeLatest(types.UPDATE_TOOL_BEGIN, updateToolsSaga);
   yield takeLatest(types.ADD_EMPLOYEE_BEGIN, employeesSaga);
   yield takeLatest(types.FETCH_EMPLOYEES_BEGIN, getEmployeesSaga);
-  yield takeLatest(types.ON_DELETE_EMPLOYEE, deleteEmployeesSaga);
+  yield takeLatest(types.DELETE_EMPLOYEE_BEGIN, deleteEmployeesSaga);
   yield takeLatest(types.FETCH_EMPLOYEES_TOOLS_BEGIN, employeesToolSaga);
   yield takeLatest(types.FETCH_EMPLOYEE_PROFILE_BEGIN, profileSaga);
   yield takeLatest(types.UPDATE_EMPLOYEE_PROFILE_BEGIN, updateProfileSaga);

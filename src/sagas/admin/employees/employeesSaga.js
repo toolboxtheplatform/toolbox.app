@@ -33,9 +33,9 @@ export function* deleteEmployeesSaga(payload) {
   try {
     const response = yield call(deleteEmployeeService, payload);
     yield [
-      put({ type: types.ON_DELETE_EMPLOYEE_SUCCESS, response })
+      put({ type: types.DELETE_EMPLOYEE_SUCCESS, response })
     ];
   } catch(error) {
-    yield put({ type: types.ON_DELETE_EMPLOYEE_SUCCESS, error });
+    yield put({ type: types.DELETE_EMPLOYEE_FAILURE, error });
   }
 }
