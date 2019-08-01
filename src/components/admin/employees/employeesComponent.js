@@ -36,23 +36,55 @@ class Employees extends Component {
   }
 
   static getDerivedStateFromProps(nextProps, prevProps) {
-    if (nextProps.update.employee.length > 0) {
+    const {
+      deleteEmployee,
+      fetch,
+      add,
+      update,
+    } = nextProps;
+    if (deleteEmployee.hasOwnProperty('payload') && deleteEmployee.payload.length > 0) {
+      if (fetch.employees.length > 0) {
+        fetch.employees[0].users = [];
+      }
+      add.response = [];
+      update.employee = [];
       return {
-        users: nextProps.update.employee,
+        users: deleteEmployee.payload,
+        loading: deleteEmployee.loading,
+        error: null,
       }
     }
-    if ((nextProps.fetch.hasOwnProperty('employees') && nextProps.fetch.employees.length > 0) && (nextProps.add.hasOwnProperty('response') && nextProps.add.response !== undefined)) {
-      if ((nextProps.fetch.employees.length > 0) && (nextProps.add.response.length > nextProps.fetch.employees[0].users.length)) {
-        return {
-          loading: nextProps.add.loading,
-          error: nextProps.add.error,
-          users: nextProps.add.response
-        }
+
+    if (update.employee.length > 0) {
+      if (fetch.employees.length > 0) {
+        fetch.employees[0].users = [];
       }
+      add.response = [];
+      deleteEmployee.payload = [];
       return {
-        loading: nextProps.fetch.loading,
-        error: nextProps.fetch.error,
-        users: nextProps.fetch.employees[0].users
+        users: update.employee,
+      }
+    }
+    if (add.hasOwnProperty('response') && add.response.length > 0) {
+      if (fetch.employees.length > 0) {
+        fetch.employees[0].users = [];
+      }
+      update.response = [];
+      deleteEmployee.payload = [];
+      return {
+        loading: false,
+        error: null,
+        users: add.response,
+      }
+    }
+    if (fetch.hasOwnProperty('employees') && fetch.employees.length > 0) {
+      add.response = [];
+      update.response = [];
+      deleteEmployee.payload = [];
+      return {
+        loading: false,
+        error: null,
+        users: fetch.employees[0].users,
       }
     }
     return {
@@ -96,22 +128,24 @@ class Employees extends Component {
         }
       }));
 
-    this.props.dispatch(fetchEmployeesAction({
-      admin: {
-        userID: getCookie('userID'),
-        role: getCookie('role')
-      }
-    }));
+    // this.props.dispatch(fetchEmployeesAction({
+    //   admin: {
+    //     userID: getCookie('userID'),
+    //     role: getCookie('role')
+    //   }
+    // }));
   }
 
   editEmployee(employeeID) {
     this.setState({
       id: employeeID
     });
+    this.props.fetch.employees[0].users = this.props.fetch.employees[0].users || this.props.add.response || this.props.deleteEmployee.payload || this.props.update.response;
     this.context.router.history.push(`/admin/employees/profile/edit/${employeeID}`);
   }
 
   render() {
+    // console.log(this.props);
     if (this.state.loading) {
       return <div className='loading'>Loading...</div>
     }

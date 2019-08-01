@@ -28,11 +28,17 @@ class EditEmployeeProfile extends Component {
   componentDidMount() {
     document.body.classList.add('overflow');
     const id = this.props.match.path.split('/')[this.props.match.path.split('/').length - 1];
+    const {
+      fetch,
+      add,
+      update,
+      deleteEmployee,
+    } = this.props;
     this.setState({
       id: id,
     });
-    if (this.props.fetch.hasOwnProperty('employees') && this.props.fetch.employees.length > 0) {
-      this.props.fetch.employees[0].users.map(employee => {
+    if (fetch.hasOwnProperty('employees') && fetch.employees.length > 0) {
+      fetch.employees[0].users.map(employee => {
         if (employee._id === id) {
           this.setState({
             employee: employee,
