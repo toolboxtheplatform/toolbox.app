@@ -27,6 +27,7 @@ class EditEmployeeProfile extends Component {
 
   componentDidMount() {
     document.body.classList.add('overflow');
+    let employees = [];
     const id = this.props.match.path.split('/')[this.props.match.path.split('/').length - 1];
     const {
       fetch,
@@ -34,15 +35,26 @@ class EditEmployeeProfile extends Component {
     this.setState({
       id: id,
     });
-    if (fetch.hasOwnProperty('employees') && fetch.employees.length > 0) {
-      fetch.employees[0].users.forEach(employee => {
-        if (employee._id === id) {
-          this.setState({
-            employee: employee,
-          });
-        }
-      })
+    if (fetch.hasOwnProperty('employees') && fetch.employees.length > 0 && fetch.employees[0].users.length > 0) {
+      employees = this.props.fetch.employees[0].users;
     }
+    if (this.props.update.hasOwnProperty('employee') && this.props.update.employee.length > 0) {
+      employees = this.props.update.employee;
+    }
+    if (this.props.add.hasOwnProperty('response') && this.props.add.response.length > 0) {
+      employees = this.props.response;
+    }
+    if (this.props.deleteEmployee.hasOwnProperty('payload') && this.props.deleteEmployee.payload.length > 0) {
+      employees = this.props.payload;
+    }
+
+    employees.forEach(employee => {
+      if (employee._id === id) {
+        this.setState({
+          employee: employee,
+        });
+      }
+    })
   }
 
   componentWillUnmount() {

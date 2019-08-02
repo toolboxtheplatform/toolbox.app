@@ -36,55 +36,57 @@ class Employees extends Component {
   }
 
   static getDerivedStateFromProps(nextProps, prevProps) {
-    const {
-      deleteEmployee,
-      fetch,
-      add,
-      update,
-    } = nextProps;
-    if (deleteEmployee.hasOwnProperty('payload') && deleteEmployee.payload.length > 0) {
-      if (fetch.employees.length > 0) {
-        fetch.employees[0].users = [];
+    console.log(nextProps);
+    if (nextProps.deleteEmployee.hasOwnProperty('payload') && nextProps.deleteEmployee.payload.length > 0) {
+      console.log('DELETE')
+      if (nextProps.fetch.employees.length > 0) {
+        console.log('delete fetch')
+        nextProps.fetch.employees[0].users = [];
       }
-      add.response = [];
-      update.employee = [];
+      nextProps.add.response = [];
+      nextProps.update.employee = [];
       return {
-        users: deleteEmployee.payload,
-        loading: deleteEmployee.loading,
+        users: nextProps.deleteEmployee.payload,
+        loading: nextProps.deleteEmployee.loading,
         error: null,
       }
     }
 
-    if (update.employee.length > 0) {
-      if (fetch.employees.length > 0) {
-        fetch.employees[0].users = [];
+    if (nextProps.update.employee.length > 0) {
+      console.log('UDPATE')
+      if (nextProps.fetch.employees.length > 0) {
+        console.log('update fetch')
+        nextProps.fetch.employees[0].users = [];
       }
-      add.response = [];
-      deleteEmployee.payload = [];
+      nextProps.add.response = [];
+      nextProps.deleteEmployee.payload = [];
       return {
-        users: update.employee,
+        users: nextProps.update.employee,
       }
     }
-    if (add.hasOwnProperty('response') && add.response.length > 0) {
-      if (fetch.employees.length > 0) {
-        fetch.employees[0].users = [];
+    if (nextProps.add.hasOwnProperty('response') && nextProps.add.response.length > 0) {
+      console.log('ADD')
+      if (nextProps.fetch.employees.length > 0 && nextProps.fetch.employees[0].users.length > 0) {
+        console.log('add fetch')
+        nextProps.fetch.employees[0].users = [];
       }
-      update.response = [];
-      deleteEmployee.payload = [];
+      nextProps.update.response = [];
+      nextProps.deleteEmployee.payload = [];
       return {
         loading: false,
         error: null,
-        users: add.response,
+        users: nextProps.add.response,
       }
     }
-    if (fetch.hasOwnProperty('employees') && fetch.employees.length > 0) {
-      add.response = [];
-      update.response = [];
-      deleteEmployee.payload = [];
+    if (nextProps.fetch.hasOwnProperty('employees') && nextProps.fetch.employees.length > 0 && nextProps.fetch.employees[0].users.length > 0) {
+      console.log('FETCH')
+      nextProps.add.response = [];
+      nextProps.update.response = [];
+      nextProps.deleteEmployee.payload = [];
       return {
         loading: false,
         error: null,
-        users: fetch.employees[0].users,
+        users: nextProps.fetch.employees[0].users,
       }
     }
     return {
@@ -127,25 +129,16 @@ class Employees extends Component {
           role: getCookie('role')
         }
       }));
-
-    // this.props.dispatch(fetchEmployeesAction({
-    //   admin: {
-    //     userID: getCookie('userID'),
-    //     role: getCookie('role')
-    //   }
-    // }));
   }
 
   editEmployee(employeeID) {
     this.setState({
       id: employeeID
     });
-    this.props.fetch.employees[0].users = this.props.fetch.employees[0].users || this.props.add.response || this.props.deleteEmployee.payload || this.props.update.response;
     this.context.router.history.push(`/admin/employees/profile/edit/${employeeID}`);
   }
 
   render() {
-    // console.log(this.props);
     if (this.state.loading) {
       return <div className='loading'>Loading...</div>
     }
