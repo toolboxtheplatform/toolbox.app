@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { updateProfileAction } from '../../../../actions/profile';
 import PropTypes from 'prop-types';

@@ -30,19 +30,16 @@ class EditEmployeeProfile extends Component {
     const id = this.props.match.path.split('/')[this.props.match.path.split('/').length - 1];
     const {
       fetch,
-      add,
-      update,
-      deleteEmployee,
     } = this.props;
     this.setState({
       id: id,
     });
     if (fetch.hasOwnProperty('employees') && fetch.employees.length > 0) {
-      fetch.employees[0].users.map(employee => {
+      fetch.employees[0].users.forEach(employee => {
         if (employee._id === id) {
           this.setState({
             employee: employee,
-          })
+          });
         }
       })
     }
