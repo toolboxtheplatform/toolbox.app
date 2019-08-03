@@ -16,7 +16,7 @@ import EditEmployeeProfile from './edit/editEmployeeProfileComponent';
 class Employees extends Component {
   state = {
     tools: [],
-    users: [],
+    employees: [],
     loading: false,
     error: null,
     id: '',
@@ -43,7 +43,7 @@ class Employees extends Component {
       nextProps.add.payload = [];
       nextProps.update.payload = [];
       return {
-        users: nextProps.deleteEmployee.payload,
+        employees: nextProps.deleteEmployee.payload,
         loading: nextProps.deleteEmployee.loading,
         error: null,
       }
@@ -54,7 +54,7 @@ class Employees extends Component {
       nextProps.add.payload = [];
       nextProps.deleteEmployee.payload = [];
       return {
-        users: nextProps.update.payload,
+        employees: nextProps.update.payload,
       }
     } else if (nextProps.add.hasOwnProperty('payload') && nextProps.add.payload.length > 0) {
       if (nextProps.fetch.payload.length > 0 && nextProps.fetch.payload[0].users.length > 0) {
@@ -65,7 +65,7 @@ class Employees extends Component {
       return {
         loading: false,
         error: null,
-        users: nextProps.add.payload,
+        employees: nextProps.add.payload,
       }
     } else if (nextProps.fetch.hasOwnProperty('payload') && nextProps.fetch.payload.length > 0 && nextProps.fetch.payload[0].users.length > 0) {
       nextProps.add.payload = [];
@@ -74,13 +74,13 @@ class Employees extends Component {
       return {
         loading: false,
         error: null,
-        users: nextProps.fetch.payload[0].users,
+        employees: nextProps.fetch.payload[0].users,
       }
     } else {
       return {
         loading: false,
         error: null,
-        users: [],
+        employees: [],
       }
     }
   }
@@ -143,7 +143,7 @@ class Employees extends Component {
         <EmployeeForm 
           insertNewEmployee={this.insertNewEmployee.bind(this)}
         />
-        <EmployeeTable users={this.state.users} deleteEmployee={this.deleteEmployee.bind(this)} editEmployee={this.editEmployee.bind(this)} />
+        <EmployeeTable employees={this.state.employees} deleteEmployee={this.deleteEmployee.bind(this)} editEmployee={this.editEmployee.bind(this)} />
         <Route path={`${this.props.match.path}/profile/edit/${this.state.id}`} component={EditEmployeeProfile} />
       </div>
     );

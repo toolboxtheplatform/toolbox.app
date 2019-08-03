@@ -9,7 +9,7 @@ import './employeeTable.scss';
 
 library.add(faTrashAlt, faEdit);
 
-const EmployeeTable = ({ users, editEmployee, deleteEmployee }) => {
+const EmployeeTable = ({ employees, editEmployee, deleteEmployee }) => {
   const handleEditEmployee = employeeID => {
     editEmployee(employeeID);
   }
@@ -30,7 +30,7 @@ const EmployeeTable = ({ users, editEmployee, deleteEmployee }) => {
         </tr>
       </thead>
       <tbody>
-        {users.map(employee => (
+        {employees.map(employee => (
           <tr key={employee._id}>
             <td>{employee.name} <Label role={employee.role} label={employee.role.toLowerCase()} /></td>
             <td>{employee.email}</td>
