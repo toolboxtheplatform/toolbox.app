@@ -1,7 +1,7 @@
 import * as types from '../../actions';
 
 const initialState = {
-  response: [],
+  payload: [],
   loading: false,
   error: null
 };
@@ -13,9 +13,9 @@ export default function(state = initialState, action) {
     case types.ADD_EMPLOYEE_BEGIN:
       return { ...state, loading: true, error: null };
     case types.ADD_EMPLOYEE_SUCCESS:
-      return { ...state, loading: false, response: response };
+      return { ...state, loading: false, payload: response };
     case types.ADD_EMPLOYEE_FAILURE:
-      return { ...state, loading: false, error: response, response: [] };
+      return { ...state, loading: false, error: response, payload: [] };
     default:
       return state;
   }

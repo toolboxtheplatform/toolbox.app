@@ -35,17 +35,17 @@ class EditEmployeeProfile extends Component {
     this.setState({
       id: id,
     });
-    if (fetch.hasOwnProperty('employees') && fetch.employees.length > 0 && fetch.employees[0].users.length > 0) {
-      employees = this.props.fetch.employees[0].users;
+    if (fetch.hasOwnProperty('payload') && fetch.payload.length > 0 && fetch.payload[0].users.length > 0) {
+      employees = this.props.fetch.payload[0].users;
     }
-    if (this.props.update.hasOwnProperty('employee') && this.props.update.employee.length > 0) {
-      employees = this.props.update.employee;
+    if (this.props.update.hasOwnProperty('payload') && this.props.update.payload.length > 0) {
+      employees = this.props.update.payload;
     }
-    if (this.props.add.hasOwnProperty('response') && this.props.add.response.length > 0) {
-      employees = this.props.response;
+    if (this.props.add.hasOwnProperty('payload') && this.props.add.payload.length > 0) {
+      employees = this.props.add.payload;
     }
     if (this.props.deleteEmployee.hasOwnProperty('payload') && this.props.deleteEmployee.payload.length > 0) {
-      employees = this.props.payload;
+      employees = this.props.deleteEmployee.payload;
     }
 
     employees.forEach(employee => {
@@ -82,6 +82,13 @@ class EditEmployeeProfile extends Component {
     }
 
     this.props.dispatch(updateProfileAction(profile));
+
+    this.props.add.payload = [];
+    this.props.deleteEmployee.payload = [];
+    if (this.props.fetch.payload.length > 0 && this.props.fetch.payload[0].users.length > 0) {
+      this.props.fetch.payload[0].users = [];
+    }
+
     this.close();
   }
 

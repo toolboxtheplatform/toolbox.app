@@ -36,68 +36,63 @@ class Employees extends Component {
   }
 
   static getDerivedStateFromProps(nextProps, prevProps) {
-    console.log(nextProps);
     if (nextProps.deleteEmployee.hasOwnProperty('payload') && nextProps.deleteEmployee.payload.length > 0) {
-      console.log('DELETE')
-      if (nextProps.fetch.employees.length > 0) {
-        console.log('delete fetch')
-        nextProps.fetch.employees[0].users = [];
+      if (nextProps.fetch.payload.length > 0) {
+        nextProps.fetch.payload[0].users = [];
       }
-      nextProps.add.response = [];
-      nextProps.update.employee = [];
+      nextProps.add.payload = [];
+      nextProps.update.payload = [];
       return {
         users: nextProps.deleteEmployee.payload,
         loading: nextProps.deleteEmployee.loading,
         error: null,
       }
-    }
-
-    if (nextProps.update.employee.length > 0) {
-      console.log('UDPATE')
-      if (nextProps.fetch.employees.length > 0) {
-        console.log('update fetch')
-        nextProps.fetch.employees[0].users = [];
+    } else if (nextProps.update.payload.length > 0) {
+      if (nextProps.fetch.payload.length > 0) {
+        nextProps.fetch.payload[0].users = [];
       }
-      nextProps.add.response = [];
+      nextProps.add.payload = [];
       nextProps.deleteEmployee.payload = [];
       return {
-        users: nextProps.update.employee,
+        users: nextProps.update.payload,
       }
-    }
-    if (nextProps.add.hasOwnProperty('response') && nextProps.add.response.length > 0) {
-      console.log('ADD')
-      if (nextProps.fetch.employees.length > 0 && nextProps.fetch.employees[0].users.length > 0) {
-        console.log('add fetch')
-        nextProps.fetch.employees[0].users = [];
+    } else if (nextProps.add.hasOwnProperty('payload') && nextProps.add.payload.length > 0) {
+      if (nextProps.fetch.payload.length > 0 && nextProps.fetch.payload[0].users.length > 0) {
+        nextProps.fetch.payload[0].users = [];
       }
-      nextProps.update.response = [];
+      nextProps.update.payload = [];
       nextProps.deleteEmployee.payload = [];
       return {
         loading: false,
         error: null,
-        users: nextProps.add.response,
+        users: nextProps.add.payload,
       }
-    }
-    if (nextProps.fetch.hasOwnProperty('employees') && nextProps.fetch.employees.length > 0 && nextProps.fetch.employees[0].users.length > 0) {
-      console.log('FETCH')
-      nextProps.add.response = [];
-      nextProps.update.response = [];
+    } else if (nextProps.fetch.hasOwnProperty('payload') && nextProps.fetch.payload.length > 0 && nextProps.fetch.payload[0].users.length > 0) {
+      nextProps.add.payload = [];
+      nextProps.update.payload = [];
       nextProps.deleteEmployee.payload = [];
       return {
         loading: false,
         error: null,
-        users: nextProps.fetch.employees[0].users,
+        users: nextProps.fetch.payload[0].users,
       }
-    }
-    return {
-      loading: false,
-      error: null,
-      users: []
+    } else {
+      return {
+        loading: false,
+        error: null,
+        users: [],
+      }
     }
   }
 
   insertNewEmployee(event) {
     event.preventDefault();
+    this.props.update.payload = [];
+    this.props.deleteEmployee.payload = [];
+    if (this.props.fetch.payload.length > 0 && this.props.fetch.payload[0].users.length > 0) {
+      this.props.fetch.payload[0].users = [];
+    }
+
     this.props.dispatch(addEmployeeAction({
       data: {
         name: event.target.name.value,
