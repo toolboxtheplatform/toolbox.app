@@ -6,6 +6,8 @@ export const LOGIN_USER = 'LOGIN_USER';
 export const LOGIN_USER_SUCCESS = 'LOGIN_USER_SUCCESS';
 export const LOGIN_USER_ERROR = 'LOGIN_USER_ERROR';
 
+export const LOGOUT_USER = 'LOGIN_USER';
+
 export const ON_NEW_TOOL = 'ON_NEW_TOOL';
 export const ON_NEW_TOOL_SUCCESS = 'ON_NEW_TOOL_SUCCESS';
 
