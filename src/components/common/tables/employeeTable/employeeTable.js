@@ -36,15 +36,23 @@ const EmployeeTable = ({ employees, editEmployee, deleteEmployee, searchEmployee
         </tr>
       </thead>
       <tbody>
-        {employees.map(employee => (
-          <tr key={employee._id}>
-            <td>{employee.name} <Label role={employee.role} label={employee.role.toLowerCase()} /></td>
-            <td>{employee.email}</td>
-            <td>{employee.username}</td>
-            <td>{employee.profession}</td>
+        {employees.map(({ _id, name, email, username, profession, role, }) => (
+          <tr key={_id}>
+            <td>{name} <Label role={role} label={role.toLowerCase()} /></td>
+            <td>{email}</td>
+            <td>{username}</td>
+            <td>{profession}</td>
             <td className='actions'>
-              <Button classList='btn outline success btn-edit' label={<FontAwesomeIcon icon='edit'/>} employee={employee} onHandleEvent={handleEditEmployee.bind(this, employee._id)} />
-              <Button classList='btn outline danger btn-delete' label=<FontAwesomeIcon icon='trash-alt'/> employee={employee} onHandleEvent={handleDeleteEmployee.bind(this, employee._id)} />
+              <Button
+                classList='btn outline success btn-edit'
+                label={<FontAwesomeIcon icon='edit'/>}
+                employee={{ _id, name, email, username, profession, role }}
+                onHandleEvent={handleEditEmployee.bind(this, _id)} />
+              <Button 
+              classList='btn outline danger btn-delete'
+              label=<FontAwesomeIcon icon='trash-alt'/>
+              employee={{ _id, name, email, username, profession, role}}
+              onHandleEvent={handleDeleteEmployee.bind(this, _id)} />
             </td>
           </tr>
         ))}
