@@ -8,7 +8,6 @@ import {
 import PrivateRoute from './privateRoute';
 import LoginPage from '../components/loginPage';
 import RegisterPage from '../components/registerPage';
-import LogoutPage from '../components/logoutPage';
 import Navigation from '../components/common/navigation/navigationComponent';
 
 class App extends Component {
@@ -20,7 +19,6 @@ class App extends Component {
             <Route path='/' exact={true} component={LoginPage} />
             <Route path='/login' component={LoginPage} />
             <Route path='/register' component={RegisterPage} />
-            <Route path='/logout' component={LogoutPage} />
             <PrivateRoute path='/admin' component={Navigation} />
             <PrivateRoute path='/employee' component={Navigation} />
           </Switch>

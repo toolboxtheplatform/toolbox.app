@@ -6,6 +6,7 @@ import Dashboard from '../../employees/dashboard/dashboardComponent';
 import Profile from '../profile/profileComponent';
 import Employees from '../../admin/employees/employeesComponent';
 import Tool from '../tool/toolComponent';
+import Logout from '../../logoutPage';
 import { getCookie } from '../../../utils/cookies';
 
 import './navigation.scss';
@@ -34,12 +35,13 @@ class Navigation extends Component {
             <li><Link to={`${this.props.match.path}/tool`} className={(this.props.location.pathname.split('/')[2] === 'tool') ? 'active' : 'inactive'}>Add Tool</Link></li>
           </ul>
         }
-        <Link to='/logout' className='logout danger'>Logout</Link>
+        <Link to={`${this.props.match.path}/logout`} className='logout danger'>Logout</Link>
         <Route path={`${this.props.match.path}/home`} component={Home} />
         <Route path={`${this.props.match.path}/employees`} component={Employees} />
         <Route path={`${this.props.match.path}/tool`} component={Tool} />
         <Route path={`${this.props.match.path}/dashboard`} component={Dashboard} />
         <Route path={`${this.props.match.path}/profile`} component={Profile} />
+        <Route path={`${this.props.match.path}/logout`} component={Logout} />
       </div>
     );
   }

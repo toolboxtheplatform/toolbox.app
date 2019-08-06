@@ -14,14 +14,20 @@ class LogoutPage extends Component {
     }));
   }
 
-  render() {
+  componentWillMount() {
     setCookie('token', getCookie('token'), 0);
     setCookie('role', getCookie('role'), 0);
     setCookie('userID', getCookie('userID'), 0);
-    if (getCookie('token') === null || getCookie('token') === '') {
-      return <Redirect to='/' />;
+  }
+
+  render() {
+    if (getCookie('token') == null || getCookie('token') == '' || !getCookie('token')) {
+      return <Redirect to='/login' />;
     }
-    return <Redirect to='/admin/empoyees' />
+    if (getCookie('role') === 'Employee') {
+      return <Redirect to='/employee/dashboard' />
+    }
+    return <Redirect to='/admin/home' />
   }
 }
 
