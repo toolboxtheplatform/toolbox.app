@@ -10,7 +10,7 @@ class Profile extends Component {
   state = {
     profile: [],
     loading: false,
-    error: null
+    error: null,
   }
 
   componentDidMount() {
@@ -24,21 +24,21 @@ class Profile extends Component {
           return {
             profile: nextProps.update.employee,
             loading: nextProps.update.loading,
-            error: nextProps.update.error
+            error: nextProps.update.error,
           }
         }
       }
       return {
         profile: nextProps.profile.employee,
         loading: nextProps.profile.loading,
-        error: nextProps.profile.error
+        error: nextProps.profile.error,
       }
     }
 
     return {
       profile: [],
       loading: false,
-      error: null
+      error: null,
     }
   }
 

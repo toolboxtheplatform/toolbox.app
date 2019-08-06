@@ -18,7 +18,10 @@ class Button extends Component {
 
     return (
       <Fragment>
-        <button className={classList} onClick={this.onHandleEvents.bind(this, employee._id)}>{label}</button>
+        <button
+          className={classList}
+          onClick={this.onHandleEvents.bind(this, employee._id)}
+        >{label}</button>
       </Fragment>
     );
   }

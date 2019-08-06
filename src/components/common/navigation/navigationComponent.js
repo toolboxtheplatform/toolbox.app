@@ -11,7 +11,7 @@ import { getCookie } from '../../../utils/cookies';
 import './navigation.scss';
 
 class Navigation extends Component {
-  componentDidMount(){
+  componentDidMount() {
     document.title = 'Toolbox';
   }
   

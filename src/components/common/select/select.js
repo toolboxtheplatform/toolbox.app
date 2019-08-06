@@ -42,7 +42,7 @@ class Select extends Component {
   handleClick(event) {
     if (this.node == null || !this.node.contains(event.target)) {
       this.setState({
-        active: false
+        active: false,
       });
       return;
     }
@@ -51,11 +51,11 @@ class Select extends Component {
   onToggleDropdown() {
     if (this.state.active) {
       this.setState({
-        active: false
+        active: false,
       });
     } else {
       this.setState({
-        active: true
+        active: true,
       });
     }
   }

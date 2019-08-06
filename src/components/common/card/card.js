@@ -9,23 +9,22 @@ library.add(faTrashAlt, faEdit);
 
 class Card extends Component {
   state = {
-    isHover: false
+    isHover: false,
   }
 
   onMouseOver() {
     this.setState({
-      isHover: true
+      isHover: true,
     });
   }
 
   onMouseOut() {
     this.setState({
-      isHover: false
+      isHover: false,
     });
   }
 
   onEditHandle(tool) {
-    // console.log(tool);
     this.props.onEditHandle(tool);
   }
 

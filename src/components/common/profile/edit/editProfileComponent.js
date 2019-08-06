@@ -14,22 +14,22 @@ class EditProfile extends Component {
     options: [
       {
         value: 'Admin',
-        text: 'Admin'
+        text: 'Admin',
       },
       {
         value: 'Employee',
-        text: 'Employee'
+        text: 'Employee',
       }
-    ]
+    ],
   }
 
   static contextTypes = {
-    router: PropTypes.object
+    router: PropTypes.object,
   }
 
   componentDidMount() {
     this.setState({
-      employee: this.props.profile.employee
+      employee: this.props.profile.employee,
     });
   }
 
@@ -69,7 +69,7 @@ class EditProfile extends Component {
       email,
       profession,
       role,
-      username
+      username,
     } = this.state.employee;
 
     return (

@@ -8,13 +8,13 @@ const EmployeeForm = ({ insertNewEmployee }) => {
     selectOptions: [
       {
         value: 'Admin',
-        text: 'Admin'
+        text: 'Admin',
       },
       {
         value: 'Employee',
-        text: 'Employee'
+        text: 'Employee',
       }
-    ]
+    ],
   });
 
   return (
@@ -22,7 +22,7 @@ const EmployeeForm = ({ insertNewEmployee }) => {
       <form className='employee-form' onSubmit={insertNewEmployee}>
         <div className='items-container'>
           <label htmlFor='name'><span>Name</span>
-            <input className='input' type='text' name='name' id='name' placeholder='Enter name of new employee' autoFocus />
+            <input className='input' type='text' name='name' id='name' placeholder='Enter name of new employee' />
           </label>
           <label htmlFor='email'><span>Email</span>
             <input className='input' type='email' name='email' id='email' placeholder='Enter email of new employee' />

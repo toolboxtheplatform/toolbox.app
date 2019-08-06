@@ -32,7 +32,16 @@ const EmployeeTable = ({ employees, editEmployee, deleteEmployee, searchEmployee
           <th>Email</th>
           <th>Username</th>
           <th>Profession</th>
-          <th><input type='text' name='search' className='input' ref={inputSearch} placeholder='Search Employee by name' onChange={searchEmployeeByName} /></th>
+          <th>
+            <input
+              type='text'
+              name='search'
+              className='input'
+              ref={inputSearch}
+              placeholder='Search Employee by name'
+              onChange={searchEmployeeByName}
+            />
+          </th>
         </tr>
       </thead>
       <tbody>
