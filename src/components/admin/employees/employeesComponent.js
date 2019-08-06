@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import {
   addEmployeeAction,
   fetchEmployeesAction,
-  deleteEmployeesAction
+  deleteEmployeesAction,
 } from '../../../actions/admin';
 import { searchEmployeeAction } from '../../../actions/employee';
 import { getCookie } from '../../../utils/cookies';

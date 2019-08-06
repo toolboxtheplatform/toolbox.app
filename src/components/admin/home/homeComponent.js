@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Route } from 'react-router-dom';
 import {
   fetchToolsListAction,
-  deleteToolAction
+  deleteToolAction,
 } from '../../../actions/admin';
 import { getCookie } from '../../../utils/cookies';
 import Card from '../../common/card/card';
@@ -31,8 +31,8 @@ class Home extends PureComponent {
     this.props.dispatch(fetchToolsListAction({
       admin: {
         userID: getCookie('userID'),
-        role: getCookie('role')
-      }
+        role: getCookie('role'),
+      },
     }));
   }
 
@@ -42,7 +42,7 @@ class Home extends PureComponent {
         list: nextProps.deleteTool.response.tools,
         success: nextProps.deleteTool.response.success,
         message: nextProps.deleteTool.response.message,
-        isDelete: false
+        isDelete: false,
       }
     }
 
@@ -60,14 +60,14 @@ class Home extends PureComponent {
         list: nextProps.list.payload,
         success: true,
         message: '',
-        isDelete: false
+        isDelete: false,
       }
     }
 
     return {
       list: [],
       success: true,
-      message: ''
+      message: '',
     }
   }
 
@@ -80,13 +80,13 @@ class Home extends PureComponent {
       userID: getCookie('userID'),
       admin: {
         id: getCookie('userID'),
-        role: getCookie('role')
-      }
+        role: getCookie('role'),
+      },
     }));
   }
 
-  onEditHandle(tool) {
-    this.context.router.history.push(`/admin/home/edit/${tool._id}/${tool.name}/${tool.homePage.split(':')[1].split('/')[2]}`);
+  onEditHandle({ _id, name, homePage }) {
+    this.context.router.history.push(`/admin/home/edit/${_id}/${name}/${homePage.split(':')[1].split('/')[2]}`);
   }
 
   search(event) {
@@ -111,21 +111,43 @@ class Home extends PureComponent {
     return(
       <div className='container list-container'>
         <div className='form'>
-          <input className='input' type='text' name='search' placeholder='Search' onChange={this.search.bind(this)} autoFocus />
+          <input
+            className='input'
+            type='text'
+            name='search'
+            placeholder='Search'
+            onChange={this.search.bind(this)}
+            autoFocus
+          />
         </div>
         <ul>
           {(this.state.filteredTool.length === 0)
             ?
             this.state.list.map(tool => (
-              <Card key={tool._id} tool={tool} isHover={this.state.isHover} onEditHandle={this.onEditHandle.bind(this)} onDeleteHandle={this.onDeleteHandle.bind(this)} />
+              <Card
+                key={tool._id}
+                tool={tool}
+                isHover={this.state.isHover}
+                onEditHandle={this.onEditHandle.bind(this)}
+                onDeleteHandle={this.onDeleteHandle.bind(this)}
+              />
             ))
             :
             this.state.filteredTool.map(tool => (
-              <Card key={tool._id} tool={tool} isHover={this.state.isHover} onEditHandle={this.onEditHandle.bind(this)} onDeleteHandle={this.onDeleteHandle.bind(this)} />
+              <Card
+                key={tool._id}
+                tool={tool}
+                isHover={this.state.isHover}
+                onEditHandle={this.onEditHandle.bind(this)}
+                onDeleteHandle={this.onDeleteHandle.bind(this)}
+              />
             ))
           }
         </ul>
-        <Route path={`${this.props.match.path}/edit/:id/:name/:link`} component={EditTool} />
+        <Route
+          path={`${this.props.match.path}/edit/:id/:name/:link`}
+          component={EditTool}
+        />
       </div>
     );
   }
