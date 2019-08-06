@@ -2,7 +2,8 @@ import { put, call } from 'redux-saga/effects';
 import {
   newEmployeeService,
   getEmployeesService,
-  deleteEmployeeService
+  deleteEmployeeService,
+  searchEmployeeService,
 } from '../../../services/admin/employees/employeesService';
 
 import * as types from '../../../actions';
@@ -37,5 +38,16 @@ export function* deleteEmployeesSaga(payload) {
     ];
   } catch(error) {
     yield put({ type: types.DELETE_EMPLOYEE_FAILURE, error });
+  }
+}
+
+export function* searchEmployeesSaga(payload) {
+  try {
+    const response = yield call(searchEmployeeService, payload);
+    yield [
+      put({ type: types.SEARCH_EMPLOYEE_SUCCESS, response })
+    ];
+  } catch(error) {
+    yield put({ type: types.SEARCH_EMPLOYEE_FAILURE, error });
   }
 }

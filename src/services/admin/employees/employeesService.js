@@ -64,6 +64,28 @@ export const deleteEmployeeService = (request) => {
     });
 };
 
+export const searchEmployeeService = request => {
+  const { searchTerm } = request.payload;
+  const { userID, role } = request.payload.admin;
+  const SEARCH_EMPLOYEE = `${BASE_URL}/admin/employees/search?term=${searchTerm}&userID=${userID}&role=${role}`;
+  
+  const parameters = {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': getCookie('token')
+    },
+  };
+
+  return fetch(SEARCH_EMPLOYEE, parameters)
+    .then(response => {
+      return response.json();
+    })
+    .then(json => {
+      return json;
+    });
+};
+
 export const updateEmployeeService = (request) => {
   // yet to be implemented
 };

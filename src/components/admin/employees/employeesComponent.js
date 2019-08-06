@@ -7,6 +7,7 @@ import {
   fetchEmployeesAction,
   deleteEmployeesAction
 } from '../../../actions/admin';
+import { searchEmployeeAction } from '../../../actions/employee';
 import { getCookie } from '../../../utils/cookies';
 import './employees.scss';
 import EmployeeForm from '../../common/forms/employeeForm/employeeForm';
@@ -36,6 +37,13 @@ class Employees extends Component {
   }
 
   static getDerivedStateFromProps(nextProps, prevProps) {
+    if (nextProps.search.payload.length > 0) {
+      return {
+        employees: nextProps.search.payload,
+        loading: nextProps.search.loading,
+        error: null,
+      }
+    }
     if (nextProps.deleteEmployee.hasOwnProperty('payload') && nextProps.deleteEmployee.payload.length > 0) {
       if (nextProps.fetch.payload.length > 0) {
         nextProps.fetch.payload[0].users = [];
@@ -133,9 +141,23 @@ class Employees extends Component {
     this.context.router.history.push(`/admin/employees/profile/edit/${employeeID}`);
   }
 
+  searchEmployee(searchTerm) {
+    this.props.dispatch(searchEmployeeAction({
+      searchTerm: searchTerm,
+      admin: {
+        userID: getCookie('userID'),
+        role: getCookie('role'),
+      },
+    }));
+  }
+
   render() {
     if (this.state.loading) {
       return <div className='loading'>Loading...</div>
+    }
+
+    if (this.state.error) {
+      return <div className='error'>{this.state.error}</div>
     }
 
     return (
@@ -143,7 +165,7 @@ class Employees extends Component {
         <EmployeeForm 
           insertNewEmployee={this.insertNewEmployee.bind(this)}
         />
-        <EmployeeTable employees={this.state.employees} deleteEmployee={this.deleteEmployee.bind(this)} editEmployee={this.editEmployee.bind(this)} />
+        <EmployeeTable employees={this.state.employees} deleteEmployee={this.deleteEmployee.bind(this)} editEmployee={this.editEmployee.bind(this)} searchEmployee={this.searchEmployee.bind(this)} />
         <Route path={`${this.props.match.path}/profile/edit/${this.state.id}`} component={EditEmployeeProfile} />
       </div>
     );

@@ -7,6 +7,9 @@ table.list {
     tr {
       th {
         text-align: left;
+        .input {
+          width: 16em;
+        }
       }
     }
   }

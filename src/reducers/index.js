@@ -10,6 +10,7 @@ import employees from './employees/employeesReducer';
 import deleteTool from './tools/deleteToolReducer';
 import profile from './employees/profileReducer';
 import update from './employees/updateReducer';
+import search from './employees/searchReducer';
 import updateTool from './tools/updateToolReducer';
 
 const rootReducer = combineReducers({
@@ -25,6 +26,7 @@ const rootReducer = combineReducers({
   profile,
   update,
   updateTool,
+  search,
 });
 
 export default rootReducer;

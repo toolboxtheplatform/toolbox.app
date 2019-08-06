@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import Button from '../../button/button';
 import Label from '../../label/label';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -9,13 +9,19 @@ import './employeeTable.scss';
 
 library.add(faTrashAlt, faEdit);
 
-const EmployeeTable = ({ employees, editEmployee, deleteEmployee }) => {
+const EmployeeTable = ({ employees, editEmployee, deleteEmployee, searchEmployee }) => {
+  const inputSearch = useRef(null);
+
   const handleEditEmployee = employeeID => {
     editEmployee(employeeID);
   }
 
   const handleDeleteEmployee = employeeID => {
     deleteEmployee(employeeID);
+  }
+
+  const searchEmployeeByName = () => {
+    searchEmployee(inputSearch.current.value);
   }
 
   return (
@@ -26,7 +32,7 @@ const EmployeeTable = ({ employees, editEmployee, deleteEmployee }) => {
           <th>Email</th>
           <th>Username</th>
           <th>Profession</th>
-          <th></th>
+          <th><input type='text' name='search' className='input' ref={inputSearch} placeholder='Search Employee by name' onChange={searchEmployeeByName} /></th>
         </tr>
       </thead>
       <tbody>
