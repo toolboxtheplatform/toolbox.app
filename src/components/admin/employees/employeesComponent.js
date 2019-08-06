@@ -162,10 +162,13 @@ class Employees extends Component {
 
     return (
       <div className='container new-container'>
-        <EmployeeForm 
-          insertNewEmployee={this.insertNewEmployee.bind(this)}
-        />
-        <EmployeeTable employees={this.state.employees} deleteEmployee={this.deleteEmployee.bind(this)} editEmployee={this.editEmployee.bind(this)} searchEmployee={this.searchEmployee.bind(this)} />
+        <EmployeeForm insertNewEmployee={this.insertNewEmployee.bind(this)} />
+        <EmployeeTable
+          employees={this.state.employees}
+          deleteEmployee={this.deleteEmployee.bind(this)}
+          editEmployee={this.editEmployee.bind(this)}
+          searchEmployee={this.searchEmployee.bind(this)}
+          />
         <Route path={`${this.props.match.path}/profile/edit/${this.state.id}`} component={EditEmployeeProfile} />
       </div>
     );
