@@ -18,18 +18,18 @@ class Profile extends Component {
   }
 
   static getDerivedStateFromProps(nextProps, prevProps) {
-    if (nextProps.profile.hasOwnProperty('employee') || nextProps.update.hasOwnProperty('employee')) {
-      for (let key in nextProps.profile.employee) {
-        if (nextProps.update.employee.length === undefined && nextProps.profile.employee[key] !== nextProps.update.employee[key]) {
+    if (nextProps.profile.hasOwnProperty('payload') || nextProps.update.hasOwnProperty('payload')) {
+      for (let key in nextProps.profile.payload) {
+        if (nextProps.update.payload.length === undefined && nextProps.profile.payload[key] !== nextProps.update.payload[key]) {
           return {
-            profile: nextProps.update.employee,
+            profile: nextProps.update.payload,
             loading: nextProps.update.loading,
             error: nextProps.update.error,
           }
         }
       }
       return {
-        profile: nextProps.profile.employee,
+        profile: nextProps.profile.payload,
         loading: nextProps.profile.loading,
         error: nextProps.profile.error,
       }
@@ -57,7 +57,7 @@ class Profile extends Component {
       profession,
       role,
       username,
-      _id
+      _id,
     } = this.state.profile;
 
     return (
