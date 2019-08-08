@@ -17,8 +17,8 @@ export const employeeProfileService = request => {
     .then(response => {
       return response.json();
     })
-    .then(json => {
-      return json;
+    .catch(error => {
+      return error;
     });
 };
 
@@ -38,7 +38,7 @@ export const updateProfileService = request => {
     .then(response => {
       return response.json();
     })
-    .then(json => {
-      return json;
+    .catch(error => {
+      return error;
     });
 };

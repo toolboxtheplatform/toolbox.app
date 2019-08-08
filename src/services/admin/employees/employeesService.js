@@ -18,8 +18,8 @@ export const newEmployeeService = (request) => {
     .then(response => {
       return response.json();
     })
-    .then(json => {
-      return json;
+    .catch(error => {
+      return error;
     });
 };
 
@@ -38,8 +38,8 @@ export const getEmployeesService = (request) => {
     .then(response => {
       return response.json();
     })
-    .then(json => {
-      return json;
+    .catch(error => {
+      return error;
     });
 };
 
@@ -59,8 +59,8 @@ export const deleteEmployeeService = (request) => {
     .then(response => {
       return response.json();
     })
-    .then(json => {
-      return json;
+    .catch(error => {
+      return error;
     });
 };
 
@@ -81,8 +81,8 @@ export const searchEmployeeService = request => {
     .then(response => {
       return response.json();
     })
-    .then(json => {
-      return json;
+    .catch(error => {
+      return error;
     });
 };
 
