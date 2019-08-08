@@ -45,3 +45,5 @@ To build this project for production. Run `npm run build` command inside toolbox
 # Contributions
 In order to contribute, please open issues and make pull requests.
 
+# Contact Us
+Email: contactus.toolbox@gmail.com
