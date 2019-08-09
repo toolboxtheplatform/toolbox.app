@@ -20,3 +20,10 @@ export const logoutAction = (user) => {
     user,
   }
 };
+
+export const renewPasswordAction = payload => {
+  return {
+    type: types.RENEW_PASSWORD_BEGIN,
+    payload,
+  }
+};

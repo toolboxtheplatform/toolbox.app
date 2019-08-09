@@ -1,5 +1,5 @@
 import { takeLatest } from 'redux-saga/effects';
-import { registerSaga, loginSaga } from './authenticationSaga';
+import { registerSaga, loginSaga, renewPasswordSaga } from './authenticationSaga';
 import {
   newToolSaga,
   deleteToolSaga,
@@ -21,6 +21,7 @@ import * as types from '../actions';
 export default function* watchUserAuthentication() {
   yield takeLatest(types.REGISTER_USER, registerSaga);
   yield takeLatest(types.LOGIN_USER, loginSaga);
+  yield takeLatest(types.RENEW_PASSWORD_BEGIN, renewPasswordSaga);
   yield takeLatest(types.ON_NEW_TOOL, newToolSaga);
   yield takeLatest(types.ON_DELETE_TOOL, deleteToolSaga);
   yield takeLatest(types.ON_FETCH_TOOLS_LIST, getToolsSaga);

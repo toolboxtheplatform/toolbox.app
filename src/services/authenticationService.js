@@ -37,3 +37,23 @@ export const loginUserService = (request) => {
       return error;
     });
 };
+
+export const renewPasswordService = request => {
+  const RENEW_PASSWORD = 'http://localhost:3000/api/v1/forgot';
+
+  const parameters = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(request.payload)
+  };
+
+  return fetch(RENEW_PASSWORD, parameters)
+    .then(response => {
+      return response.json();
+    })
+    .catch(error => {
+      return error;
+    });
+};

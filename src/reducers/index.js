@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux';
 import register from './registerReducer';
 import login from './loginReducer';
+import forgotPassword from './forgotPasswordReducer';
 import tools from './tools/toolsReducer';
 import list from './list/listReducer';
 import add from './employees/addReducer';
@@ -27,6 +28,7 @@ const rootReducer = combineReducers({
   update,
   updateTool,
   search,
+  forgotPassword,
 });
 
 export default rootReducer;

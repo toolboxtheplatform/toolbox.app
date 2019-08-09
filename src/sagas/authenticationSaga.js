@@ -1,5 +1,9 @@
 import { put, call } from 'redux-saga/effects';
-import { registerUserService, loginUserService } from '../services/authenticationService';
+import {
+  registerUserService,
+  loginUserService,
+  renewPasswordService,
+} from '../services/authenticationService';
 
 import * as types from '../actions'
 
@@ -22,5 +26,16 @@ export function* loginSaga(payload) {
     ];
   } catch(error) {
     yield put({ type: types.LOGIN_USER_ERROR, error })
+  }
+}
+
+export function* renewPasswordSaga(payload) {
+  try {
+    const response = yield call(renewPasswordService, payload);
+    yield [
+      put({ type: types.RENEW_PASSWORD_SUCCESS, response })
+    ];
+  } catch(error) {
+    yield put({ type: types.RENEW_PASSWORD_FAILURE, error })
   }
 }
