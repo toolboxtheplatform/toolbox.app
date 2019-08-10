@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Route } from 'react-router-dom'
-import { deleteToolAction, fetchToolsListAction } from '../../../actions/admin';
+import { deleteToolAction, fetchToolsListAction } from '../../../actions/tools';
 import Card from '../../common/card/card';
 import { getCookie } from '../../../utils/cookies';
 import EditTool from '../../common/tool/editTool/editToolComponent';

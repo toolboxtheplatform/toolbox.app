@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Button from '../../../common/button/button';
 import { getCookie } from '../../../../utils/cookies';
-import { updateToolAction } from '../../../../actions/admin';
+import { updateToolAction } from '../../../../actions/tools';
 import './editTool.scss';
 
 class EditTool extends Component {

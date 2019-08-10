@@ -4,7 +4,7 @@ import { Route } from 'react-router-dom';
 import {
   fetchToolsListAction,
   deleteToolAction,
-} from '../../../actions/admin';
+} from '../../../actions/tools';
 import { getCookie } from '../../../utils/cookies';
 import Card from '../../common/card/card';
 import PropTypes from 'prop-types';
