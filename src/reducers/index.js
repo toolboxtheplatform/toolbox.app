@@ -3,7 +3,7 @@ import register from './registerReducer';
 import login from './loginReducer';
 import forgotPassword from './forgotPasswordReducer';
 import tools from './tools/toolsReducer';
-import list from './list/listReducer';
+import list from './tools/listReducer';
 import add from './employees/addReducer';
 import deleteEmployee from './employees/deleteReducer';
 import fetch from './employees/fetchReducer';

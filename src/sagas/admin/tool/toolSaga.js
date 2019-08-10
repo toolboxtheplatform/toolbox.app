@@ -34,10 +34,10 @@ export function* getToolsSaga(payload) {
   try {
     const response = yield call(getToolsService, payload);
     yield [
-      put({ type: types.ON_FETCH_TOOLS_LIST_SUCCESS, response })
+      put({ type: types.FETCH_TOOLS_LIST_SUCCESS, response })
     ];
   } catch(error) {
-    yield put({ type: types.ON_FETCH_TOOLS_LIST_SUCCESS, error });
+    yield put({ type: types.FETCH_TOOLS_LIST_FAILURE, error });
   }
 }
 

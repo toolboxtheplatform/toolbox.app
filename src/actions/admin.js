@@ -16,7 +16,7 @@ export const updateToolAction = payload => {
 
 export const fetchToolsListAction = payload => {
   return {
-    type: types.ON_FETCH_TOOLS_LIST,
+    type: types.FETCH_TOOLS_LIST_BEGIN,
     payload,
   }
 };
