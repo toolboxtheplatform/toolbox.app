@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { renewPasswordAction } from '../actions/authenticationActions';
+import { renewPasswordAction } from '../actions/sessions';
 import Button from './common/button/button';
 
 class ForgotPasswordPage extends Component {

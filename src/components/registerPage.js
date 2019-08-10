@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import { registerUserAction } from '../actions/authenticationActions';
+import { registerUserAction } from '../actions/sessions';
 
 class RegisterPage extends Component {
   componentDidMount(){

@@ -3,7 +3,7 @@ import { Redirect } from 'react-router-dom';
 import { getCookie, setCookie } from '../utils/cookies';
 import { connect } from 'react-redux';
 
-import { logoutAction } from '../actions/authenticationActions';
+import { logoutAction } from '../actions/sessions';
 
 class LogoutPage extends Component {
   constructor(props) {
