@@ -9,6 +9,7 @@ import PrivateRoute from './privateRoute';
 import LoginPage from '../components/loginPage';
 import RegisterPage from '../components/registerPage';
 import ForgotPasswordPage from '../components/forgotPasswordPage';
+import NotFound from '../components/notFoundPage';
 import Navigation from '../components/common/navigation/navigationComponent';
 
 class App extends Component {
@@ -23,6 +24,7 @@ class App extends Component {
             <Route path='/forgot' component={ForgotPasswordPage} />
             <PrivateRoute path='/admin' component={Navigation} />
             <PrivateRoute path='/employee' component={Navigation} />
+            <Route component={NotFound} />
           </Switch>
         </div>
       </BrowserRouter>
