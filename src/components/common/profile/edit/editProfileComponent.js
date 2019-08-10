@@ -29,7 +29,7 @@ class EditProfile extends Component {
 
   componentDidMount() {
     this.setState({
-      employee: this.props.profile.employee,
+      employee: this.props.profile.payload,
     });
   }
 
