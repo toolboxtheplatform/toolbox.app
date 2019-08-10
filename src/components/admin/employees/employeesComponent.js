@@ -7,7 +7,7 @@ import {
   fetchEmployeesAction,
   deleteEmployeesAction,
 } from '../../../actions/admin';
-import { searchEmployeeAction } from '../../../actions/employee';
+import { searchEmployeeAction } from '../../../actions/searchEmployee';
 import { getCookie } from '../../../utils/cookies';
 import './employees.scss';
 import EmployeeForm from '../../common/forms/employeeForm/employeeForm';
