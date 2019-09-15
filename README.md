@@ -3,7 +3,7 @@
 </p>
 <h2 align="center">Toolbox</h2>
 
-**Note**: This project requires server side setup which could be found [here](https://github.com/zafar-saleem/toolbox-server)
+**Note**: This project requires server side setup which could be found [here](https://github.com/toolboxtheplatform/toolbox.server)
 
 Currently many organizations use many, if not countless, online services, tools, web apps etc to bring productivity to their employees daily work. For employees, if it brings productivity on one hand then on the other hand they need to manage all these tools so that they can access them conveniently.
 
@@ -26,7 +26,7 @@ As an administrator, it is way more easier to add new employees.
 ![Screenshot](screenshots/adding-employees.png)
 
 # Server Side of this project
-Toolbox requires serverside setup in order for this run with real data. Its server side implemention can be found here. [Toolbox Serverside](https://github.com/zafar-saleem/toolbox-server).
+Toolbox requires serverside setup in order for this run with real data. Its server side implemention can be found here. [Toolbox Serverside](https://github.com/toolboxtheplatform/toolbox.server).
 
 # Technology Stack
 The list of technologies used in this project are:
