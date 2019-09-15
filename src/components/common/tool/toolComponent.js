@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
-import { newToolAction } from '../../../actions/admin';
+import { newToolAction } from '../../../actions/tools';
 import { getCookie } from '../../../utils/cookies';
 import ToolView from './toolView';
 
