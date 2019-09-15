@@ -1,6 +1,11 @@
 <p align="center">
   <img src="screenshots/logo.png" />
 </p>
+<p align="center">
+  <a target="_blank" href='https://www.reddit.com/user/contactustoolbox'>Reddit</a>
+  <a target="_blank" href='https://www.facebook.com/pg/Toolboxtp-107283820665269/about/'>Facebook</a>
+  <a target="_blank" href='https://twitter.com/ToolboxTp'>Twitter</a>
+</p>
 <h2 align="center">Toolbox</h2>
 
 **Note**: This project requires server side setup which could be found [here](https://github.com/toolboxtheplatform/toolbox.server)
